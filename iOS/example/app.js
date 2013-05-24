@@ -1,39 +1,30 @@
-// This is a test harness for your module
-// You should do something interesting in this harness 
-// to test out the module and to provide instructions 
-// to users on how to use it by example.
-
+var ga = require('ti.ga');
+Ti.API.info("module is => " + ga);
 
 // open a single window
 var win = Ti.UI.createWindow({
 	backgroundColor:'white'
 });
-var label = Ti.UI.createLabel();
-win.add(label);
+
 win.open();
 
-// TODO: write your module tests here
-var GA = require('ti.ga');
-Ti.API.info("module is => " + GA);
+var tracker = ga.createTracker({
+	trackingId : 'your key',
+	anonymize:true,
+	useHttps:true
+});
 
-label.text = GA.example();
+Ti.API.info('AppName =>' + tracker.appName);
+Ti.API.info('AppId =>' + tracker.appId);
+Ti.API.info('appVersion =>' + tracker.appVersion);
+Ti.API.info('anonymize =>' + tracker.anonymize);
+Ti.API.info('useHttps =>' + tracker.useHttps);
 
-Ti.API.info("module exampleProp is => " + GA.exampleProp);
-GA.exampleProp = "This is a test value";
+tracker.setSessionStart(true);
 
-if (Ti.Platform.name == "android") {
-	var proxy = GA.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
-
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
-}
-
+tracker.sendView("main");
+tracker.sendEvent({
+	category:'test_category',
+	action:'test_action',
+	label:'test_label'
+});

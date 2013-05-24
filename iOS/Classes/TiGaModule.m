@@ -9,6 +9,7 @@
 #import "TiHost.h"
 #import "TiUtils.h"
 #import "GAI.h"
+#import "TiGaTrackerObjectProxy.h"
 
 @implementation TiGaModule
 
@@ -60,6 +61,17 @@
 -(void)didReceiveMemoryWarning:(NSNotification*)notification
 {
 	[super didReceiveMemoryWarning:notification];
+}
+
+-(id)createTracker:(id)args
+{
+    if(args == nil){
+        return [[[TiGaTrackerObjectProxy alloc] initWithDefaultTracker]autorelease];
+    }
+    
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    ENSURE_TYPE(args,NSDictionary);
+    return [[[TiGaTrackerObjectProxy alloc] initWithParams:args]autorelease];
 }
 
 -(id)debug

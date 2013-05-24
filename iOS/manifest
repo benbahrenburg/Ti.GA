@@ -4,10 +4,10 @@
 #
 version: 0.1
 apiversion: 2
-description: My module
+description: Google Analytics for Titanium
 author: Benjamin Bahrenburg
-license: Specify your license
-copyright: Copyright (c) 2013 by Your Company
+license: Apache 2, see license file for details
+copyright: Copyright (c) 2013 by Benjamin Bahrenburg
 
 
 # these should not be edited
