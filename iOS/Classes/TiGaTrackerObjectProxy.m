@@ -64,21 +64,20 @@ id<GAITracker>  _tracker;
 
 -(void)applyTrackerValues:(NSDictionary*)args
 {
+    [self setAppId:[[NSBundle mainBundle] bundleIdentifier]];
+    [self setAppName:[[[NSBundle mainBundle] infoDictionary]objectForKey:@"CFBundleName"]];
+    [self setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+    
     if ([args objectForKey:@"appId"]){
         [self setAppId:[TiUtils stringValue:@"appId" properties:args]];
-    }else{
-        [self setAppId:[[NSBundle mainBundle] bundleIdentifier]];
     }
+    
     if ([args objectForKey:@"appName"]){
         [self setAppName:[TiUtils stringValue:@"appName" properties:args]];
-    }else{
-        [self setAppName:[[[NSBundle mainBundle] infoDictionary]objectForKey:@"CFBundleName"]];
     }
     if ([args objectForKey:@"appVersion"]){
         [self setAppVersion:[TiUtils stringValue:@"appVersion" properties:args]];
-    }else{
-        [self setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
-    }
+    }    
     if ([args objectForKey:@"useHttps"]){
         [self setUseHttps:[args objectForKey:@"useHttps"]];
     }
@@ -98,9 +97,6 @@ id<GAITracker>  _tracker;
 
 -(void)dealloc
 {
-    if(_tracker!=nil){
-        [_tracker close];
-    }
     if(_tracker!=nil){
         RELEASE_TO_NIL(_tracker);
     }

@@ -113,4 +113,12 @@
     [GAI sharedInstance].trackUncaughtExceptions = [TiUtils boolValue:value];
 }
 
+-(void)dispatch:(id)unused
+{
+    if(![NSThread isMainThread]){
+        TiThreadPerformOnMainThread(^{
+            [[GAI sharedInstance] dispatch];
+        }, NO);
+    }
+}
 @end
