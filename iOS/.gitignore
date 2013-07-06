@@ -1,4 +1,7 @@
+UserInterfaceState.xcuserstate
 tmp
 bin
 build
 *.zip
+hooks
+.settings

@@ -11,8 +11,8 @@ copyright: Copyright (c) 2013 by Benjamin Bahrenburg
 
 
 # these should not be edited
-name: GA
+name: tiga
 moduleid: ti.ga
-guid: 957d2892-5405-4a7f-8d44-8afaffeb17b1
-platform: iphone
-minsdk: 3.1.0.GA
+guid: a9de22d1-1be5-48ae-8adb-b06efa3eb182
+platform: android
+minsdk: 3.1.1.GA

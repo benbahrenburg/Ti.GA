@@ -1,0 +1,8 @@
+tmp
+bin
+build
+*.zip
+.apt_generated
+hooks
+lib
+.settings

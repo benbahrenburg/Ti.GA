@@ -249,7 +249,7 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD_1_ARG(value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _useHttps = [TiUtils boolValue:value];
-    [_tracker setUseHttps:_useHttps];    
+    [_tracker setUseHttps:_useHttps];
 }
 
 -(id)sampleRate
@@ -286,5 +286,17 @@ id<GAITracker>  _tracker;
     _sessionStart=[TiUtils boolValue:value];
     [_tracker setSessionStart:_sessionStart];
 }
+
+-(id)throttlingEnabled
+{
+    NSLog(@"[DEBUG] throttlingEnabled not supported on iOS");
+    return NUMBOOL(NO);
+}
+
+-(void) setThrottlingEnabled:(id)value
+{
+    NSLog(@"[DEBUG] throttlingEnabled not supported on iOS");
+}
+
 
 @end
