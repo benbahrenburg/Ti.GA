@@ -98,6 +98,13 @@ public class TrackerObjectProxy extends KrollProxy {
 		Util.LogDebug("sendView view =" + view);
 		_Tracker.sendView(view);
 	}
+
+	@Kroll.method
+	public void sendException(String description)
+	{
+		Util.LogDebug("sendException description =" + description);
+		_Tracker.sendException(description, false);
+	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Kroll.method

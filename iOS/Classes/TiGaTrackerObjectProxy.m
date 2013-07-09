@@ -188,6 +188,13 @@ id<GAITracker>  _tracker;
               withTarget:[TiUtils stringValue:@"target" properties:args def:nil]];
 }
 
+-(void)sendException:(id)value
+{
+    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_SINGLE_ARG(value, NSString);
+    [_tracker sendException:NO withDescription:value];
+}
+
 -(void)sendView:(id)value
 {
     ENSURE_UI_THREAD_1_ARG(value);
