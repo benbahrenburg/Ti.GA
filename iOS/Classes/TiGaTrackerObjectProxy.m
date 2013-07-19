@@ -16,8 +16,7 @@ id<GAITracker>  _tracker;
 {
     if(![NSThread isMainThread]){
         TiThreadPerformOnMainThread(^{
-            _tracker = [GAI sharedInstance].defaultTracker;
-            [self applyTrackerValues:args];
+        [self createDefaultTracker:args];
         }, NO);
     }else{
         _tracker = [GAI sharedInstance].defaultTracker;
@@ -30,8 +29,7 @@ id<GAITracker>  _tracker;
     _trackingId = [TiUtils stringValue:value];
     if(![NSThread isMainThread]){
         TiThreadPerformOnMainThread(^{
-            _tracker = [[GAI sharedInstance] trackerWithTrackingId:_trackingId];
-            [self applyTrackerValues:params];
+            [self createTrackerWithId:value withParams:params];
         }, NO);
     }else{
         _tracker = [[GAI sharedInstance] trackerWithTrackingId:_trackingId];
@@ -95,32 +93,6 @@ id<GAITracker>  _tracker;
     }
 }
 
--(void)dealloc
-{
-    if(_tracker!=nil){
-        RELEASE_TO_NIL(_tracker);
-    }
-    
-    if(_trackingId!=nil){
-        RELEASE_TO_NIL(_trackingId);
-    }
-    if(_appVersion!=nil){
-        RELEASE_TO_NIL(_appVersion);
-    }
-    if(_appName!=nil){
-        RELEASE_TO_NIL(_appName);
-    }
-    if(_appId!=nil){
-        RELEASE_TO_NIL(_appId);
-    }
-    if(_sessionTimeout!=nil){
-        RELEASE_TO_NIL(_sessionTimeout);
-    }
-    if(_sampleRate!=nil){
-        RELEASE_TO_NIL(_sampleRate);
-    }
-	[super dealloc];
-}
 
 -(NSString*)appVersion
 {
@@ -129,6 +101,7 @@ id<GAITracker>  _tracker;
 -(void)setAppVersion:(id)value
 {
     ENSURE_SINGLE_ARG(value, NSString);
+    ENSURE_UI_THREAD(setAppVersion,value);
     _appVersion = [TiUtils stringValue:value];
     [_tracker setAppVersion:_appVersion];
 }
@@ -140,6 +113,7 @@ id<GAITracker>  _tracker;
 -(void)setAppName:(id)value
 {
     ENSURE_SINGLE_ARG(value, NSString);
+    ENSURE_UI_THREAD(setAppName,value);
     _appName = [TiUtils stringValue:value];
     [_tracker setAppName:_appName];
 }
@@ -151,12 +125,14 @@ id<GAITracker>  _tracker;
 -(void)setAppId:(id)value
 {
     ENSURE_SINGLE_ARG(value, NSString);
+    ENSURE_UI_THREAD(setAppId,value);
     _appId = [TiUtils stringValue:value];
     [_tracker setAppId:_appId];
 }
 
 -(void) close:(id)unused
 {
+    ENSURE_UI_THREAD(close,unused);  
     [_tracker close];
 }
 
@@ -170,11 +146,12 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD_1_ARG(args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
 
+    
     [_tracker sendEventWithCategory:[TiUtils stringValue:@"category"
                                               properties:args def:nil]
                          withAction:[TiUtils stringValue:@"action" properties:args def:nil]
                           withLabel:[TiUtils stringValue:@"label" properties:args def:nil]
-                          withValue: [TiUtils intValue:@"value" properties:args def:nil]];
+                          withValue: [NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args def:0]]];
 }
 
 -(void) sendSocial:(id)args
@@ -302,6 +279,7 @@ id<GAITracker>  _tracker;
 
 -(void) setThrottlingEnabled:(id)value
 {
+    ENSURE_UI_THREAD_1_ARG(value);
     NSLog(@"[DEBUG] throttlingEnabled not supported on iOS");
 }
 

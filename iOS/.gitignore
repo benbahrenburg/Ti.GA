@@ -2,6 +2,7 @@ UserInterfaceState.xcuserstate
 tmp
 bin
 build
-*.zip
 hooks
 .settings
+project.xcworkspace
+/xcuserdata

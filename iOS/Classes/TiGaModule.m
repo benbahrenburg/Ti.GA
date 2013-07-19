@@ -50,11 +50,6 @@
 
 #pragma mark Cleanup 
 
--(void)dealloc
-{
-	// release any resources that have been retained by the module
-	[super dealloc];
-}
 
 #pragma mark Internal Memory Management
 
@@ -66,12 +61,12 @@
 -(id)createTracker:(id)args
 {
     if(args == nil){
-        return [[[TiGaTrackerObjectProxy alloc] initWithDefaultTracker]autorelease];
+        return [[TiGaTrackerObjectProxy alloc] initWithDefaultTracker];
     }
     
     ENSURE_SINGLE_ARG(args,NSDictionary);
     ENSURE_TYPE(args,NSDictionary);
-    return [[[TiGaTrackerObjectProxy alloc] initWithParams:args]autorelease];
+    return [[TiGaTrackerObjectProxy alloc] initWithParams:args];
 }
 
 -(id)debug
@@ -115,10 +110,7 @@
 
 -(void)dispatch:(id)unused
 {
-    if(![NSThread isMainThread]){
-        TiThreadPerformOnMainThread(^{
-            [[GAI sharedInstance] dispatch];
-        }, NO);
-    }
+    ENSURE_UI_THREAD(dispatch,unused);    
+    [[GAI sharedInstance] dispatch];
 }
 @end
