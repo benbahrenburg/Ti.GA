@@ -12,6 +12,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="libs/libGoogleAnalyticsV2.jar"/>
+	<classpathentry kind="lib" path="lib/libGoogleAnalyticsV2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -138,6 +138,28 @@ public class TrackerObjectProxy extends KrollProxy {
 		long value = TiConvert.toInt(args, "value");
 		_Tracker.sendEvent(category, action, label, value);
 	}
+
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Kroll.method
+	public void addCustomDimension(HashMap hm)
+	{
+		Util.LogDebug("sendTiming called");
+		KrollDict args = new KrollDict(hm);
+		int index = TiConvert.toInt(args,"index");
+		String dimesion = TiConvert.toString(args,"dimesion");
+		_Tracker.setCustomDimension(index, dimesion);
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Kroll.method
+	public void addCustomMetric(HashMap hm)
+	{
+		Util.LogDebug("sendTiming called");
+		KrollDict args = new KrollDict(hm);
+		int index = TiConvert.toInt(args,"index");
+		long metric = (long)TiConvert.toDouble(args,"metric");
+		_Tracker.setCustomMetric(index, metric);
+	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Kroll.method
@@ -148,8 +170,8 @@ public class TrackerObjectProxy extends KrollProxy {
 		String category = TiConvert.toString(args, "category");
 		String name = TiConvert.toString(args, "name");
 		String label = TiConvert.toString(args, "label");
-		long interval = TiConvert.toInt(args, "time");
-		_Tracker.sendTiming(category, interval, name, label);
+		double interval = TiConvert.toDouble(args, "value");
+		_Tracker.sendTiming(category, ((long) interval), name, label);
 	}
 	
 	@Kroll.getProperty

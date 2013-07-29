@@ -143,7 +143,7 @@ id<GAITracker>  _tracker;
 
 -(void)sendEvent:(id)args
 {
-    ENSURE_UI_THREAD_1_ARG(args);
+    ENSURE_UI_THREAD(sendEvent,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
 
     
@@ -156,7 +156,7 @@ id<GAITracker>  _tracker;
 
 -(void) sendSocial:(id)args
 {
-    ENSURE_UI_THREAD_1_ARG(args);
+    ENSURE_UI_THREAD(sendSocial,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
     
     [_tracker sendSocial:[TiUtils stringValue:@"network"
@@ -167,14 +167,28 @@ id<GAITracker>  _tracker;
 
 -(void)sendException:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(sendException,value);
     ENSURE_SINGLE_ARG(value, NSString);
     [_tracker sendException:NO withDescription:value];
 }
 
+-(void)addCustomDimension:(id)args
+{
+    ENSURE_UI_THREAD(addCustomDimension,args);
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    [_tracker setCustom:[TiUtils intValue:@"index" properties:args]
+              dimension:[TiUtils stringValue:@"dimesion" properties:args]];
+}
+-(void)addCustomMetric:(id)args
+{
+    ENSURE_UI_THREAD(addCustomMetric,args);
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    [_tracker setCustom:[TiUtils intValue:@"index" properties:args]
+              metric:[NSNumber numberWithDouble:[TiUtils doubleValue:@"metric" properties:args]]];
+}
 -(void)sendView:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(sendView,value);
     ENSURE_SINGLE_ARG(value, NSString);
     [_tracker sendView:value];
 }
@@ -187,7 +201,7 @@ id<GAITracker>  _tracker;
         kArgCount
     };
     
-    ENSURE_UI_THREAD_1_ARG(args);
+    ENSURE_UI_THREAD(send,args);
     ENSURE_ARG_COUNT(args,kArgCount);
     
     id params = [args objectAtIndex:kArgParam];
@@ -199,7 +213,7 @@ id<GAITracker>  _tracker;
 
 -(void)sendTiming:(id)args
 {
-    ENSURE_UI_THREAD_1_ARG(args);
+    ENSURE_UI_THREAD(sendTiming,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
     
     [_tracker sendTimingWithCategory:[TiUtils stringValue:@"category"
@@ -217,7 +231,7 @@ id<GAITracker>  _tracker;
 }
 -(void)setAnonymize:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(setAnonymize,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _anonymize = [TiUtils boolValue:value];
     [_tracker setAnonymize:_anonymize];
@@ -230,7 +244,7 @@ id<GAITracker>  _tracker;
 
 -(void)setUseHttps:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(setUseHttps,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _useHttps = [TiUtils boolValue:value];
     [_tracker setUseHttps:_useHttps];
@@ -242,7 +256,7 @@ id<GAITracker>  _tracker;
 }
 -(void)setSampleRate:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(setSampleRate,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _sampleRate = value;
     [_tracker setSampleRate:[TiUtils doubleValue:_sampleRate]];
@@ -253,7 +267,7 @@ id<GAITracker>  _tracker;
 }
 -(void)setSessionTimeout:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(setSessionTimeout,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _sessionTimeout = value;
     [_tracker setSessionTimeout:[TiUtils doubleValue:_sessionTimeout]];
@@ -265,7 +279,7 @@ id<GAITracker>  _tracker;
 
 -(void) setSessionStart:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(setSessionStart,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _sessionStart=[TiUtils boolValue:value];
     [_tracker setSessionStart:_sessionStart];
@@ -279,7 +293,7 @@ id<GAITracker>  _tracker;
 
 -(void) setThrottlingEnabled:(id)value
 {
-    ENSURE_UI_THREAD_1_ARG(value);
+    ENSURE_UI_THREAD(setThrottlingEnabled,value);
     NSLog(@"[DEBUG] throttlingEnabled not supported on iOS");
 }
 

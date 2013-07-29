@@ -4,5 +4,5 @@ build
 *.zip
 .apt_generated
 hooks
-lib
+libs
 .settings
