@@ -71,12 +71,16 @@
 
 -(id)debug
 {
-    return NUMBOOL([[GAI sharedInstance] debug]);
+    return NUMBOOL([[GAI sharedInstance].logger logLevel] == kGAILogLevelNone);
 }
 
 -(void) setDebug:(id)value
 {
-    [[GAI sharedInstance] setDebug:[TiUtils boolValue:value]];
+    if([TiUtils boolValue:value]){
+        [[GAI sharedInstance].logger setLogLevel:kGAILogLevelNone];
+    }else{
+        [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    }
 }
 
 -(id)optOut

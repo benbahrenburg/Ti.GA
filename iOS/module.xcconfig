@@ -1,2 +1,2 @@
 
-OTHER_LDFLAGS=$(inherited) -framework CoreData
+OTHER_LDFLAGS=$(inherited) -framework AdSupport -framework SystemConfiguration -framework CoreData -/usr/lib/libz.dylib

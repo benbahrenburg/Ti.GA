@@ -16,8 +16,6 @@
     BOOL _anonymize;
     BOOL _sessionStart;
     NSNumber *_sampleRate;
-    NSNumber *_sessionTimeout;
-
 }
 -(id)initWithDefaultTracker;
 -(id)initWithParams:(NSDictionary*)args;

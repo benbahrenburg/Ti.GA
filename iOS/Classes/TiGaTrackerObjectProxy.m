@@ -7,10 +7,14 @@
 
 #import "TiGaTrackerObjectProxy.h"
 #import "TiUtils.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
 
 id<GAITracker>  _tracker;
 
 @implementation TiGaTrackerObjectProxy
+
+#define NSStringFromBOOL(aBOOL)    aBOOL? @"YES" : @"NO"
 
 -(void)createDefaultTracker:(NSDictionary*)args
 {
@@ -85,12 +89,6 @@ id<GAITracker>  _tracker;
     if ([args objectForKey:@"sampleRate"]){
         [self setSampleRate:[args objectForKey:@"sampleRate"]];
     }
-    if ([args objectForKey:@"sessionTimeout"]){
-        [self setSessionTimeout:[args objectForKey:@"sessionTimeout"]];
-    }
-    if ([args objectForKey:@"sessionStart"]){
-        [self setSessionStart:[args objectForKey:@"sessionStart"]];
-    }
 }
 
 
@@ -103,7 +101,7 @@ id<GAITracker>  _tracker;
     ENSURE_SINGLE_ARG(value, NSString);
     ENSURE_UI_THREAD(setAppVersion,value);
     _appVersion = [TiUtils stringValue:value];
-    [_tracker setAppVersion:_appVersion];
+    [_tracker set:kGAIAppVersion value:_appVersion];
 }
 
 -(NSString*)appName
@@ -115,7 +113,7 @@ id<GAITracker>  _tracker;
     ENSURE_SINGLE_ARG(value, NSString);
     ENSURE_UI_THREAD(setAppName,value);
     _appName = [TiUtils stringValue:value];
-    [_tracker setAppName:_appName];
+    [_tracker set:kGAIAppName value:_appName];
 }
 
 -(NSString*)appId
@@ -127,14 +125,9 @@ id<GAITracker>  _tracker;
     ENSURE_SINGLE_ARG(value, NSString);
     ENSURE_UI_THREAD(setAppId,value);
     _appId = [TiUtils stringValue:value];
-    [_tracker setAppId:_appId];
+    [_tracker set:kGAIAppId value:_appId];
 }
 
--(void) close:(id)unused
-{
-    ENSURE_UI_THREAD(close,unused);  
-    [_tracker close];
-}
 
 -(NSString*)trackingId
 {
@@ -146,83 +139,74 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(sendEvent,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
 
-    
-    [_tracker sendEventWithCategory:[TiUtils stringValue:@"category"
-                                              properties:args def:nil]
-                         withAction:[TiUtils stringValue:@"action" properties:args def:nil]
-                          withLabel:[TiUtils stringValue:@"label" properties:args def:nil]
-                          withValue: [NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args def:0]]];
+ 
+    [_tracker send:[[GAIDictionaryBuilder createEventWithCategory:[TiUtils stringValue:@"category"
+                                                                            properties:args def:nil]     // Event category (required)
+                                                          action:[TiUtils stringValue:@"action" properties:args def:nil]  // Event action (required)
+                                                           label:[TiUtils stringValue:@"label" properties:args def:nil]          // Event label
+                                                           value:[NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args def:0]]] build]];    // Event value
 }
 
--(void) sendSocial:(id)args
+-(void)sendSocial:(id)args
 {
     ENSURE_UI_THREAD(sendSocial,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
-    
-    [_tracker sendSocial:[TiUtils stringValue:@"network"
-                                   properties:args def:nil]
-              withAction:[TiUtils stringValue:@"action" properties:args def:nil]
-              withTarget:[TiUtils stringValue:@"target" properties:args def:nil]];
+ 
+    [_tracker send:[[GAIDictionaryBuilder createSocialWithNetwork:[TiUtils stringValue:@"network"
+                                                                          properties:args def:nil]// Social network (required)
+                                                         action:[TiUtils stringValue:@"action"
+                                                                          properties:args def:nil]// Social action (required)
+                                                          target:[TiUtils stringValue:@"target"
+                                                                           properties:args def:nil]] build]];  // Social target
 }
 
 -(void)sendException:(id)value
 {
     ENSURE_UI_THREAD(sendException,value);
     ENSURE_SINGLE_ARG(value, NSString);
-    [_tracker sendException:NO withDescription:value];
+    
+    // Exception description. May be truncated to 100 chars.
+    [_tracker send:[[GAIDictionaryBuilder
+                     createExceptionWithDescription:value withFatal:NO] build]];
 }
 
 -(void)addCustomDimension:(id)args
 {
     ENSURE_UI_THREAD(addCustomDimension,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
-    [_tracker setCustom:[TiUtils intValue:@"index" properties:args]
-              dimension:[TiUtils stringValue:@"dimesion" properties:args]];
+    
+    [_tracker set:[GAIFields customDimensionForIndex:[TiUtils intValue:@"index" properties:args]]
+             value:[TiUtils stringValue:@"dimesion" properties:args]];
+
 }
 -(void)addCustomMetric:(id)args
 {
     ENSURE_UI_THREAD(addCustomMetric,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
-    [_tracker setCustom:[TiUtils intValue:@"index" properties:args]
-              metric:[NSNumber numberWithDouble:[TiUtils doubleValue:@"metric" properties:args]]];
+
+    [_tracker set:[GAIFields customMetricForIndex:[TiUtils intValue:@"index" properties:args]]
+            value:[[NSNumber numberWithDouble:[TiUtils doubleValue:@"metric" properties:args]] stringValue]];
 }
 -(void)sendView:(id)value
 {
     ENSURE_UI_THREAD(sendView,value);
     ENSURE_SINGLE_ARG(value, NSString);
-    [_tracker sendView:value];
+    [_tracker set:kGAIScreenName value:value];
 }
 
--(void)send:(id)args
-{
-    enum Args {
-        kArgTrackType=0,
-        kArgParam,
-        kArgCount
-    };
-    
-    ENSURE_UI_THREAD(send,args);
-    ENSURE_ARG_COUNT(args,kArgCount);
-    
-    id params = [args objectAtIndex:kArgParam];
-    ENSURE_DICT(params)
-    
-    [_tracker send:[TiUtils stringValue:[args objectAtIndex:kArgTrackType]]
-                  params:params];
-}
 
 -(void)sendTiming:(id)args
 {
     ENSURE_UI_THREAD(sendTiming,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
-    
-    [_tracker sendTimingWithCategory:[TiUtils stringValue:@"category"
-                                                     properties:args def:nil]
-                                  withValue:[TiUtils doubleValue:@"value" properties:args]
-                                  withName:[TiUtils stringValue:@"name"
-                                                     properties:args def:nil]
-                                 withLabel:[TiUtils stringValue:@"label"
-                                                     properties:args def:nil]];
+ 
+    [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:[TiUtils stringValue:@"category"
+                                                             properties:args def:nil]   // Timing category (required)
+                                          interval:[NSNumber numberWithDouble:[TiUtils doubleValue:@"value" properties:args]]// Timing interval (required)
+                                              name:[TiUtils stringValue:@"name"
+                                                             properties:args def:nil]  // Timing name
+                                             label:[TiUtils stringValue:@"label"
+                                                             properties:args def:nil]] build]];
 }
 
 -(id)anonymize
@@ -234,7 +218,7 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(setAnonymize,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _anonymize = [TiUtils boolValue:value];
-    [_tracker setAnonymize:_anonymize];
+    [_tracker set:kGAIAnonymizeIp value:NSStringFromBOOL(_anonymize)];
 }
 
 -(id)useHttps
@@ -247,7 +231,7 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(setUseHttps,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _useHttps = [TiUtils boolValue:value];
-    [_tracker setUseHttps:_useHttps];
+    [_tracker set:kGAIUseSecure value:NSStringFromBOOL(_useHttps)];
 }
 
 -(id)sampleRate
@@ -259,30 +243,28 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(setSampleRate,value);
     ENSURE_SINGLE_ARG(value, NSNumber);
     _sampleRate = value;
-    [_tracker setSampleRate:[TiUtils doubleValue:_sampleRate]];
+    [_tracker set:kGAISampleRate value:[NSString stringWithFormat:@"%f",[TiUtils doubleValue:_sampleRate]]];
 }
--(id)sessionTimeout
-{
-    return _sessionTimeout;
-}
--(void)setSessionTimeout:(id)value
-{
-    ENSURE_UI_THREAD(setSessionTimeout,value);
-    ENSURE_SINGLE_ARG(value, NSNumber);
-    _sessionTimeout = value;
-    [_tracker setSessionTimeout:[TiUtils doubleValue:_sessionTimeout]];
-}
--(id)sessionStart
+
+-(id)sessionStarted
 {
     return NUMBOOL(_sessionStart);
 }
 
--(void) setSessionStart:(id)value
+-(void)startSession:(id)unused
 {
-    ENSURE_UI_THREAD(setSessionStart,value);
-    ENSURE_SINGLE_ARG(value, NSNumber);
-    _sessionStart=[TiUtils boolValue:value];
-    [_tracker setSessionStart:_sessionStart];
+    ENSURE_UI_THREAD(startSession,unused);
+    _sessionStart=YES;
+    [_tracker set:kGAISessionControl
+           value:@"start"];
+}
+
+-(void)endSession:(id)unused
+{
+    ENSURE_UI_THREAD(endSession,unused);
+    _sessionStart=NO;
+    [_tracker set:kGAISessionControl
+            value:@"end"];
 }
 
 -(id)throttlingEnabled
