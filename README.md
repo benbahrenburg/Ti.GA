@@ -43,27 +43,31 @@ var ga = require('ti.ga');
 
 <h2>Module Methods</h2>
 
+<b>Work in process</b>
+
 <h2>Module Properties</h2>
 
 The v3 version of the Google Analytics SDK works using a series of string constants. A full list of the module properties is available [here](https://github.com/benbahrenburg/Ti.GA/blob/master/Documentation/Properties.md).
 
 <h2>Tracker Methods</h2>
 
+<b>Work in process</b>
 
 <h2>FAQ</h2>
 
-<b>My values are not appearing on the Google Analytics Dashboard</b>
+<h4>How do I handle sessions on Android?</h4>
+Android doesn't have an application level resume or pause events.  You can handle this on each activity, by hooking the window activity, read more in the [documentation](http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.Android.Activity). Or you can use a timer like the GATools module does.  This basically will timeout and send the session a specific number of seconds after no activity is reported. 
 
+<h4>My values are not appearing on the Google Analytics Dashboard</h4>
 This could be for several reasons.  Please check your setup some common reasons are below.
 
 * Did you provide the proper Google Analytics Key?
 * Did you call startSession?
 * Did you add any session events or screens?
 * Did you call dispatch?
-* Did you wait awhile, it can take minutes to hours for data to display in the Google Analytics dashboard  
+* Did you wait awhile, it can take minutes to hours for data to display in the Google Analytics dashboard.  
 
-<b>I want to do something that there isn't a method for. What do I do?</b>
-
+<h4>I want to do something that there isn't a method for. What do I do?</h4>
 Please review the SDK documentation on [http://www.google.com/analytics](http://www.google.com/analytics).  Using the approperate Properties or String values and the tracker's proxy method you should be able to access most of the native sdk functionality.  
 
 <h2>Learn More</h2>
