@@ -1,17 +1,25 @@
 /**
+ * Ti.GA - Google Analytics for Titanium
  * Copyright (c) 2013 by Ben Bahrenburg. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
+ * 
+ * Available at https://github.com/benbahrenburg/Ti.GA
  */
 package ti.ga;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
 import org.appcelerator.titanium.util.TiConvert;
+
+import com.google.analytics.tracking.android.Fields;
+import com.google.analytics.tracking.android.MapBuilder;
 import com.google.analytics.tracking.android.Tracker;
 
 @Kroll.proxy(creatableInModule=TigaModule.class)
@@ -21,68 +29,30 @@ public class TrackerObjectProxy extends KrollProxy {
 	
 	//Local defaults
 	private String _TrackerId = ""; 
-	private boolean _AnonymizeIp = false;
-	private boolean _UseHTTPS = false;
-	private String _AppName;
-	private String _AppVersion;
-	private double _SampleRate = 100;
 	private boolean _SessionStarted = false;
-	private boolean _ThrottlingEnabled = false;
-
-	public TrackerObjectProxy(Tracker tracker, String trackerId, KrollDict args)
+	
+	@SuppressWarnings("rawtypes") 
+	public TrackerObjectProxy(Tracker tracker, String trackerId, HashMap hm)
 	{
 		super();
 		_Tracker = tracker;
 		_TrackerId = trackerId;
-		applyProperties(args);
+		applyDefaults();
+		applyProperties(hm);
 	}
 	
-	private void applyProperties(KrollDict args){
-		
-		if(args.containsKey("appId")){
-			setAppId(args.getString("appId"));
-		}else{
-			String packageName = Util.getApplicationPackageName(TiApplication.getInstance().getApplicationContext());
-			if(!Util.isNullOrEmpty(packageName)){
-				setAppId(packageName);	
-			}					
-		}
-
-		if(args.containsKey("appName")){
-			setAppName(args.getString("appName"));
-		}else{
-			String name = Util.getApplicationName(TiApplication.getInstance().getApplicationContext());
-			if(!Util.isNullOrEmpty(name)){
-				setAppName(name);	
-			}		
-		}
-		
-		if(args.containsKey("appVersion")){
-			setAppVersion(args.getString("appVersion"));
-		}else{			
-			String version = Util.getApplicationVersion(TiApplication.getInstance().getApplicationContext());
-			if(!Util.isNullOrEmpty(version)){
-				setAppVersion(version);	
-			}
-		}
-		
-		if(args.containsKey("throttlingEnabled")){
-			setThrottlingEnabled(args.optBoolean("throttlingEnabled", false));
-		}
-		if(args.containsKey("useHttps")){
-			setUseHTTPS(args.optBoolean("useHttps", false));
-		}
-
-		if(args.containsKey("anonymize")){
-			setAnonymize(args.optBoolean("anonymize", false));
-		}
-		
-		if(args.containsKey("sampleRate")){
-			setSampleRate(args.getDouble("sampleRate"));
-		}
-		
-		if(args.containsKey("sessionStart")){
-			setSessionStart(args.optBoolean("sessionStart", true));
+	private void applyDefaults(){
+		setValue(Fields.APP_ID,Util.getApplicationPackageName(TiApplication.getInstance().getApplicationContext()));
+		setValue(Fields.APP_NAME,Util.getApplicationName(TiApplication.getInstance().getApplicationContext()));
+		setValue(Fields.APP_VERSION,Util.getApplicationVersion(TiApplication.getInstance().getApplicationContext()));
+	}
+	@SuppressWarnings("rawtypes") 
+	private void applyProperties(HashMap hm){
+	
+		Iterator entries = hm.entrySet().iterator();
+		while (entries.hasNext()) {
+			Map.Entry entry = (Map.Entry) entries.next();
+			setValue(entry.getKey().toString(),entry.getValue().toString());
 		}
 	}
 	
@@ -96,14 +66,25 @@ public class TrackerObjectProxy extends KrollProxy {
 	public void sendView(String view)
 	{
 		Util.LogDebug("sendView view =" + view);
-		_Tracker.sendView(view);
+		// Set the screen name on the tracker so that it is used in all hits sent from this screen.
+		_Tracker.set(Fields.SCREEN_NAME, view);
+
+		// Send a screenview.
+		_Tracker.send(MapBuilder
+		  .createAppView()
+		  .build()
+		);	
+		
 	}
 
 	@Kroll.method
 	public void sendException(String description)
 	{
 		Util.LogDebug("sendException description =" + description);
-		_Tracker.sendException(description, false);
+		_Tracker.send(MapBuilder
+	    	      .createException(description,false)                                              
+	    	      .build()
+	    	      );
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -111,20 +92,15 @@ public class TrackerObjectProxy extends KrollProxy {
 	public void sendSocial(HashMap hm)
 	{
 		Util.LogDebug("sendSocial called");
-		KrollDict args = new KrollDict(hm);
-		String network = TiConvert.toString(args, "network");
-		String action = TiConvert.toString(args, "action");
-		String target = TiConvert.toString(args, "target");
-		_Tracker.sendSocial(network, action, target);
+		KrollDict args = new KrollDict(hm);		
+		_Tracker.send(MapBuilder
+			    .createSocial(TiConvert.toString(args, "network"),// Social network (required)
+			    		TiConvert.toString(args, "action"),// Social action (required)
+			    		TiConvert.toString(args, "target"))// Social target
+			    .build()
+			);		
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@Kroll.method
-	public void send(String hitType, HashMap hm)
-	{
-		Util.LogDebug("send called");
-		_Tracker.send(hitType, hm);
-	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Kroll.method
@@ -132,11 +108,14 @@ public class TrackerObjectProxy extends KrollProxy {
 	{
 		Util.LogDebug("sendEvent called");
 		KrollDict args = new KrollDict(hm);
-		String category = TiConvert.toString(args, "category");
-		String action = TiConvert.toString(args, "action");
-		String label = TiConvert.toString(args, "label");
 		long value = TiConvert.toInt(args, "value");
-		_Tracker.sendEvent(category, action, label, value);
+		_Tracker.send(MapBuilder
+			      .createEvent(TiConvert.toString(args, "category"),     // Event category (required)
+			    		  		TiConvert.toString(args, "action"),  // Event action (required)
+			                   TiConvert.toString(args, "label"),  // Event label
+			                   value)            // Event value
+			      .build()
+			  );		
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -145,9 +124,7 @@ public class TrackerObjectProxy extends KrollProxy {
 	{
 		Util.LogDebug("sendTiming called");
 		KrollDict args = new KrollDict(hm);
-		int index = TiConvert.toInt(args,"index");
-		String dimesion = TiConvert.toString(args,"dimesion");
-		_Tracker.setCustomDimension(index, dimesion);
+		_Tracker.set(Fields.customDimension(TiConvert.toInt(args,"index")),TiConvert.toString(args, "dimesion"));
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -156,9 +133,7 @@ public class TrackerObjectProxy extends KrollProxy {
 	{
 		Util.LogDebug("sendTiming called");
 		KrollDict args = new KrollDict(hm);
-		int index = TiConvert.toInt(args,"index");
-		long metric = (long)TiConvert.toDouble(args,"metric");
-		_Tracker.setCustomMetric(index, metric);
+		_Tracker.set(Fields.customMetric(TiConvert.toInt(args,"index")),TiConvert.toString(args, "metric"));
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -167,120 +142,73 @@ public class TrackerObjectProxy extends KrollProxy {
 	{
 		Util.LogDebug("sendTiming called");
 		KrollDict args = new KrollDict(hm);
-		String category = TiConvert.toString(args, "category");
-		String name = TiConvert.toString(args, "name");
-		String label = TiConvert.toString(args, "label");
 		double interval = TiConvert.toDouble(args, "value");
-		_Tracker.sendTiming(category, ((long) interval), name, label);
+		//_Tracker.sendTiming(category, ((long) interval), name, label);
+		_Tracker.send(MapBuilder
+			      .createTiming(TiConvert.toString(args, "category"),    // Timing category (required)
+			    		  		(long) interval,       // Timing interval in milliseconds (required)
+			    		  		TiConvert.toString(args, "name"),  // Timing name
+			    		  		TiConvert.toString(args, "label")) // Timing label
+			      .build()
+			  );
+		  
 	}
 	
-	@Kroll.getProperty
-	public String getAppName() {
-		return _AppName;
-	}
 
-	@Kroll.setProperty
-	public void setAppName(String value) {
-		Util.LogDebug("setAppName = " + value);
-		_AppName = value;
-		_Tracker.setAppName(_AppName);
-	}
-	
-	@Kroll.getProperty
-	public String getAppId() {
-		return _Tracker.getAppId();
-	}
-
-	@Kroll.setProperty
-	public void setAppId(String value) {
-		Util.LogDebug("setAppId = " + value);
-		_Tracker.setAppId(value);
-	}
-	
-	@Kroll.getProperty
-	public String getAppVersion() {
-		return _AppVersion;
-	}
-
-	@Kroll.setProperty
-	public void setAppVersion(String value) {
-		Util.LogDebug("setAppVersion = " + value);
-		_AppVersion = value;
-		_Tracker.setAppVersion(_AppVersion);
+	@Kroll.method
+	public String getValue(String name) {
+		return _Tracker.get(name);
 	}
 	
 	@Kroll.method
-	public void close() {
-		Util.LogDebug("close called");
-		_Tracker.close();
+	public void setValue(String key,String value) {
+		Util.LogDebug("setValue: key =" + key + " value=" + value);
+		_Tracker.set(key, value);
 	}
 	
-	@Kroll.getProperty
-	public double getSampleRate() {
-		return _SampleRate;
-	}
-
-	@Kroll.setProperty
-	public void setSampleRate(double value) {
-		Util.LogDebug("setSampleRate = " + value);
-		_SampleRate = value;
-		_Tracker.setSampleRate(_SampleRate);
-	}
-	
-	@Kroll.getProperty
-	public boolean getSessionStart() {
+	@Kroll.method
+	public boolean isSessionStarted() {
 		return _SessionStarted;
 	}
 
-	@Kroll.setProperty
-	public void setSessionStart(boolean value) {
-		Util.LogDebug("setSessionStart = " + value);
-		_SessionStarted = value;
-		_Tracker.setStartSession(_SessionStarted);
+	@Kroll.method
+	public void startSession() {
+		Util.LogDebug("startSession");
+		_SessionStarted = true;
+		_Tracker.set(Fields.SESSION_CONTROL, "start");
 	}
 	
-	@Kroll.getProperty
-	public boolean getUseHTTP() {
-		return _UseHTTPS;
+	@Kroll.method
+	public void endSession() {
+		Util.LogDebug("endSession");
+		_SessionStarted = false;
+		_Tracker.set(Fields.SESSION_CONTROL, "end");
 	}
 	
-	@Kroll.setProperty
-	public void setUseHTTPS(boolean value) {
-		Util.LogDebug("setUseHTTPS = " + value);
-		_UseHTTPS = value;
-		_Tracker.setUseSecure(_UseHTTPS);
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Kroll.method
+	public void sendCampaign(HashMap hm){
+		KrollDict args = new KrollDict(hm);
+		HashMap<String, String> campaignData = new HashMap<String, String>();
+		campaignData.put(Fields.CAMPAIGN_SOURCE, TiConvert.toString(args, "source"));
+		campaignData.put(Fields.CAMPAIGN_MEDIUM, TiConvert.toString(args, "medium"));
+		campaignData.put(Fields.CAMPAIGN_NAME, TiConvert.toString(args, "name"));
+		campaignData.put(Fields.CAMPAIGN_CONTENT, TiConvert.toString(args, "content"));
+		
+		MapBuilder paramMap = MapBuilder.createAppView();
+		// Campaign data sent with this hit.
+		// Note that the campaign data is set on the Map, not the tracker.
+		_Tracker.send(paramMap
+		    .setAll(campaignData).build()
+		);		
 	}
 	
-	@Kroll.getProperty
-	public boolean getAnonymize() {
-		return _AnonymizeIp;
-	}
-	
-	@Kroll.setProperty
-	public void setAnonymize(boolean value) {
-		_AnonymizeIp = value;
-		_Tracker.setAnonymizeIp(_AnonymizeIp);
-	}
-
-	@Kroll.getProperty
-	public double getSessionTimeout(){
-		Util.LogDebug("Session Timeout not used on Android");
-		return 0;
-	}
-	
-	@Kroll.setProperty
-	public void setSessionTimeout(double value){
-		Util.LogDebug("Session Timeout not used on Android");
-	}
-	
-	@Kroll.getProperty
-	public boolean getThrottlingEnabled(){
-		return _ThrottlingEnabled;
-	}
-	
-	@Kroll.setProperty
-	public void setThrottlingEnabled(boolean value){
-		_ThrottlingEnabled = value;
-		_Tracker.setThrottlingEnabled(_ThrottlingEnabled);
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Kroll.method
+	public void send(HashMap hm){
+		MapBuilder paramMap = MapBuilder.createAppView();
+		_Tracker.send(paramMap
+		    .setAll(hm).build()
+		);		
 	}
 }

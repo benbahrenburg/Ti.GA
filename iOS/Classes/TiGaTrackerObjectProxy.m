@@ -202,8 +202,9 @@ id<GAITracker>  _tracker;
             value:[TiUtils stringValue:[args objectAtIndex:kArgValue]]];
 }
 
--(id)sessionStarted
+-(NSNumber*)isSessionStarted:(id)unused
 {
+    ENSURE_UI_THREAD(isSessionStarted,unused);
     return NUMBOOL(_sessionStart);
 }
 
@@ -223,5 +224,28 @@ id<GAITracker>  _tracker;
             value:@"end"];
 }
 
+-(void)send:(id)args
+{
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    ENSURE_UI_THREAD(send,args);
+    
+    [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:args] build]];
+}
+
+-(void)sendCampaign:(id)args
+{
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    ENSURE_UI_THREAD(sendCampaign,args);
+    
+    NSDictionary *campaignData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  [TiUtils stringValue:@"source"properties:args def:nil],kGAICampaignSource ,
+                                  [TiUtils stringValue:@"medium"properties:args def:nil], kGAICampaignMedium,
+                                  [TiUtils stringValue:@"name"properties:args def:nil], kGAICampaignName,
+                                  [TiUtils stringValue:@"content"properties:args def:nil], kGAICampaignContent,
+                                  nil];
+    
+    [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:campaignData] build]];
+
+}
 
 @end

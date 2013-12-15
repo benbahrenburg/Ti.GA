@@ -12,71 +12,74 @@
 @interface TiGaModule : TiModule {
 }
 
-@property(nonatomic,readonly) NSString* GAIUseSecure;
-@property(nonatomic,readonly) NSString* GAIHitType;
-@property(nonatomic,readonly) NSString* GAITrackingId;
-@property(nonatomic,readonly) NSString* GAIClientId;
-@property(nonatomic,readonly) NSString* GAIAnonymizeIp;
-@property(nonatomic,readonly) NSString* GAISessionControl;
-@property(nonatomic,readonly) NSString* GAIScreenResolution;
-@property(nonatomic,readonly) NSString* GAIViewportSize;
-@property(nonatomic,readonly) NSString* GAIEncoding;
-@property(nonatomic,readonly) NSString* GAIScreenColors;
-@property(nonatomic,readonly) NSString* GAILanguage;
-@property(nonatomic,readonly) NSString* GAIJavaEnabled;
-@property(nonatomic,readonly) NSString* GAIFlashVersion;
-@property(nonatomic,readonly) NSString* GAINonInteraction;
-@property(nonatomic,readonly) NSString* GAIReferrer;
-@property(nonatomic,readonly) NSString* GAILocation;
-@property(nonatomic,readonly) NSString* GAIHostname;
-@property(nonatomic,readonly) NSString* GAIPage;
-@property(nonatomic,readonly) NSString* GAIDescription;  // synonym for kGAIScreenName
-@property(nonatomic,readonly) NSString* GAIScreenName;   // synonym for kGAIDescription
-@property(nonatomic,readonly) NSString* GAITitle;
-@property(nonatomic,readonly) NSString* GAIAppName;
-@property(nonatomic,readonly) NSString* GAIAppVersion;
-@property(nonatomic,readonly) NSString* GAIAppId;
-@property(nonatomic,readonly) NSString* GAIAppInstallerId;
+@property(nonatomic,readonly) NSString* ANONYMIZE_IP;
+@property(nonatomic,readonly) NSString* HIT_TYPE;
+@property(nonatomic,readonly) NSString* SESSION_CONTROL;
+@property(nonatomic,readonly) NSString* NON_INTERACTION;
+@property(nonatomic,readonly) NSString* DESCRIPTION;  // synonym for kGAIScreenName
+@property(nonatomic,readonly) NSString* SCREEN_NAME;   // synonym for kGAIDescription
+@property(nonatomic,readonly) NSString* LOCATION;
+@property(nonatomic,readonly) NSString* REFERRER;
+@property(nonatomic,readonly) NSString* PAGE;
+@property(nonatomic,readonly) NSString* HOSTNAME;
+@property(nonatomic,readonly) NSString* TITLE;
+@property(nonatomic,readonly) NSString* LANGUAGE;
+@property(nonatomic,readonly) NSString* TRACKING_ID;
+@property(nonatomic,readonly) NSString* ENCODING;
+@property(nonatomic,readonly) NSString* SCREEN_COLORS;
+@property(nonatomic,readonly) NSString* SCREEN_RESOLUTION;
+@property(nonatomic,readonly) NSString* VIEWPORT_SIZE;
+@property(nonatomic,readonly) NSString* CLIENT_ID;
 
-@property(nonatomic,readonly) NSString* GAIEventCategory;
-@property(nonatomic,readonly) NSString* GAIEventAction;
-@property(nonatomic,readonly) NSString* GAIEventLabel;
-@property(nonatomic,readonly) NSString* GAIEventValue;
+@property(nonatomic,readonly) NSString* CAMPAIGN_NAME;
+@property(nonatomic,readonly) NSString* CAMPAIGN_SOURCE;
+@property(nonatomic,readonly) NSString* CAMPAIGN_MEDIUM;
+@property(nonatomic,readonly) NSString* CAMPAIGN_KEYWORD;
+@property(nonatomic,readonly) NSString* CAMPAIGN_CONTENT;
+@property(nonatomic,readonly) NSString* CAMPAIGN_ID;
 
-@property(nonatomic,readonly) NSString* GAISocialNetwork;
-@property(nonatomic,readonly) NSString* GAISocialAction;
-@property(nonatomic,readonly) NSString* GAISocialTarget;
-
-@property(nonatomic,readonly) NSString* GAITransactionId;
-@property(nonatomic,readonly) NSString* GAITransactionAffiliation;
-@property(nonatomic,readonly) NSString* GAITransactionRevenue;
-@property(nonatomic,readonly) NSString* GAITransactionShipping;
-@property(nonatomic,readonly) NSString* GAITransactionTax;
-@property(nonatomic,readonly) NSString* GAICurrencyCode;
+@property(nonatomic,readonly) NSString* EVENT_CATEGORY;
+@property(nonatomic,readonly) NSString* EVENT_ACTION;
+@property(nonatomic,readonly) NSString* EVENT_LABEL;
+@property(nonatomic,readonly) NSString* EVENT_VALUE;
 
 
-@property(nonatomic,readonly) NSString* GAIItemPrice;
-@property(nonatomic,readonly) NSString* GAIItemQuantity;
-@property(nonatomic,readonly) NSString* GAIItemSku;
-@property(nonatomic,readonly) NSString* GAIItemName;
-@property(nonatomic,readonly) NSString* GAIItemCategory;
+@property(nonatomic,readonly) NSString* SOCIAL_NETWORK;
+@property(nonatomic,readonly) NSString* SOCIAL_ACTION;
+@property(nonatomic,readonly) NSString* SOCIAL_TARGET;
 
-@property(nonatomic,readonly) NSString* GAICampaignSource;
-@property(nonatomic,readonly) NSString* GAICampaignMedium;
-@property(nonatomic,readonly) NSString* GAICampaignName;
-@property(nonatomic,readonly) NSString* GAICampaignKeyword;
-@property(nonatomic,readonly) NSString* GAICampaignContent;
-@property(nonatomic,readonly) NSString* GAICampaignId;
+@property(nonatomic,readonly) NSString* TIMING_CATEGORY;
+@property(nonatomic,readonly) NSString* TIMING_VAR;
+@property(nonatomic,readonly) NSString* TIMING_VALUE;
+@property(nonatomic,readonly) NSString* TIMING_LABEL;
 
-@property(nonatomic,readonly) NSString* GAITimingCategory;
-@property(nonatomic,readonly) NSString* GAITimingVar;
-@property(nonatomic,readonly) NSString* GAITimingValue;
-@property(nonatomic,readonly) NSString* GAITimingLabel;
 
-@property(nonatomic,readonly) NSString* GAIExDescription;
-@property(nonatomic,readonly) NSString* GAIExFatal;
+@property(nonatomic,readonly) NSString* APP_NAME;
+@property(nonatomic,readonly) NSString* APP_VERSION;
+@property(nonatomic,readonly) NSString* APP_ID;
+@property(nonatomic,readonly) NSString* APP_INSTALLER_ID;
 
-@property(nonatomic,readonly) NSString* GAISampleRate;
+@property(nonatomic,readonly) NSString* EX_DESCRIPTION;
+@property(nonatomic,readonly) NSString* EX_FATAL;
+
+@property(nonatomic,readonly) NSString* TRANSACTION_ID;
+@property(nonatomic,readonly) NSString* TRANSACTION_AFFILIATION;
+@property(nonatomic,readonly) NSString* TRANSACTION_REVENUE;
+@property(nonatomic,readonly) NSString* TRANSACTION_SHIPPING;
+@property(nonatomic,readonly) NSString* TRANSACTION_TAX;
+@property(nonatomic,readonly) NSString* CURRENCY_CODE;
+
+@property(nonatomic,readonly) NSString* ITEM_PRICE;
+@property(nonatomic,readonly) NSString* ITEM_QUANTITY;
+@property(nonatomic,readonly) NSString* ITEM_SKU;
+@property(nonatomic,readonly) NSString* ITEM_NAME;
+@property(nonatomic,readonly) NSString* ITEM_CATEGORY;
+
+@property(nonatomic,readonly) NSString* SAMPLE_RATE;
+@property(nonatomic,readonly) NSString* JAVA_ENABLED;
+@property(nonatomic,readonly) NSString* FLASH_VERSION;
+@property(nonatomic,readonly) NSString* USE_SECURE;
+
 
 // hit types
 @property(nonatomic,readonly) NSString* GAIAppView;
