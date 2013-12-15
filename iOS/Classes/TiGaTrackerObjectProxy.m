@@ -1,8 +1,11 @@
 /**
- * Benjamin Bahrenburg
- * Copyright (c) 2009-2013 by Benjamin Bahrenburg. All Rights Reserved.
- * Licensed under the terms of the Apache Public License
+ * Ti.GA - Google Analytics for Titanium
+ * Copyright (c) 2013 by Benjamin Bahrenburg. All Rights Reserved.
+ * Licensed under the terms of the MIT License
  * Please see the LICENSE included with this distribution for details.
+ *
+ * Available at https://github.com/benbahrenburg/Ti.GA
+ *
  */
 
 #import "TiGaTrackerObjectProxy.h"
@@ -14,7 +17,11 @@ id<GAITracker>  _tracker;
 
 @implementation TiGaTrackerObjectProxy
 
-#define NSStringFromBOOL(aBOOL)    aBOOL? @"YES" : @"NO"
+-(void)_configure
+{
+    _sessionStart = NO;
+    [super _configure];
+}
 
 -(void)createDefaultTracker:(NSDictionary*)args
 {
@@ -34,6 +41,7 @@ id<GAITracker>  _tracker;
     if(![NSThread isMainThread]){
         TiThreadPerformOnMainThread(^{
             [self createTrackerWithId:value withParams:params];
+            [self applyDefaults];
         }, NO);
     }else{
         _tracker = [[GAI sharedInstance] trackerWithTrackingId:_trackingId];
@@ -53,8 +61,8 @@ id<GAITracker>  _tracker;
 {
     if(self =[super init]){
         
-        if ([args objectForKey:@"trackingId"]){
-            [self createTrackerWithId:[TiUtils stringValue:@"trackingId" properties:args] withParams:args];
+        if ([args objectForKey:kGAITrackingId]){
+            [self createTrackerWithId:[TiUtils stringValue:kGAITrackingId properties:args] withParams:args];
         }else{
             [self createDefaultTracker:args];
         }
@@ -64,68 +72,26 @@ id<GAITracker>  _tracker;
     return self;
 }
 
+-(void)applyDefaults
+{
+    [_tracker set:kGAIAppId
+            value:[[NSBundle mainBundle] bundleIdentifier]];
+    [_tracker set:kGAIAppName
+            value:[[[NSBundle mainBundle] infoDictionary]objectForKey:@"CFBundleName"]];
+    [_tracker set:kGAIAppVersion
+            value:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+}
+
 -(void)applyTrackerValues:(NSDictionary*)args
 {
-    [self setAppId:[[NSBundle mainBundle] bundleIdentifier]];
-    [self setAppName:[[[NSBundle mainBundle] infoDictionary]objectForKey:@"CFBundleName"]];
-    [self setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
+
+    [self applyDefaults];
     
-    if ([args objectForKey:@"appId"]){
-        [self setAppId:[TiUtils stringValue:@"appId" properties:args]];
+    for (NSString* key in args) {
+        if ([args objectForKey:key]){
+            [_tracker set:key value:[TiUtils stringValue:key properties:args]];
+        }
     }
-    
-    if ([args objectForKey:@"appName"]){
-        [self setAppName:[TiUtils stringValue:@"appName" properties:args]];
-    }
-    if ([args objectForKey:@"appVersion"]){
-        [self setAppVersion:[TiUtils stringValue:@"appVersion" properties:args]];
-    }    
-    if ([args objectForKey:@"useHttps"]){
-        [self setUseHttps:[args objectForKey:@"useHttps"]];
-    }
-    if ([args objectForKey:@"anonymize"]){
-        [self setAnonymize:[args objectForKey:@"anonymize"]];
-    }
-    if ([args objectForKey:@"sampleRate"]){
-        [self setSampleRate:[args objectForKey:@"sampleRate"]];
-    }
-}
-
-
--(NSString*)appVersion
-{
-    return _appVersion;
-}
--(void)setAppVersion:(id)value
-{
-    ENSURE_SINGLE_ARG(value, NSString);
-    ENSURE_UI_THREAD(setAppVersion,value);
-    _appVersion = [TiUtils stringValue:value];
-    [_tracker set:kGAIAppVersion value:_appVersion];
-}
-
--(NSString*)appName
-{
-    return _appName;
-}
--(void)setAppName:(id)value
-{
-    ENSURE_SINGLE_ARG(value, NSString);
-    ENSURE_UI_THREAD(setAppName,value);
-    _appName = [TiUtils stringValue:value];
-    [_tracker set:kGAIAppName value:_appName];
-}
-
--(NSString*)appId
-{
-    return _appId;
-}
--(void)setAppId:(id)value
-{
-    ENSURE_SINGLE_ARG(value, NSString);
-    ENSURE_UI_THREAD(setAppId,value);
-    _appId = [TiUtils stringValue:value];
-    [_tracker set:kGAIAppId value:_appId];
 }
 
 
@@ -179,6 +145,7 @@ id<GAITracker>  _tracker;
              value:[TiUtils stringValue:@"dimesion" properties:args]];
 
 }
+
 -(void)addCustomMetric:(id)args
 {
     ENSURE_UI_THREAD(addCustomMetric,args);
@@ -187,11 +154,13 @@ id<GAITracker>  _tracker;
     [_tracker set:[GAIFields customMetricForIndex:[TiUtils intValue:@"index" properties:args]]
             value:[[NSNumber numberWithDouble:[TiUtils doubleValue:@"metric" properties:args]] stringValue]];
 }
+
 -(void)sendView:(id)value
 {
     ENSURE_UI_THREAD(sendView,value);
     ENSURE_SINGLE_ARG(value, NSString);
     [_tracker set:kGAIScreenName value:value];
+    [_tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 }
 
 
@@ -209,41 +178,28 @@ id<GAITracker>  _tracker;
                                                              properties:args def:nil]] build]];
 }
 
--(id)anonymize
+-(NSString*)getValue:(id)name
 {
-    return NUMBOOL(_anonymize);
-}
--(void)setAnonymize:(id)value
-{
-    ENSURE_UI_THREAD(setAnonymize,value);
-    ENSURE_SINGLE_ARG(value, NSNumber);
-    _anonymize = [TiUtils boolValue:value];
-    [_tracker set:kGAIAnonymizeIp value:NSStringFromBOOL(_anonymize)];
+    ENSURE_SINGLE_ARG(name, NSString);
+    ENSURE_UI_THREAD(getValue,name);
+    return [_tracker get:name];
 }
 
--(id)useHttps
+-(void)setValue:(id)args
 {
-    return NUMBOOL(_useHttps);
-}
-
--(void)setUseHttps:(id)value
-{
-    ENSURE_UI_THREAD(setUseHttps,value);
-    ENSURE_SINGLE_ARG(value, NSNumber);
-    _useHttps = [TiUtils boolValue:value];
-    [_tracker set:kGAIUseSecure value:NSStringFromBOOL(_useHttps)];
-}
-
--(id)sampleRate
-{
-    return _sampleRate;
-}
--(void)setSampleRate:(id)value
-{
-    ENSURE_UI_THREAD(setSampleRate,value);
-    ENSURE_SINGLE_ARG(value, NSNumber);
-    _sampleRate = value;
-    [_tracker set:kGAISampleRate value:[NSString stringWithFormat:@"%f",[TiUtils doubleValue:_sampleRate]]];
+    ENSURE_UI_THREAD(setValue,args);
+    
+    enum Args {
+        kArgName = 0,
+        kArgValue,
+        kArgCount
+    };
+    
+    // Validate correct number of arguments
+    ENSURE_ARG_COUNT(args, kArgCount);
+    
+    [_tracker set:[TiUtils stringValue:[args objectAtIndex:kArgName]]
+            value:[TiUtils stringValue:[args objectAtIndex:kArgValue]]];
 }
 
 -(id)sessionStarted
@@ -265,18 +221,6 @@ id<GAITracker>  _tracker;
     _sessionStart=NO;
     [_tracker set:kGAISessionControl
             value:@"end"];
-}
-
--(id)throttlingEnabled
-{
-    NSLog(@"[DEBUG] throttlingEnabled not supported on iOS");
-    return NUMBOOL(NO);
-}
-
--(void) setThrottlingEnabled:(id)value
-{
-    ENSURE_UI_THREAD(setThrottlingEnabled,value);
-    NSLog(@"[DEBUG] throttlingEnabled not supported on iOS");
 }
 
 
