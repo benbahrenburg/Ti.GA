@@ -45,7 +45,7 @@ var ga = require('ti.ga');
 
 <h2>Module Properties</h2>
 
-The v3 version of the Google Analytics SDK works using a series of string constants. A full list of the module properties is available [here]()
+The v3 version of the Google Analytics SDK works using a series of string constants. A full list of the module properties is available [here](https://github.com/benbahrenburg/Ti.GA/blob/master/Documentation/Properties.md).
 
 <h2>Tracker Methods</h2>
 
