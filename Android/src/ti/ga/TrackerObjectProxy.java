@@ -184,6 +184,13 @@ public class TrackerObjectProxy extends KrollProxy {
 		_SessionStarted = false;
 		_Tracker.set(Fields.SESSION_CONTROL, "end");
 	}
+
+	@Kroll.method
+	public void sendSession() {
+		Util.LogDebug("sendSession");
+		MapBuilder paramMap = MapBuilder.createAppView();
+		_Tracker.send(paramMap.build());
+	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Kroll.method
@@ -210,5 +217,36 @@ public class TrackerObjectProxy extends KrollProxy {
 		_Tracker.send(paramMap
 		    .setAll(hm).build()
 		);		
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Kroll.method
+	public void createTransactionWithId(HashMap hm){
+		KrollDict args = new KrollDict(hm);
+		_Tracker.send(MapBuilder
+			      .createTransaction(TiConvert.toString(args, "transID"), // (String) Transaction ID
+			    		  			TiConvert.toString(args, "affiliation"),// (String) Affiliation
+			    		  			TiConvert.toDouble(args,"revenue"), // (Double) Order revenue
+			    		  			TiConvert.toDouble(args,"tax"),// (Double) Tax
+			                        TiConvert.toDouble(args,"shipping"),// (Double) Shipping
+			                        TiConvert.toString(args, "currencyCode")) // (String) Currency code
+			      .build()
+			  );	
+	}
+	
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Kroll.method
+	public void createItemWithTransactionId(HashMap hm){
+		KrollDict args = new KrollDict(hm);
+		_Tracker.send(MapBuilder
+			      .createItem(TiConvert.toString(args, "transID"),// (String) Transaction ID
+			    		  TiConvert.toString(args, "name"), // (String) Product name
+			    		  TiConvert.toString(args, "sku"), // (String) Product SKU
+			    		  TiConvert.toString(args, "category"),// (String) Product category
+			    		  TiConvert.toDouble(args,"price"),// (Double) Product price
+			    		  (long) TiConvert.toDouble(args,"quantity"),// (Long) Product quantity
+			              TiConvert.toString(args, "currencyCode"))// (String) Currency code
+			      .build()
+			  );	
 	}
 }

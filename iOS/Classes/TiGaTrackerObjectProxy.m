@@ -143,6 +143,7 @@ id<GAITracker>  _tracker;
     
     [_tracker set:[GAIFields customDimensionForIndex:[TiUtils intValue:@"index" properties:args]]
              value:[TiUtils stringValue:@"dimesion" properties:args]];
+    [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
 
 }
 
@@ -153,6 +154,7 @@ id<GAITracker>  _tracker;
 
     [_tracker set:[GAIFields customMetricForIndex:[TiUtils intValue:@"index" properties:args]]
             value:[[NSNumber numberWithDouble:[TiUtils doubleValue:@"metric" properties:args]] stringValue]];
+    [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
 -(void)sendView:(id)value
@@ -224,6 +226,11 @@ id<GAITracker>  _tracker;
             value:@"end"];
 }
 
+-(void) sendSession:(id)unused
+{
+    [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
+}
+
 -(void)send:(id)args
 {
     ENSURE_SINGLE_ARG(args, NSDictionary);
@@ -247,5 +254,39 @@ id<GAITracker>  _tracker;
     [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:campaignData] build]];
 
 }
-
+-(void)createTransactionWithId:(id)args
+{
+    
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    ENSURE_UI_THREAD(createTransactionWithId,args);
+    
+    [_tracker send:[[GAIDictionaryBuilder createTransactionWithId:
+                            [TiUtils stringValue:@"transID" properties:args def:nil]
+                                                     affiliation:[TiUtils stringValue:@"affiliation" properties:args def:nil]
+                                                         revenue:[NSNumber numberWithDouble:
+                                                                  [TiUtils doubleValue:@"revenue" def:0.0f]]
+                                                              tax:[NSNumber numberWithDouble:
+                                                                    [TiUtils doubleValue:@"tax" def:0.0f]]
+                                                         shipping:[NSNumber numberWithDouble:
+                                                                   [TiUtils doubleValue:@"shipping" def:0.0f]]
+                                                    currencyCode:[TiUtils stringValue:@"currencyCode"
+                                                                           properties:args def:nil]] build]];
+}
+-(void)createItemWithTransactionId:(id)args
+{
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    ENSURE_UI_THREAD(createTransactionWithId,args);
+    [_tracker send:[[GAIDictionaryBuilder createItemWithTransactionId:[TiUtils stringValue:@"transID"
+                                                                                properties:args def:nil]
+                                                                name:[TiUtils stringValue:@"name" properties:args def:nil]
+                                                                 sku:[TiUtils stringValue:@"sku" properties:args def:nil]
+                                                            category:[TiUtils stringValue:@"category"
+                                                                               properties:args def:nil]
+                                                                price:[NSNumber numberWithDouble:
+                                                                       [TiUtils doubleValue:@"price" def:0.0f]]
+                                                            quantity:[NSNumber numberWithInt:
+                                                                      [TiUtils intValue:@"quantity" def:1]]
+                                                         currencyCode:[TiUtils stringValue:@"currencyCode"
+                                                                                properties:args def:nil]] build]];
+}
 @end
