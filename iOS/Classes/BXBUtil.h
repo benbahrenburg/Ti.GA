@@ -12,4 +12,8 @@
 
 @interface BXBUtil : NSObject
 
++(void)logInfo:(NSString*) message;
++(void)logDebug:(NSString*) message;
++(void)logError:(NSString*) message;
+
 @end

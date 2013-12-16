@@ -12,6 +12,7 @@
 #import "TiUtils.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
+#import "BXBUtil.h"
 
 id<GAITracker>  _tracker;
 
@@ -62,9 +63,13 @@ id<GAITracker>  _tracker;
     if(self =[super init]){
         
         if ([args objectForKey:kGAITrackingId]){
+            [BXBUtil logDebug:[@"tracker ID = "
+                               stringByAppendingString:[TiUtils stringValue:kGAITrackingId properties:args]]];
             [self createTrackerWithId:[TiUtils stringValue:kGAITrackingId properties:args] withParams:args];
+            [BXBUtil logDebug:@"tracker with ID created"];
         }else{
             [self createDefaultTracker:args];
+            [BXBUtil logDebug:@"default tracker created"];
         }
         
     }
@@ -89,6 +94,8 @@ id<GAITracker>  _tracker;
     
     for (NSString* key in args) {
         if ([args objectForKey:key]){
+            [BXBUtil logDebug:[@"setting key = " stringByAppendingString:key]];
+            [BXBUtil logDebug:[@"setting value = " stringByAppendingString:[TiUtils stringValue:key properties:args]]];
             [_tracker set:key value:[TiUtils stringValue:key properties:args]];
         }
     }
@@ -105,12 +112,13 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(sendEvent,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
 
- 
+    [BXBUtil logDebug:@"Starting sendEvent"];
     [_tracker send:[[GAIDictionaryBuilder createEventWithCategory:[TiUtils stringValue:@"category"
                                                                             properties:args def:nil]     // Event category (required)
                                                           action:[TiUtils stringValue:@"action" properties:args def:nil]  // Event action (required)
                                                            label:[TiUtils stringValue:@"label" properties:args def:nil]          // Event label
                                                            value:[NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args def:0]]] build]];    // Event value
+    [BXBUtil logDebug:@"Finished sendEvent"];
 }
 
 -(void)sendSocial:(id)args
@@ -118,12 +126,14 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(sendSocial,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
  
+    [BXBUtil logDebug:@"Starting sendSocial"];
     [_tracker send:[[GAIDictionaryBuilder createSocialWithNetwork:[TiUtils stringValue:@"network"
                                                                           properties:args def:nil]// Social network (required)
                                                          action:[TiUtils stringValue:@"action"
                                                                           properties:args def:nil]// Social action (required)
                                                           target:[TiUtils stringValue:@"target"
                                                                            properties:args def:nil]] build]];  // Social target
+    [BXBUtil logDebug:@"Finished sendSocial"];
 }
 
 -(void)sendException:(id)value
@@ -131,38 +141,48 @@ id<GAITracker>  _tracker;
     ENSURE_UI_THREAD(sendException,value);
     ENSURE_SINGLE_ARG(value, NSString);
     
+    [BXBUtil logDebug:@"Starting sendException"];
     // Exception description. May be truncated to 100 chars.
     [_tracker send:[[GAIDictionaryBuilder
                      createExceptionWithDescription:value withFatal:NO] build]];
+    [BXBUtil logDebug:@"Finished sendException"];
 }
 
 -(void)addCustomDimension:(id)args
 {
     ENSURE_UI_THREAD(addCustomDimension,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
+    [BXBUtil logDebug:@"Starting addCustomDimension"];
     
     [_tracker set:[GAIFields customDimensionForIndex:[TiUtils intValue:@"index" properties:args]]
              value:[TiUtils stringValue:@"dimesion" properties:args]];
     [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
 
+    [BXBUtil logDebug:@"Finished addCustomDimension"];
 }
 
 -(void)addCustomMetric:(id)args
 {
     ENSURE_UI_THREAD(addCustomMetric,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
-
+    [BXBUtil logDebug:@"Starting addCustomMetric"];
+    
     [_tracker set:[GAIFields customMetricForIndex:[TiUtils intValue:@"index" properties:args]]
             value:[[NSNumber numberWithDouble:[TiUtils doubleValue:@"metric" properties:args]] stringValue]];
     [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    
+    [BXBUtil logDebug:@"Finish addCustomMetric"];
 }
 
 -(void)sendView:(id)value
 {
     ENSURE_UI_THREAD(sendView,value);
     ENSURE_SINGLE_ARG(value, NSString);
+    
+    [BXBUtil logDebug:[@"Starting sendView, view = " stringByAppendingString:value]];
     [_tracker set:kGAIScreenName value:value];
     [_tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+    [BXBUtil logDebug:@"Finished sendView"];
 }
 
 
@@ -170,7 +190,8 @@ id<GAITracker>  _tracker;
 {
     ENSURE_UI_THREAD(sendTiming,args);
     ENSURE_SINGLE_ARG(args,NSDictionary);
- 
+    [BXBUtil logDebug:@"Start sendTiming"];
+    
     [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:[TiUtils stringValue:@"category"
                                                              properties:args def:nil]   // Timing category (required)
                                           interval:[NSNumber numberWithDouble:[TiUtils doubleValue:@"value" properties:args]]// Timing interval (required)
@@ -178,13 +199,17 @@ id<GAITracker>  _tracker;
                                                              properties:args def:nil]  // Timing name
                                              label:[TiUtils stringValue:@"label"
                                                              properties:args def:nil]] build]];
+
+    [BXBUtil logDebug:@"Finish sendTiming"];
 }
 
--(NSString*)getValue:(id)name
+-(NSString*)getValue:(id)key
 {
-    ENSURE_SINGLE_ARG(name, NSString);
-    ENSURE_UI_THREAD(getValue,name);
-    return [_tracker get:name];
+    ENSURE_SINGLE_ARG(key, NSString);
+    ENSURE_UI_THREAD(getValue,key);
+    [BXBUtil logDebug:[@"getValue key = " stringByAppendingString:key]];
+    
+    return [_tracker get:key];
 }
 
 -(void)setValue:(id)args
@@ -200,6 +225,9 @@ id<GAITracker>  _tracker;
     // Validate correct number of arguments
     ENSURE_ARG_COUNT(args, kArgCount);
     
+    [BXBUtil logDebug:[@"setValue key = " stringByAppendingString:[TiUtils stringValue:[args objectAtIndex:kArgName]]]];
+    [BXBUtil logDebug:[@"getValue value = " stringByAppendingString:[TiUtils stringValue:[args objectAtIndex:kArgValue]]]];
+    
     [_tracker set:[TiUtils stringValue:[args objectAtIndex:kArgName]]
             value:[TiUtils stringValue:[args objectAtIndex:kArgValue]]];
 }
@@ -213,36 +241,44 @@ id<GAITracker>  _tracker;
 -(void)startSession:(id)unused
 {
     ENSURE_UI_THREAD(startSession,unused);
+    [BXBUtil logDebug:@"Start startSession"];
     _sessionStart=YES;
     [_tracker set:kGAISessionControl
            value:@"start"];
+    [BXBUtil logDebug:@"Finish startSession"];
 }
 
 -(void)endSession:(id)unused
 {
     ENSURE_UI_THREAD(endSession,unused);
+    [BXBUtil logDebug:@"Start endSession"];
     _sessionStart=NO;
     [_tracker set:kGAISessionControl
             value:@"end"];
+    [BXBUtil logDebug:@"Finish endSession"];
 }
 
 -(void) sendSession:(id)unused
 {
+    [BXBUtil logDebug:@"Start sendSession"];
     [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    [BXBUtil logDebug:@"Finish sendSession"];
 }
 
 -(void)send:(id)args
 {
     ENSURE_SINGLE_ARG(args, NSDictionary);
     ENSURE_UI_THREAD(send,args);
-    
+    [BXBUtil logDebug:@"Start send"];
     [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:args] build]];
+    [BXBUtil logDebug:@"Finish send"];
 }
 
 -(void)sendCampaign:(id)args
 {
     ENSURE_SINGLE_ARG(args, NSDictionary);
     ENSURE_UI_THREAD(sendCampaign,args);
+    [BXBUtil logDebug:@"Start sendCampaign"];
     
     NSDictionary *campaignData = [NSDictionary dictionaryWithObjectsAndKeys:
                                   [TiUtils stringValue:@"source"properties:args def:nil],kGAICampaignSource ,
@@ -252,6 +288,7 @@ id<GAITracker>  _tracker;
                                   nil];
     
     [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:campaignData] build]];
+    [BXBUtil logDebug:@"Finish sendCampaign"];
 
 }
 -(void)createTransactionWithId:(id)args
@@ -259,6 +296,7 @@ id<GAITracker>  _tracker;
     
     ENSURE_SINGLE_ARG(args, NSDictionary);
     ENSURE_UI_THREAD(createTransactionWithId,args);
+    [BXBUtil logDebug:@"Start createTransactionWithId"];
     
     [_tracker send:[[GAIDictionaryBuilder createTransactionWithId:
                             [TiUtils stringValue:@"transID" properties:args def:nil]
@@ -271,11 +309,14 @@ id<GAITracker>  _tracker;
                                                                    [TiUtils doubleValue:@"shipping" def:0.0f]]
                                                     currencyCode:[TiUtils stringValue:@"currencyCode"
                                                                            properties:args def:nil]] build]];
+    [BXBUtil logDebug:@"Finish createTransactionWithId"];
 }
 -(void)createItemWithTransactionId:(id)args
 {
     ENSURE_SINGLE_ARG(args, NSDictionary);
     ENSURE_UI_THREAD(createTransactionWithId,args);
+    [BXBUtil logDebug:@"Start createItemWithTransactionId"];
+    
     [_tracker send:[[GAIDictionaryBuilder createItemWithTransactionId:[TiUtils stringValue:@"transID"
                                                                                 properties:args def:nil]
                                                                 name:[TiUtils stringValue:@"name" properties:args def:nil]
@@ -288,5 +329,6 @@ id<GAITracker>  _tracker;
                                                                       [TiUtils intValue:@"quantity" def:1]]
                                                          currencyCode:[TiUtils stringValue:@"currencyCode"
                                                                                 properties:args def:nil]] build]];
+    [BXBUtil logDebug:@"Finish createItemWithTransactionId"];
 }
 @end

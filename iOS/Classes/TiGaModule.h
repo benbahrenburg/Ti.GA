@@ -14,6 +14,8 @@
     BOOL _errorHandlerEnabled;
 }
 
++(BOOL) LOG_DEBUG;
+
 @property(nonatomic,readonly) NSString* ANONYMIZE_IP;
 @property(nonatomic,readonly) NSString* HIT_TYPE;
 @property(nonatomic,readonly) NSString* SESSION_CONTROL;

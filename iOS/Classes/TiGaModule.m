@@ -14,8 +14,11 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "TiGaTrackerObjectProxy.h"
+#import "BXBUtil.h"
 
 @implementation TiGaModule
+
+static BOOL _LOG_DEBUG = NO;
 
 #pragma mark Internal
 
@@ -63,6 +66,11 @@
 	[super didReceiveMemoryWarning:notification];
 }
 
++(BOOL) LOG_DEBUG
+{
+    return _LOG_DEBUG;
+}
+
 -(id)createTracker:(id)args
 {
     if(args == nil){
@@ -82,9 +90,13 @@
 -(void) setDebug:(id)value
 {
     if([TiUtils boolValue:value]){
-        [[GAI sharedInstance].logger setLogLevel:kGAILogLevelNone];
-    }else{
         [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+        _LOG_DEBUG = YES;
+        [BXBUtil logDebug:@"Debug enabled"];
+    }else{
+        [[GAI sharedInstance].logger setLogLevel:kGAILogLevelNone];
+        _LOG_DEBUG = NO;
+        [BXBUtil logDebug:@"Debug disabled, only warnings will be displayed"];
     }
 }
 
@@ -104,6 +116,9 @@
 -(void)setDispatchInterval:(id)value
 {
     ENSURE_SINGLE_ARG(value,NSNumber);
+    
+    [BXBUtil logDebug:[@"Display level set " stringByAppendingString:[NSString stringWithFormat:@"%f",
+                                                                      [TiUtils doubleValue:value]]]];
     [GAI sharedInstance].dispatchInterval = [TiUtils doubleValue:value];
 }
 
@@ -115,12 +130,14 @@
 {
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     _errorHandlerEnabled = YES;
+    [BXBUtil logDebug:@"trackUncaughtExceptions enabled "];
 }
 
 -(void)dispatch:(id)unused
 {
     ENSURE_UI_THREAD(dispatch,unused);    
     [[GAI sharedInstance] dispatch];
+    [BXBUtil logDebug:@"manual dispatch called"];
 }
 
 MAKE_SYSTEM_PROP(ANONYMIZE_IP,kGAIAnonymizeIp);

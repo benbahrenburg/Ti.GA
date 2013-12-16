@@ -8,7 +8,25 @@
  *
  */
 #import "BXBUtil.h"
+#import "TiGaModule.h"
 
 @implementation BXBUtil
+
++(void)logInfo:(NSString*) message
+{
+    NSLog(@"[INFO] %@", message);
+}
+
++(void)logDebug:(NSString*) message
+{
+    if([TiGaModule LOG_DEBUG]){
+            NSLog(@"[DEBUG] %@", message);
+    }
+}
+
++(void)logError:(NSString*) message
+{
+    NSLog(@"[ERROR] %@", message);
+}
 
 @end
