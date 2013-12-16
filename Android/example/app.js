@@ -1,30 +1,25 @@
 var ga = require('ti.ga');
-Ti.API.info("module is => " + ga);
 
-// open a single window
-var win = Ti.UI.createWindow({
-	backgroundColor:'white'
-});
+Ti.API.info('Enabled Debug');
+ga.debug = true;
 
-win.open();
+Ti.API.info('Is debug enabled? ' + ga.debug);
 
-var tracker = ga.createTracker({
-	trackingId : 'your key',
-	anonymize:true,
-	useHttps:true
-});
+Ti.API.info('Set Dispatch Interval, this is the number of seconds which GA should wait before automaticaly dispatching');
+ga.setDispatchInterval(15);
 
-Ti.API.info('AppName =>' + tracker.appName);
-Ti.API.info('AppId =>' + tracker.appId);
-Ti.API.info('appVersion =>' + tracker.appVersion);
-Ti.API.info('anonymize =>' + tracker.anonymize);
-Ti.API.info('useHttps =>' + tracker.useHttps);
+Ti.API.info('You can opt out by like this');
+ga.optOut = true;
 
-tracker.setSessionStart(true);
+Ti.API.info("Let's opt back in");
+ga.optOut = false;
 
-tracker.sendView("main");
-tracker.sendEvent({
-	category:'test_category',
-	action:'test_action',
-	label:'test_label'
-});
+Ti.API.info("enable unhandled exception tracking");
+ga.enableTrackUncaughtExceptions();
+
+Ti.API.info('You can also manually dispatch all analytics');
+Ti.API.info('Recommend only doing this if the device has a connection');
+
+if(Ti.Network.online){
+	ga.dispatch();	
+}

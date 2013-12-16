@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 0.3
+version: 0.5
 apiversion: 2
 description: Google Analytics for Titanium
 author: Benjamin Bahrenburg
@@ -15,4 +15,4 @@ name: tiga
 moduleid: ti.ga
 guid: a9de22d1-1be5-48ae-8adb-b06efa3eb182
 platform: android
-minsdk: 3.1.1.GA
+minsdk: 3.1.3.GA

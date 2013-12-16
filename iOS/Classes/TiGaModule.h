@@ -10,6 +10,8 @@
 #import "TiModule.h"
 
 @interface TiGaModule : TiModule {
+@private
+    BOOL _errorHandlerEnabled;
 }
 
 @property(nonatomic,readonly) NSString* ANONYMIZE_IP;

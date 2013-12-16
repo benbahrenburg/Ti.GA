@@ -52,16 +52,16 @@ public class Util {
 	}
 	public static void LogInfo(String message)
 	{
-		Log.i(TigaModule.MODULE_SHORT_NAME,message);			
+		Log.i(TigaModule.MODULE_SHORT_NAME,"[INFO] " +message);			
 	}
 	public static void LogError(String message)
 	{
-		Log.e(TigaModule.MODULE_SHORT_NAME,message);			
+		Log.e(TigaModule.MODULE_SHORT_NAME,"[ERROR] " + message);			
 	}
 	public static void LogDebug(String message)
 	{
 		if(TigaModule.DEBUG){
-			Log.d(TigaModule.MODULE_SHORT_NAME,message);
+			Log.d(TigaModule.MODULE_SHORT_NAME,"[DEBUG] " + message);
 		}				
 	}
 }

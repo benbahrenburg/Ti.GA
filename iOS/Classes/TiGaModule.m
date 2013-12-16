@@ -35,6 +35,7 @@
 
 -(void)startup
 {
+    _errorHandlerEnabled = NO;
 	// this method is called when the module is first loaded
 	// you *must* call the superclass
 	[super startup];
@@ -106,14 +107,14 @@
     [GAI sharedInstance].dispatchInterval = [TiUtils doubleValue:value];
 }
 
--(id) trackUncaughtExceptions
+-(NSNumber*) isTrackUncaughtExceptionsActive:(id)unused
 {
-    return NUMBOOL([GAI sharedInstance].trackUncaughtExceptions);
+    return NUMBOOL(_errorHandlerEnabled);
 }
--(void) setTrackUncaughtExceptions:(id)value
+-(void) enableTrackUncaughtExceptions:(id)unused
 {
-    ENSURE_SINGLE_ARG(value,NSNumber);
-    [GAI sharedInstance].trackUncaughtExceptions = [TiUtils boolValue:value];
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    _errorHandlerEnabled = YES;
 }
 
 -(void)dispatch:(id)unused

@@ -42,13 +42,14 @@ public class TrackerObjectProxy extends KrollProxy {
 	}
 	
 	private void applyDefaults(){
+		Util.LogDebug("Applying default application information");
 		setValue(Fields.APP_ID,Util.getApplicationPackageName(TiApplication.getInstance().getApplicationContext()));
 		setValue(Fields.APP_NAME,Util.getApplicationName(TiApplication.getInstance().getApplicationContext()));
 		setValue(Fields.APP_VERSION,Util.getApplicationVersion(TiApplication.getInstance().getApplicationContext()));
 	}
 	@SuppressWarnings("rawtypes") 
-	private void applyProperties(HashMap hm){
-	
+	private void applyProperties(HashMap hm){	
+		Util.LogDebug("Applying Tracker Parameters provided");
 		Iterator entries = hm.entrySet().iterator();
 		while (entries.hasNext()) {
 			Map.Entry entry = (Map.Entry) entries.next();
@@ -156,8 +157,9 @@ public class TrackerObjectProxy extends KrollProxy {
 	
 
 	@Kroll.method
-	public String getValue(String name) {
-		return _Tracker.get(name);
+	public String getValue(String key) {
+		Util.LogDebug("getValue: key =" + key);
+		return _Tracker.get(key);
 	}
 	
 	@Kroll.method
@@ -196,6 +198,7 @@ public class TrackerObjectProxy extends KrollProxy {
 	@Kroll.method
 	public void sendCampaign(HashMap hm){
 		KrollDict args = new KrollDict(hm);
+		Util.LogDebug("sendCampaign method called with parameters");
 		HashMap<String, String> campaignData = new HashMap<String, String>();
 		campaignData.put(Fields.CAMPAIGN_SOURCE, TiConvert.toString(args, "source"));
 		campaignData.put(Fields.CAMPAIGN_MEDIUM, TiConvert.toString(args, "medium"));
@@ -213,6 +216,9 @@ public class TrackerObjectProxy extends KrollProxy {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Kroll.method
 	public void send(HashMap hm){
+		
+		Util.LogDebug("send method called with parameters");
+		
 		MapBuilder paramMap = MapBuilder.createAppView();
 		_Tracker.send(paramMap
 		    .setAll(hm).build()
@@ -223,6 +229,7 @@ public class TrackerObjectProxy extends KrollProxy {
 	@Kroll.method
 	public void createTransactionWithId(HashMap hm){
 		KrollDict args = new KrollDict(hm);
+		Util.LogDebug("createTransactionWithId method called with parameters");
 		_Tracker.send(MapBuilder
 			      .createTransaction(TiConvert.toString(args, "transID"), // (String) Transaction ID
 			    		  			TiConvert.toString(args, "affiliation"),// (String) Affiliation
@@ -238,6 +245,7 @@ public class TrackerObjectProxy extends KrollProxy {
 	@Kroll.method
 	public void createItemWithTransactionId(HashMap hm){
 		KrollDict args = new KrollDict(hm);
+		Util.LogDebug("createItemWithTransactionId method called with parameters");
 		_Tracker.send(MapBuilder
 			      .createItem(TiConvert.toString(args, "transID"),// (String) Transaction ID
 			    		  TiConvert.toString(args, "name"), // (String) Product name

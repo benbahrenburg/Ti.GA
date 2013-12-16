@@ -43,6 +43,8 @@
 		43A3D2681858865500E0D93A /* TAGDataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3D2631858865500E0D93A /* TAGDataLayer.h */; };
 		43A3D2691858865500E0D93A /* TAGLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3D2641858865500E0D93A /* TAGLogger.h */; };
 		43A3D26A1858865500E0D93A /* TAGManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3D2651858865500E0D93A /* TAGManager.h */; };
+		43E895D3185ECD9400114B2D /* BXBUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 43E895D1185ECD9400114B2D /* BXBUtil.h */; };
+		43E895D4185ECD9400114B2D /* BXBUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E895D2185ECD9400114B2D /* BXBUtil.m */; };
 		AA747D9F0F9514B9006C5449 /* TiGa_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiGa_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +82,8 @@
 		43A3D2631858865500E0D93A /* TAGDataLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGDataLayer.h; sourceTree = "<group>"; };
 		43A3D2641858865500E0D93A /* TAGLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGLogger.h; sourceTree = "<group>"; };
 		43A3D2651858865500E0D93A /* TAGManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAGManager.h; sourceTree = "<group>"; };
+		43E895D1185ECD9400114B2D /* BXBUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BXBUtil.h; path = Classes/BXBUtil.h; sourceTree = "<group>"; };
+		43E895D2185ECD9400114B2D /* BXBUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BXBUtil.m; path = Classes/BXBUtil.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiGa_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGa_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libTiGa.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiGa.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +145,8 @@
 				24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* TiGaModule.h */,
 				24DD6CF81134B3F500162E58 /* TiGaModule.m */,
+				43E895D1185ECD9400114B2D /* BXBUtil.h */,
+				43E895D2185ECD9400114B2D /* BXBUtil.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 				43A3D24F18586C3A00E0D93A /* GAI.h in Headers */,
 				43A3D2671858865500E0D93A /* TAGContainerOpener.h in Headers */,
 				43A3D25318586C3A00E0D93A /* GAITrackedViewController.h in Headers */,
+				43E895D3185ECD9400114B2D /* BXBUtil.h in Headers */,
 				43A3D2661858865500E0D93A /* TAGContainer.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* TiGaModuleAssets.h in Headers */,
 				43A3D25118586C3A00E0D93A /* GAIFields.h in Headers */,
@@ -269,6 +276,7 @@
 			files = (
 				24DD6CFA1134B3F500162E58 /* TiGaModule.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiGaModuleAssets.m in Sources */,
+				43E895D4185ECD9400114B2D /* BXBUtil.m in Sources */,
 				436E55F0174F1064008BEF1F /* TiGaTrackerObjectProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

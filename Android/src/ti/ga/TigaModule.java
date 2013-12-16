@@ -8,6 +8,7 @@
  */
 package ti.ga;
 
+import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.HashMap;
 
 import org.appcelerator.kroll.KrollModule;
@@ -16,10 +17,12 @@ import org.appcelerator.titanium.TiApplication;
 
 import android.app.Activity;
 
+import com.google.analytics.tracking.android.ExceptionReporter;
 import com.google.analytics.tracking.android.Fields;
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.GAServiceManager;
 import com.google.analytics.tracking.android.Logger.LogLevel;
+import com.google.analytics.tracking.android.Tracker;
 
 @Kroll.module(name="Tiga", id="ti.ga")
 public class TigaModule extends KrollModule
@@ -29,7 +32,8 @@ public class TigaModule extends KrollModule
 	public static boolean DEBUG = false;
 	public static final String MODULE_SHORT_NAME = "ti.ga";	
 	private GoogleAnalytics _ga = null;
-	private boolean _optOut = false;
+	private boolean _errorHandler = false;
+	
 	public TigaModule()
 	{
 		super();
@@ -63,10 +67,12 @@ public class TigaModule extends KrollModule
 			GoogleAnalytics.getInstance(TiApplication.getInstance().getRootOrCurrentActivity())
 		    .getLogger()
 		    .setLogLevel(LogLevel.VERBOSE);
+			Util.LogDebug("Debugging Enabled");	
 		}else{
 			GoogleAnalytics.getInstance(TiApplication.getInstance().getRootOrCurrentActivity())
 		    .getLogger()
-		    .setLogLevel(LogLevel.WARNING);			
+		    .setLogLevel(LogLevel.WARNING);
+			Util.LogDebug("Debugging Disabled, only warnings will show");	
 		}
 	}
 
@@ -79,11 +85,11 @@ public class TigaModule extends KrollModule
 	}
 	
 	@SuppressWarnings("deprecation")
-	@Kroll.setProperty
+	@Kroll.method
 	public void setDispatchInterval(int interval)
 	{
 		Util.LogDebug("setDispatchInterval = " + interval);
-		GAServiceManager.getInstance().setLocalDispatchPeriod(15);
+		GAServiceManager.getInstance().setLocalDispatchPeriod(interval);
 	}
 	// Properties
 	@Kroll.getProperty
@@ -95,8 +101,30 @@ public class TigaModule extends KrollModule
 	@Kroll.setProperty
 	public void setOptOut(boolean value) {
 		Util.LogDebug("setOptOut =" + value);
-		_optOut = value;
-		_ga.setAppOptOut(_optOut);
+		_ga.setAppOptOut(value);
+	}
+	
+	@Kroll.method
+	public boolean isTrackUncaughtExceptionsActive(){
+		return _errorHandler;
+	}
+	
+	@Kroll.method
+	public void enableTrackUncaughtExceptions(){
+		Tracker tracker = GoogleAnalytics.getInstance(TiApplication.getInstance().getRootOrCurrentActivity()).getDefaultTracker();
+		if(tracker == null){
+			Util.LogError("Tracker has not yet been created. At least one must be created for enableTrackUncaughtExceptions can be set");
+			return;
+		}
+		UncaughtExceptionHandler gaErrHandler = new ExceptionReporter(
+				tracker, // Tracker, may return null if not yet initialized.
+			    GAServiceManager.getInstance(),                        // GAServiceManager singleton.
+			    Thread.getDefaultUncaughtExceptionHandler(), null);          // Current default uncaught exception handler.
+
+			// Make myHandler the new default uncaught exception handler.
+			Thread.setDefaultUncaughtExceptionHandler(gaErrHandler);
+			_errorHandler = true;
+			Util.LogDebug("UncaughtExceptions enabled");	
 	}
 	
 	@Override
