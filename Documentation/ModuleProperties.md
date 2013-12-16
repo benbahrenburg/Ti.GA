@@ -115,3 +115,11 @@ The v3 version of the Google Analytics SDK works using a series of string consta
 <h3>LASH_VERSION</h3>
 
 <h3>USE_SECURE</h3>
+
+<h3>HELPER_CONSTANT_TRUE</h3>
+
+Since all input values for Google Analytics are strings, the <b>HELPER_CONSTANT_TRUE</b> property provides the correct boolean "true" value for the platform.
+
+<h3>HELPER_CONSTANT_FALSE</h3>
+
+Since all input values for Google Analytics are strings, the <b>HELPER_CONSTANT_FALSE</b> property provides the correct boolean "false" value for the platform.

@@ -84,6 +84,9 @@
 @property(nonatomic,readonly) NSString* FLASH_VERSION;
 @property(nonatomic,readonly) NSString* USE_SECURE;
 
+@property(nonatomic,readonly) NSString* HELPER_CONSTANT_TRUE;
+@property(nonatomic,readonly) NSString* HELPER_CONSTANT_FALSE;
+
 
 // hit types
 @property(nonatomic,readonly) NSString* GAIAppView;

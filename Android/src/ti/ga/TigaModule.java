@@ -193,6 +193,9 @@ public class TigaModule extends KrollModule
 	 @Kroll.constant public static final String FLASH_VERSION = Fields.FLASH_VERSION;
 	 @Kroll.constant public static final String USE_SECURE = Fields.USE_SECURE;
 	 
+	 @Kroll.constant public static final String HELPER_CONSTANT_TRUE = "true";
+	 @Kroll.constant public static final String HELPER_CONSTANT_FALSE = "false";
+	 
 	 //Android only properties
 	 @Kroll.constant public static final String ANDROID_APP_UID = Fields.ANDROID_APP_UID;
 	 
