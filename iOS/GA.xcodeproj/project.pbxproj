@@ -28,7 +28,7 @@
 		24DE9E1211C5FE74003F90F6 /* TiGaModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */; };
 		436E55EF174F1064008BEF1F /* TiGaTrackerObjectProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 436E55ED174F1064008BEF1F /* TiGaTrackerObjectProxy.h */; };
 		436E55F0174F1064008BEF1F /* TiGaTrackerObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 436E55EE174F1064008BEF1F /* TiGaTrackerObjectProxy.m */; };
-		43A3D24818586BCD00E0D93A /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A3D24718586BCD00E0D93A /* libGoogleAnalyticsServices.a */; };
+		43A2936F186A2A8E00073B7F /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 43A2936E186A2A8E00073B7F /* libGoogleAnalyticsServices.a */; };
 		43A3D24F18586C3A00E0D93A /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3D24918586C3A00E0D93A /* GAI.h */; };
 		43A3D25018586C3A00E0D93A /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3D24A18586C3A00E0D93A /* GAIDictionaryBuilder.h */; };
 		43A3D25118586C3A00E0D93A /* GAIFields.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A3D24B18586C3A00E0D93A /* GAIFields.h */; };
@@ -67,7 +67,7 @@
 		24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaModuleAssets.m; path = Classes/TiGaModuleAssets.m; sourceTree = "<group>"; };
 		436E55ED174F1064008BEF1F /* TiGaTrackerObjectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaTrackerObjectProxy.h; path = Classes/TiGaTrackerObjectProxy.h; sourceTree = "<group>"; };
 		436E55EE174F1064008BEF1F /* TiGaTrackerObjectProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaTrackerObjectProxy.m; path = Classes/TiGaTrackerObjectProxy.m; sourceTree = "<group>"; };
-		43A3D24718586BCD00E0D93A /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		43A2936E186A2A8E00073B7F /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GALib/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		43A3D24918586C3A00E0D93A /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		43A3D24A18586C3A00E0D93A /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		43A3D24B18586C3A00E0D93A /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
@@ -94,11 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A2936F186A2A8E00073B7F /* libGoogleAnalyticsServices.a in Frameworks */,
 				43A3D2601858842E00E0D93A /* AdSupport.framework in Frameworks */,
 				43A3D25E1858833D00E0D93A /* libz.dylib in Frameworks */,
 				43A3D25C1858825800E0D93A /* SystemConfiguration.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
-				43A3D24818586BCD00E0D93A /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,6 +128,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43A2936E186A2A8E00073B7F /* libGoogleAnalyticsServices.a */,
 				43A3D25F1858842E00E0D93A /* AdSupport.framework */,
 				43A3D25D1858833D00E0D93A /* libz.dylib */,
 				43A3D25B1858825800E0D93A /* SystemConfiguration.framework */,
@@ -174,7 +175,6 @@
 				43A3D24C18586C3A00E0D93A /* GAILogger.h */,
 				43A3D24D18586C3A00E0D93A /* GAITrackedViewController.h */,
 				43A3D24E18586C3A00E0D93A /* GAITracker.h */,
-				43A3D24718586BCD00E0D93A /* libGoogleAnalyticsServices.a */,
 			);
 			path = GAI;
 			sourceTree = "<group>";
@@ -318,8 +318,9 @@
 				INSTALL_PATH = /usr/local/lib;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/GAI\\\"",
+					"\\\\\\\"$(SRCROOT)/GAI\\\\\\\"",
 					/Users/benjamin/Projects/Ti/Modules/TiGA/iOS/GAI,
+					/Users/benjamin/Projects/Modules/TiGA/iOS/GALib,
 				);
 				OTHER_CFLAGS = (
 					"-DDEBUG",
@@ -361,8 +362,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/GAI\\\"",
+					"\\\\\\\"$(SRCROOT)/GAI\\\\\\\"",
 					/Users/benjamin/Projects/Ti/Modules/TiGA/iOS/GAI,
+					/Users/benjamin/Projects/Modules/TiGA/iOS/GALib,
 				);
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
