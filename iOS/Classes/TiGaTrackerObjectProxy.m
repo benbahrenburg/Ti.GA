@@ -267,11 +267,18 @@ id<GAITracker>  _tracker;
 
 -(void)send:(id)args
 {
-    ENSURE_SINGLE_ARG(args, NSDictionary);
     ENSURE_UI_THREAD(send,args);
-    [BXBUtil logDebug:@"Start send"];
-    [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:args] build]];
-    [BXBUtil logDebug:@"Finish send"];
+    
+    if(args ==nil){
+        [BXBUtil logDebug:@"Start send without dictionary"];
+        [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
+        [BXBUtil logDebug:@"Finish send without dictionary"];
+    }else{
+        ENSURE_SINGLE_ARG(args, NSDictionary);
+        [BXBUtil logDebug:@"Start send with dictionary"];
+        [_tracker send:[[[GAIDictionaryBuilder createAppView] setAll:args] build]];
+        [BXBUtil logDebug:@"Finish send with dictionary"];
+    }
 }
 
 -(void)sendCampaign:(id)args
