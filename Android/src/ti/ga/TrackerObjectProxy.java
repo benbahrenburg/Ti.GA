@@ -215,14 +215,22 @@ public class TrackerObjectProxy extends KrollProxy {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Kroll.method
-	public void send(HashMap hm){
+	public void send(@Kroll.argument(optional=true) HashMap hm){
 		
-		Util.LogDebug("send method called with parameters");
-		
-		MapBuilder paramMap = MapBuilder.createAppView();
-		_Tracker.send(paramMap
-		    .setAll(hm).build()
-		);		
+		if(hm == null){
+			Util.LogDebug("send method called without parameters");
+			
+			MapBuilder paramMap = MapBuilder.createAppView();
+			_Tracker.send(paramMap.build());				
+		}else{
+			Util.LogDebug("send method called with parameters");
+			
+			MapBuilder paramMap = MapBuilder.createAppView();
+			_Tracker.send(paramMap
+			    .setAll(hm).build()
+			);				
+		}
+	
 	}
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
