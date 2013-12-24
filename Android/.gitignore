@@ -1,8 +1,35 @@
 tmp
 bin
 build
-*.zip
 .apt_generated
 hooks
 libs
 .settings
+
+*.pydevproject
+.metadata
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# TeXlipse plugin
+.texlipse
