@@ -43,9 +43,9 @@ public class TrackerObjectProxy extends KrollProxy {
 	
 	private void applyDefaults(){
 		Util.LogDebug("Applying default application information");
-		setValue(Fields.APP_ID,Util.getApplicationPackageName(TiApplication.getInstance().getApplicationContext()));
-		setValue(Fields.APP_NAME,Util.getApplicationName(TiApplication.getInstance().getApplicationContext()));
-		setValue(Fields.APP_VERSION,Util.getApplicationVersion(TiApplication.getInstance().getApplicationContext()));
+		createValue(Fields.APP_ID,Util.getApplicationPackageName(TiApplication.getInstance().getApplicationContext()));
+		createValue(Fields.APP_NAME,Util.getApplicationName(TiApplication.getInstance().getApplicationContext()));
+		createValue(Fields.APP_VERSION,Util.getApplicationVersion(TiApplication.getInstance().getApplicationContext()));
 	}
 	@SuppressWarnings("rawtypes") 
 	private void applyProperties(HashMap hm){	
@@ -53,7 +53,7 @@ public class TrackerObjectProxy extends KrollProxy {
 		Iterator entries = hm.entrySet().iterator();
 		while (entries.hasNext()) {
 			Map.Entry entry = (Map.Entry) entries.next();
-			setValue(entry.getKey().toString(),entry.getValue().toString());
+			createValue(entry.getKey().toString(),entry.getValue().toString());
 		}
 	}
 	
@@ -157,13 +157,13 @@ public class TrackerObjectProxy extends KrollProxy {
 	
 
 	@Kroll.method
-	public String getValue(String key) {
+	public String findValue(String key) {
 		Util.LogDebug("getValue: key =" + key);
 		return _Tracker.get(key);
 	}
 	
 	@Kroll.method
-	public void setValue(String key,String value) {
+	public void createValue(String key,String value) {
 		Util.LogDebug("setValue: key =" + key + " value=" + value);
 		_Tracker.set(key, value);
 	}

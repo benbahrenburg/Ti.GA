@@ -203,18 +203,18 @@ id<GAITracker>  _tracker;
     [BXBUtil logDebug:@"Finish sendTiming"];
 }
 
--(NSString*)getValue:(id)key
+-(NSString*)findValue:(id)key
 {
     ENSURE_SINGLE_ARG(key, NSString);
-    ENSURE_UI_THREAD(getValue,key);
+    ENSURE_UI_THREAD(findValue,key);
     [BXBUtil logDebug:[@"getValue key = " stringByAppendingString:key]];
     
     return [_tracker get:key];
 }
 
--(void)setValue:(id)args
+-(void)createValue:(id)args
 {
-    ENSURE_UI_THREAD(setValue,args);
+    ENSURE_UI_THREAD(createValue,args);
     
     enum Args {
         kArgName = 0,
