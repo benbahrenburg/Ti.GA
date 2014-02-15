@@ -26,13 +26,13 @@
 		24DD6CFA1134B3F500162E58 /* TiGoogleanalyticsModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiGoogleanalyticsModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.m */; };
+		436B782918B02E5800FEB1BC /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 436B782818B02E5800FEB1BC /* libGoogleAnalyticsServices.a */; };
 		A09F098117C30B4F00A6EC03 /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097517C30B4F00A6EC03 /* GAI.h */; };
 		A09F098217C30B4F00A6EC03 /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097617C30B4F00A6EC03 /* GAIDictionaryBuilder.h */; };
 		A09F098317C30B4F00A6EC03 /* GAIFields.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097717C30B4F00A6EC03 /* GAIFields.h */; };
 		A09F098417C30B4F00A6EC03 /* GAILogger.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097817C30B4F00A6EC03 /* GAILogger.h */; };
 		A09F098517C30B4F00A6EC03 /* GAITrackedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097917C30B4F00A6EC03 /* GAITrackedViewController.h */; };
 		A09F098617C30B4F00A6EC03 /* GAITracker.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097A17C30B4F00A6EC03 /* GAITracker.h */; };
-		A09F098717C30B4F00A6EC03 /* libGoogleAnalyticsServices.3.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A09F097B17C30B4F00A6EC03 /* libGoogleAnalyticsServices.3.0.a */; };
 		A09F098E17C30C7700A6EC03 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09F098D17C30C7700A6EC03 /* CoreData.framework */; };
 		A09F099017C30C7D00A6EC03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A09F098F17C30C7C00A6EC03 /* SystemConfiguration.framework */; };
 		A09F099317C3132200A6EC03 /* TiGoogleanalyticsTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F099117C3132200A6EC03 /* TiGoogleanalyticsTracker.h */; };
@@ -61,13 +61,13 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGoogleanalyticsModuleAssets.h; path = Classes/TiGoogleanalyticsModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGoogleanalyticsModuleAssets.m; path = Classes/TiGoogleanalyticsModuleAssets.m; sourceTree = "<group>"; };
+		436B782818B02E5800FEB1BC /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = Library/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		A09F097517C30B4F00A6EC03 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		A09F097617C30B4F00A6EC03 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		A09F097717C30B4F00A6EC03 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
 		A09F097817C30B4F00A6EC03 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
 		A09F097917C30B4F00A6EC03 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
 		A09F097A17C30B4F00A6EC03 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		A09F097B17C30B4F00A6EC03 /* libGoogleAnalyticsServices.3.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.3.0.a; sourceTree = "<group>"; };
 		A09F098D17C30C7700A6EC03 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A09F098F17C30C7C00A6EC03 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A09F099117C3132200A6EC03 /* TiGoogleanalyticsTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGoogleanalyticsTracker.h; path = Classes/TiGoogleanalyticsTracker.h; sourceTree = "<group>"; };
@@ -86,9 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				436B782918B02E5800FEB1BC /* libGoogleAnalyticsServices.a in Frameworks */,
 				A09F099017C30C7D00A6EC03 /* SystemConfiguration.framework in Frameworks */,
 				A09F098E17C30C7700A6EC03 /* CoreData.framework in Frameworks */,
-				A09F098717C30B4F00A6EC03 /* libGoogleAnalyticsServices.3.0.a in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,6 +119,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				436B782818B02E5800FEB1BC /* libGoogleAnalyticsServices.a */,
 				A09F098F17C30C7C00A6EC03 /* SystemConfiguration.framework */,
 				A09F098D17C30C7700A6EC03 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
@@ -161,7 +162,6 @@
 				A09F097817C30B4F00A6EC03 /* GAILogger.h */,
 				A09F097917C30B4F00A6EC03 /* GAITrackedViewController.h */,
 				A09F097A17C30B4F00A6EC03 /* GAITracker.h */,
-				A09F097B17C30B4F00A6EC03 /* libGoogleAnalyticsServices.3.0.a */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -299,7 +299,10 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				LIBRARY_SEARCH_PATHS = "/Users/dtoth/Code/public\\ modules/googleanalytics/mobile/ios/Library";
+				LIBRARY_SEARCH_PATHS = (
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Library\\\\\\\\\\\\\\\"",
+					/Users/benjamin/Projects/Modules/TiGA/ios/Library,
+				);
 				OTHER_CFLAGS = (
 					"-DDEBUG",
 					"-DTI_POST_1_2",
@@ -337,7 +340,10 @@
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
-				LIBRARY_SEARCH_PATHS = "/Users/dtoth/Code/public\\ modules/googleanalytics/mobile/ios/Library";
+				LIBRARY_SEARCH_PATHS = (
+					"\\\\\\\\\\\\\\\"$(SRCROOT)/Library\\\\\\\\\\\\\\\"",
+					/Users/benjamin/Projects/Modules/TiGA/ios/Library,
+				);
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TiGoogleanalytics;
@@ -370,6 +376,7 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = (
 					"-DDEBUG",
 					"-DTI_POST_1_2",
@@ -379,7 +386,7 @@
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -406,12 +413,12 @@
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
 				INSTALL_PATH = /usr/local/lib;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DTI_POST_1_2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TiGoogleanalytics;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos7.0;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

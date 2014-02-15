@@ -100,6 +100,11 @@
     [GAI sharedInstance].dryRun = [TiUtils boolValue:value];
 }
 
+-(void)dispatch:(id)unused
+{    
+    [[GAI sharedInstance] dispatch];
+}
+
 -(id)MapBuilder
 {
     return [[TiGoogleanalyticsMapBuilder alloc] init];
@@ -118,5 +123,17 @@
 {
     return [self Fields];
 }
+
+-(void)setLogLevel:(id)value
+{
+     ENSURE_SINGLE_ARG(value, NSObject);
+    [[GAI sharedInstance].logger setLogLevel:[TiUtils intValue:value]];
+}
+
+MAKE_SYSTEM_PROP(LOG_NONE, 0); //Unknown kGAILogLevelNone
+MAKE_SYSTEM_PROP(LOG_ERROR, 1); //kGAILogLevelError
+MAKE_SYSTEM_PROP(LOG_WARNING, 2); //kGAILogLevelWarning
+MAKE_SYSTEM_PROP(LOG_INFO, 3); //kGAILogLevelInfo
+MAKE_SYSTEM_PROP(LOG_VERBOSE, 4); //kGAILogLevelVerbose
 
 @end

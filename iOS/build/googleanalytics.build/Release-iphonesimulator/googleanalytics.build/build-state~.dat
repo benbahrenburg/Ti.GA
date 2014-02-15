@@ -1,0 +1,304 @@
+Tgoogleanalytics
+v6
+r1
+cCheck dependencies
+cProcessPCH /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch TiGoogleanalytics_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLibtool /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/libTiGoogleanalytics.a normal i386
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk
+c00000000525642F10000000000000176
+t1381384945
+s374
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/SDKSettings.plist
+c0000000052B63C5F00000000000003B5
+t1387674719
+s949
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/CoreServices/SystemVersion.plist
+c0000000052B63C6200000000000001A0
+t1387674722
+s416
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+c0000000052B63C6400000000006C6DC0
+t1387674724
+s7105984
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c0000000052B63C64000000000088C680
+t1387674724
+s8963712
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
+c0000000052B63C6500000000001081B0
+t1387674725
+s1081776
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m
+c0000000052289F320000000000000BA0
+t1378393906
+s2976
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m
+c0000000052289F320000000000001501
+t1378393906
+s5377
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m
+c0000000052FFE9CE0000000000000A93
+t1392503246
+s2707
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m
+c0000000052289F32000000000000025E
+t1378393906
+s606
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m
+c0000000052FFE97D00000000000003E9
+t1392503165
+s1001
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/Library/libGoogleAnalyticsServices.a
+c0000000052F19E1000000000009799F4
+t1391566352
+s9935348
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/TiGoogleanalytics_Prefix.pch
+c0000000052289F32000000000000003E
+t1378393906
+s62
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/libTiGoogleanalytics.a
+t2
+s0
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalytics.LinkFileList
+c0000000052FFF6FF0000000000000335
+t1392506623
+s821
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o
+t1392506623
+s14228
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o
+t1392506623
+s48364
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o
+t1392506623
+s27036
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o
+t1392506623
+s5092
+
+N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o
+t1392506623
+s17684
+
+N/var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch
+t1392506623
+s3195300
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies56d7457f2eb0b841^36784f7f2eb0b841^---0#1#1#--18"Check dependencies36"4C1B6455-C70F-45C6-B640-D77E34FFA308-
+
+CCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s414199423.461931
+e414199423.495736
+r1
+xCompileC
+xbuild/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o
+x/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAIFields.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m246"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o [1mClasses/TiGoogleanalyticsFields.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler3c68767f2eb0b841^21ea7e7f2eb0b841^---0#0#1#-19%DVTDocumentLocation2@82"file:///Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m0000000000000000^3890"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o [1mClasses/TiGoogleanalyticsFields.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=91 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wno-parentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wno-unused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DTI_VERSION= -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=4.0 -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-generated-files.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-own-target-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-all-target-headers.hmap -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-project-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources/i386 -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources -F/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -DTI_POST_1_2 -include /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch -MMD -MT dependencies -MF /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.d --serialize-diagnostics /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.dia -c /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsFields.o36"2E261B58-FA3A-4334-810B-D749A838EDFB-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
+CCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s414199423.461303
+e414199423.657203
+r1
+xCompileC
+xbuild/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o
+x/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiProxy.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBase.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/defines.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiThreading.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiPublicAPI.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiEvaluator.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollContext.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiCore.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/Ti.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiBase.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiContextRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiObjectRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiValueRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/WebKitAvailability.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiStringRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiStringRefCF.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiContextRefPrivate.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollCallback.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollObject.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBindingRunLoop.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAIDictionaryBuilder.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection87"Compile /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m254"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o [1mClasses/TiGoogleanalyticsMapBuilder.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler103c767f2eb0b841^5b40a87f2eb0b841^---0#0#1#-19%DVTDocumentLocation2@86"file:///Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m0000000000000000^3914"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o [1mClasses/TiGoogleanalyticsMapBuilder.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=91 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wno-parentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wno-unused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DTI_VERSION= -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=4.0 -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-generated-files.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-own-target-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-all-target-headers.hmap -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-project-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources/i386 -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources -F/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -DTI_POST_1_2 -include /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch -MMD -MT dependencies -MF /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.d --serialize-diagnostics /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.dia -c /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.m -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsMapBuilder.o36"0B8B420F-3877-48F0-8540-E6BBDC9EB4E8-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
+CCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s414199423.461628
+e414199423.605146
+r1
+xCompileC
+xbuild/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o
+x/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiModule.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiProxy.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBase.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/defines.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiThreading.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiPublicAPI.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiEvaluator.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollContext.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiCore.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/Ti.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiBase.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiContextRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiObjectRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiValueRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/WebKitAvailability.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiStringRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiStringRefCF.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiContextRefPrivate.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollCallback.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollObject.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBindingRunLoop.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiUtils.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiDimension.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiColor.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/WebFont.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiFile.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBuffer.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBlob.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAITracker.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAIFields.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsMapBuilder.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAIDictionaryBuilder.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAI.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAILogger.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAITrackedViewController.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiHost.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/Bridge.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiStylesheet.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m246"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o [1mClasses/TiGoogleanalyticsModule.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler174a767f2eb0b841^fbea9a7f2eb0b841^---0#0#1#-19%DVTDocumentLocation2@82"file:///Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m0000000000000000^3890"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o [1mClasses/TiGoogleanalyticsModule.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=91 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wno-parentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wno-unused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DTI_VERSION= -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=4.0 -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-generated-files.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-own-target-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-all-target-headers.hmap -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-project-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources/i386 -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources -F/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -DTI_POST_1_2 -include /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch -MMD -MT dependencies -MF /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.d --serialize-diagnostics /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.dia -c /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModule.m -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModule.o36"6924CD1A-4DE7-4ECA-8BD7-4F49A152178B-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
+CCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s414199423.462994
+e414199423.485513
+r1
+xCompileC
+xbuild/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o
+x/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m258"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o [1mClasses/TiGoogleanalyticsModuleAssets.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler42b0767f2eb0b841^414a7c7f2eb0b841^---0#0#1#-19%DVTDocumentLocation2@88"file:///Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m0000000000000000^3926"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o [1mClasses/TiGoogleanalyticsModuleAssets.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=91 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wno-parentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wno-unused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DTI_VERSION= -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=4.0 -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-generated-files.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-own-target-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-all-target-headers.hmap -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-project-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources/i386 -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources -F/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -DTI_POST_1_2 -include /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch -MMD -MT dependencies -MF /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.d --serialize-diagnostics /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.dia -c /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsModuleAssets.m -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsModuleAssets.o36"4E398E0D-84ED-468D-B804-2E0003E857E4-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
+CCompileC build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s414199423.462289
+e414199423.587678
+r1
+xCompileC
+xbuild/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o
+x/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m
+d/Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiProxy.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBase.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/defines.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiThreading.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiPublicAPI.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiEvaluator.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollContext.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiCore.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/Ti.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiBase.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiContextRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiObjectRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiValueRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/WebKitAvailability.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiStringRef.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiStringRefCF.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore/TiContextRefPrivate.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollCallback.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/KrollObject.h
+d/Users/benjamin/Library/Application Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiBindingRunLoop.h
+d/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAITracker.h
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m248"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o [1mClasses/TiGoogleanalyticsTracker.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler6f83767f2eb0b841^8672967f2eb0b841^---0#0#1#-19%DVTDocumentLocation2@83"file:///Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m0000000000000000^3896"[1mCompileC[0m build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o [1mClasses/TiGoogleanalyticsTracker.m[0m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=91 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wno-parentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wno-unused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DTI_VERSION= -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=4.0 -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-generated-files.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-own-target-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-all-target-headers.hmap -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-project-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources/i386 -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources -F/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -DTI_POST_1_2 -include /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch -MMD -MT dependencies -MF /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.d --serialize-diagnostics /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.dia -c /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsTracker.m -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalyticsTracker.o36"EADD9B63-824B-4192-B8A1-A57987059DA7-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
+CLibtool /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/libTiGoogleanalytics.a normal i386
+s414199423.658226
+e414199423.683101
+r1
+xLibtool
+x/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/libTiGoogleanalytics.a
+xnormal
+xi386
+o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection80"[1mLibtool[0m build/Release-iphonesimulator/libTiGoogleanalytics.a normal i38680"[1mLibtool[0m build/Release-iphonesimulator/libTiGoogleanalytics.a normal i3867992a87f2eb0b841^d2e0ae7f2eb0b841^-159"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#1#--1207"[1mLibtool[0m build/Release-iphonesimulator/libTiGoogleanalytics.a normal i386    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 4.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only i386 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -L/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -L\\\\\\\"/Users/benjamin/Projects/Modules/TiGA/ios/Library\\\\\\\" -L/Users/benjamin/Projects/Modules/TiGA/ios/Library -filelist /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/Objects-normal/i386/TiGoogleanalytics.LinkFileList -ObjC -lGoogleAnalyticsServices -framework SystemConfiguration -framework CoreData -framework Foundation -o /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/libTiGoogleanalytics.a36"D5217225-5EA0-448A-B622-48D454E9D877-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
+CProcessPCH /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch TiGoogleanalytics_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s414199423.312592
+e414199423.460329
+r1
+xProcessPCH
+x/var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch
+xTiGoogleanalytics_Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+d/Users/benjamin/Projects/Modules/TiGA/ios/TiGoogleanalytics_Prefix.pch
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection39"Precompile TiGoogleanalytics_Prefix.pch320"[1mProcessPCH[0m /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch TiGoogleanalytics_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler1729507f2eb0b841^b2d9757f2eb0b841^---0#0#1#-19%DVTDocumentLocation2@77"file:///Users/benjamin/Projects/Modules/TiGA/ios/TiGoogleanalytics_Prefix.pch0000000000000000^3881"[1mProcessPCH[0m /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch TiGoogleanalytics_Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=91 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -fcolor-diagnostics -std=c99 -Wno-trigraphs -fpascal-strings -Os -Wno-missing-field-initializers -Wno-missing-prototypes -Wno-return-type -Wno-implicit-atomic-properties -Wno-receiver-is-weak -Wno-arc-repeated-use-of-weak -Wno-missing-braces -Wno-parentheses -Wswitch -Wunused-function -Wno-unused-label -Wno-unused-parameter -Wno-unused-variable -Wno-unused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DTI_VERSION= -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.0.sdk -fexceptions -fasm-blocks -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -g -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch -mios-simulator-version-min=4.0 -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-generated-files.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-own-target-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-all-target-headers.hmap -iquote /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/TiGoogleanalytics-project-headers.hmap -I/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include -I/Users/benjamin/Library/Application\ Support/Titanium/mobilesdk/osx/3.2.0.GA/iphone/include/TiCore -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources/i386 -I/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphonesimulator/googleanalytics.build/DerivedSources -F/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphonesimulator -DTI_POST_1_2 --serialize-diagnostics /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.dia -MMD -MT dependencies -MF /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.d -c /Users/benjamin/Projects/Modules/TiGA/ios/TiGoogleanalytics_Prefix.pch -o /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-gwfcxlchccnljhcbvdlnwugpurlp/TiGoogleanalytics_Prefix.pch.pch36"C0D0EE69-F997-401D-970D-A81EB645702E-
+b3443893D-B65E-4CCE-9AE5-AFFA27105E29
+
