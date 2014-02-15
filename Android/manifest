@@ -2,17 +2,17 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 0.5
+version: 1.0
 apiversion: 2
-description: Google Analytics for Titanium
-author: Benjamin Bahrenburg
-license: Apache 2, see license file for details
-copyright: Copyright (c) 2013 by Benjamin Bahrenburg
+description: Provides access to the Google Analytics Mobile SDK.
+author: Dawson Toth
+license: Apache License, Version 2.0
+copyright: Copyright (c) 2010-2013 by Appcelerator, Inc.
 
 
 # these should not be edited
-name: tiga
-moduleid: ti.ga
-guid: a9de22d1-1be5-48ae-8adb-b06efa3eb182
+name: googleanalytics
+moduleid: ti.googleanalytics
+guid: d8446e59-4726-44a6-b1e9-a33d5cb4742f
 platform: android
-minsdk: 3.1.3.GA
+minsdk: 3.1.1.GA

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>81BE635A-46C5-4E1C-9C16-1DFD31DE2FA4</string>
+	<key>IDESourceControlProjectName</key>
+	<string>googleanalytics</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>96BB8821-F848-45DC-8B9C-48ABCBB21A0B</key>
+		<string>https://github.com/appcelerator/titanium_modules</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>googleanalytics/mobile/ios/googleanalytics.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>96BB8821-F848-45DC-8B9C-48ABCBB21A0B</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/appcelerator/titanium_modules</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>96BB8821-F848-45DC-8B9C-48ABCBB21A0B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>96BB8821-F848-45DC-8B9C-48ABCBB21A0B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>public modules</string>
+		</dict>
+	</array>
+</dict>
+</plist>

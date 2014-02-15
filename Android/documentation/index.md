@@ -1,188 +1,82 @@
-<h1>Ti.GA</h1>
+# Google Analytics Module
 
-Ti.GA allows you to use the Google Analytics SDKs in your Titanium projects.  The GATools CommonJS module provides a convenient set of JavaScript wrappers allowing you to drop 
+## Description
+Provides access to the Google Analytics Mobile SDK.
 
-<h2>Google Analytics Setup</h2>
-Before you can use this module, you need a Google Analytics key.  You can get one [here](http://www.google.com/analytics).
+## Accessing the Module
+To access this module from JavaScript, you would do the following:
 
-<h2>Before you start</h2>
-* These are iOS and Android native modules designed to work with Titanium SDK 3.1.3.GA
-* Before using this module you first need to install the package. If you need instructions on how to install a 3rd party module please read this installation guide.
+	var GoogleAnalytics = require("ti.googleanalytics");
 
-<h2>Download the compiled release</h2>
+The variable is a reference to the Module object.	
 
-Download the platform you wish to use:
 
-* [iOS Dist](https://github.com/benbahrenburg/Ti.GA/tree/master/iOS/dist)
-* [Android Dist] (https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist)
-* [GATools] (https://github.com/benbahrenburg/Ti.GA/tree/master/GATools)
+## How to Learn More
 
-<h2>Building from source?</h2>
+This module conforms very closely to Google's Analytics SDKs for iOS and Android. As such, the documentation for these SDKs will help you
+understand how to use this module, and how to collect the analytics data that you want.
 
-If you are building from source you will need to do the following:
+[Android SDK Guide](https://developers.google.com/analytics/devguides/collection/android/v3/)
+[iOS SDK Guide](https://developers.google.com/analytics/devguides/collection/ios/v3/)
 
-Import the project into Xcode:
 
-* Modify the titanium.xcconfig file with the path to your Titanium installation
+## A Warning About Tracking IDs
+Google Analytics Website Tracking IDs will NOT work with this module (because they don't work with the underlying Google SDK).
+Instead, you must generate new App specific Tracking IDs:
+ - Go to analytics.google.com.
+ - Sign in.
+ - Go to Admin > Accounts > Create New Account.
+ - Choose "App" beside "What would you like to track?"
+ - Create the account, and get the tracking ID.
+ 
 
-Import the project into Eclipse:
+## Reference
 
-* Update the .classpath
-* Update the build properties
+### [Tracker](tracker.html) getTracker([String trackingName, ] String trackingId)
+Gets a [tracker](tracker.html), based on the provided ID and optional name.
 
-<h2>Setup</h2>
+### [Tracker](tracker.html) getDefaultTracker()
+Returns the default [tracker](tracker.html). This is the first [tracker](tracker.html) requested by the "getTracker" method during the 
+current app run.
 
-* Download the latest release from the releases folder ( or you can build it yourself )
-* Install the ti.sq module. If you need help here is a "How To" [guide](https://wiki.appcelerator.org/display/guides/Configuring+Apps+to+Use+Modules). 
-* You can now use the module via the commonJS require method, example shown below.
+### void setDefaultTracker([Tracker](tracker.html) tracker)
+Specifies which [tracker](tracker.html) should be returned by the "getDefaultTracker" method.
 
-<h2>Importing the module using require</h2>
-<pre><code>
-var ga = require('ti.ga');
-</code></pre>
+### void closeTracker(String trackingId)
+Closes a [tracker](tracker.html), releasing any related resources it was using.
 
-<h2>Module Methods</h2>
 
-<h4>debug</h4>
-You can set the debug property on the root module to enabled both VERBOSE logging by Google Analytics and DEBUG logging in the Titanium module.
+## Properties
 
-<pre><code>
-Ti.API.info('Enabled Debug');
-ga.debug = true;
-Ti.API.info('Is debug enabled? ' + ga.debug);
+### bool dryRun
+Use this to test your's app's interactions with Google Analytics. No data will be sent to Google.
 
-Ti.API.info('Now disable Debug');
-ga.debug = false;
-Ti.API.info('Is debug enabled? ' + ga.debug);
-</code></pre>
+### bool optOut
+If true, the user has decided to not let you collect analytics data. This property is NOT persistent, so you must set it each time your app
+loads.
 
-<h4>optOut</h4>
-You can enable an app-level opt out flag that will disable Google Analytics across the entire app. Note that you will need to this flag must be set each time the app starts up and will default to false.
+### [MapBuilder](mapbuilder.html) getMapBuilder()
+Gets a reference to the [map builder](mapbuilder.html), which helps you send data to Google.
 
-<pre><code>
-Ti.API.info('You can opt out by like this');
-ga.optOut = true;
-Ti.API.info('What is our status? ' + ga.optOut);
+### [Fields](fields.html) getFields()
+Gets a reference to the [field constants](fields.html), which you will use when sending data to Google.
 
-Ti.API.info("Let's opt back in");
-ga.optOut = false;
-Ti.API.info('What is our status? ' + ga.optOut);
-</code></pre>
 
+## Usage
+See example.
 
-<h4>createTracker</h4>
-The <b>createTracker</b> method returns a tracker proxy which can be used to perform a majority of your analytics needs.  Please reference the "Tracker Methods" section for additional details. There are two ways to create a tracker, with or without a Google Analytics key.
 
+## Module History
+View the [change log](changelog.html) for this module.
 
-<b>Creating Tracker with Key</b>
 
-The most common way to create a tracker is with a Google Analytics key such as UA-XXXX-1.  This allows you to submit analytic information to a specific Property on the Goolge Analytisc dashboard.  Below demonstrates how to create a tracker with a Google Key.
+## Author
+Dawson Toth
 
-<pre><code>
-	
-Ti.API.info('Create a tracker with a Google Analytics Key');
-var tracker = ga.createTracker({
-	ga.TRACKING_ID,"UA-XXXX-1"
-});
 
-</code></pre>
+## Feedback and Support
+Please direct all questions, feedback, and concerns to [info@appcelerator.com](mailto:info@appcelerator.com?subject=Android%20Google%20Analytics%20Module).
 
-<b>Create a default Tracker</b>
 
-A default tracker doesn't have a Google Analytics key.  This type of tracker isn't used very often as reporting is difficult.  Below shows how to create a traceker without a Google Analytics key.
-
-<pre><code>
-
-Ti.API.info('Create a tracker without a Google Analytics Key');
-var tracker = ga.createTracker();
-
-</code></pre>
-
-<h4>dispatchInterval</h4>
-By default, data is dispatched from the Google Analytics SDK for Android every 30 minutes.  You can adjust this by using the <b>dispatchInterval</b> method.  This takes a value second whichs which will be used instead of the default dispatch value.  If you provide a value less than one, you will disable periodic dispatching.
-
-<pre><code>
-
-Ti.API.info('dispatch every 15 seconds');
-ga.dispatchInterval(15);
-
-Ti.API.info('Disable periodic dispatching by sending 0');
-ga.dispatchInterval(0);
-</code></pre>
-
-<h4>dispatch</h4>
-To manually dispatch hits, for example when you know the device radio is already being used to send other data. To do this you call the <b>dispatch</b> method as shown below.
-
-<pre><code>
-
-Ti.API.info('manually call dispatch');
-ga.dispatch();
-
-</code></pre>
-
-
-<h4>enableTrackUncaughtExceptions</h4>
-Uncaught exceptions represent instances where your app encountered unexpected conditions at runtime and are often fatal, causing the app to crash. Uncaught exceptions can be sent to Google Analytics automatically by setting the <b>enableTrackUncaughtExceptions</b> method.  This will configure your app to use an available tracker to submit your crash information automatically.  Please note you will need at least one tracker available for this this to be set.
-
-<b>Important:</b> once set you cannot disable this until the module is unloaded and created again.
-
-<pre><code>
-
-Ti.API.info("enable unhandled exception tracking");
-ga.enableTrackUncaughtExceptions();
-
-</code></pre>
-
-<h4>isTrackUncaughtExceptionsActive</h4>
-You can check if <b>enableTrackUncaughtExceptions</b> has been set for your app setting by calling the <b>isTrackUncaughtExceptionsActive</b> method.
-
-<pre><code>
-
-Ti.API.info("Is unhandled exception tracking set? " + ga.isTrackUncaughtExceptionsActive());
-
-</code></pre>
-
-<h2>Module Properties</h2>
-
-The v3 version of the Google Analytics SDK works using a series of string constants. A full list of the module properties is available [here](https://github.com/benbahrenburg/Ti.GA/blob/master/Documentation/Properties.md).
-
-<h2>Tracker Methods</h2>
-
-<b>Work in process</b>
-
-<h2>FAQ</h2>
-
-<h4>How do I handle sessions on Android?</h4>
-Android doesn't have an application level resume or pause events.  You can handle this on each activity, by hooking the window activity, read more in the [documentation](http://docs.appcelerator.com/titanium/latest/#!/api/Titanium.Android.Activity). Or you can use a timer like the GATools module does.  This basically will timeout and send the session a specific number of seconds after no activity is reported. 
-
-<h4>My values are not appearing on the Google Analytics Dashboard</h4>
-This could be for several reasons.  Please check your setup some common reasons are below.
-
-* Did you provide the proper Google Analytics Key?
-* Did you call startSession?
-* Did you add any session events or screens?
-* Did you call dispatch?
-* Did you wait awhile, it can take minutes to hours for data to display in the Google Analytics dashboard.  
-
-<h4>I want to do something that there isn't a method for. What do I do?</h4>
-Please review the SDK documentation on [http://www.google.com/analytics](http://www.google.com/analytics).  Using the approperate Properties or String values and the tracker's proxy method you should be able to access most of the native sdk functionality.  
-
-<h2>Learn More</h2>
-
-<h3>Examples</h3>
-Please check the module's example folder or 
-
-
-* [iOS](https://github.com/benbahrenburg/Ti.SQ/tree/master/iOS/example) 
-* [Android](https://github.com/benbahrenburg/Ti.SQ/tree/master/Android/Module/example)
-
-for samples on how to use this project.
-
-<h3>Twitter</h3>
-
-Please consider following the [@benCoding Twitter](http://www.twitter.com/benCoding) for updates 
-and more about Titanium.
-
-<h3>Blog</h3>
-
-For module updates, Titanium tutorials and more please check out my blog at [benCoding.Com](http://benCoding.com).
+## License
+Copyright(c) 2010-2013 by Appcelerator, Inc. All Rights Reserved. Please see the LICENSE file included in the distribution for further details.
