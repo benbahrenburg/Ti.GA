@@ -10,15 +10,22 @@ package ti.googleanalytics;
 
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
+import org.appcelerator.titanium.TiApplication;
+
 import com.google.analytics.tracking.android.GoogleAnalytics;
 import com.google.analytics.tracking.android.Logger.LogLevel;
-import com.google.analytics.tracking.android.Tracker;
 
 @Kroll.module(name = "Googleanalytics", id = "ti.googleanalytics")
 public class GoogleanalyticsModule extends KrollModule {
 
+	@Kroll.constant public static final int LOG_NONE = 0;
+	@Kroll.constant public static final int LOG_ERROR = 1;
+	@Kroll.constant public static final int LOG_WARNING = 2;
+	@Kroll.constant public static final int LOG_INFO = 3;
+	@Kroll.constant public static final int LOG_VERBOSE = 3;
+	
 	private GoogleAnalytics instance() {
-		return GoogleAnalytics.getInstance(this.getActivity());
+		return GoogleAnalytics.getInstance(TiApplication.getInstance().getApplicationContext());
 	}
 
 	@Kroll.method
@@ -84,6 +91,26 @@ public class GoogleanalyticsModule extends KrollModule {
 	@Kroll.getProperty
 	public FieldsProxy getFields() {
 		return new FieldsProxy();
+	}
+	
+	private LogLevel convertToLog(int value){
+		if(value ==LOG_WARNING){
+			return LogLevel.WARNING;			
+		}
+		if(value ==LOG_INFO){
+			return LogLevel.INFO;			
+		}			
+		if(value ==LOG_VERBOSE){
+			return LogLevel.VERBOSE;			
+		}		
+		return LogLevel.ERROR;
+	}
+
+	
+	@Kroll.method
+	public void setLogLevel(int value)
+	{
+		instance().getLogger().setLogLevel(convertToLog(value));
 	}
 
 }
