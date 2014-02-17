@@ -12,11 +12,11 @@
  * Examples:
  * <code>
  * id<GAITracker> t = // get a tracker.
- * [t send:[[GAIDictionaryBuilder createEventWithCategory:@"EventCategory"
- *                                                 action:@"EventAction"
- *                                                  label:nil
- *                                                  value:nil]
- *     set:@"dimension1" forKey:[GAIFields CustomDimension:1] build]];
+ * [t send:[[[GAIDictionaryBuilder createEventWithCategory:@"EventCategory"
+ *                                                  action:@"EventAction"
+ *                                                   label:nil
+ *                                                   value:nil]
+ *     set:@"dimension1" forKey:[GAIFields customDimensionForIndex:1]] build]];
  * </code>
  * This will send an event hit type with the specified parameters
  * and a custom dimension parameter.

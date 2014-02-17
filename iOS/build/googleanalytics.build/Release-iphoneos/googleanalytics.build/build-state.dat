@@ -254,33 +254,33 @@ t1392503165
 s1001
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAI.h
-c0000000052289F3200000000000018C8
-t1378393906
+c0000000052F19E1000000000000018C8
+t1391566352
 s6344
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAIDictionaryBuilder.h
-c0000000052289F320000000000001B41
-t1378393906
-s6977
+c0000000052F19E100000000000001B4E
+t1391566352
+s6990
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAIFields.h
-c0000000052289F320000000000000F7B
-t1378393906
-s3963
+c0000000052F19E100000000000000FCC
+t1391566352
+s4044
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAILogger.h
-c0000000052289F32000000000000045D
-t1378393906
+c0000000052F19E10000000000000045D
+t1391566352
 s1117
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAITrackedViewController.h
-c0000000052289F32000000000000040D
-t1378393906
+c0000000052F19E10000000000000040D
+t1391566352
 s1037
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/GAITracker.h
-c0000000052289F320000000000000576
-t1378393906
+c0000000052F19E100000000000000576
+t1391566352
 s1398
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/Library/libGoogleAnalyticsServices.3.0.a
@@ -299,8 +299,8 @@ t1378393906
 s62
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a
-t1392506622
-s3912016
+t1392611829
+s3921664
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/TiGoogleanalytics.LinkFileList
 c0000000052FFEBA90000000000000317
@@ -328,7 +328,7 @@ t1392503721
 s19356
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a
-t1392508066
+t1392613172
 s1960848
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/TiGoogleanalytics.LinkFileList
@@ -357,7 +357,7 @@ t1392503721
 s19348
 
 N/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a
-t1392508066
+t1392613172
 s1960768
 
 N/var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-dcfgdavveiosmdeolbaealszhopv/TiGoogleanalytics_Prefix.pch.pch
@@ -370,7 +370,7 @@ s3139172
 
 CCheck dependencies
 r0
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependencies7de9f52134b0b841^ae82042234b0b841^---0#1#1#--18"Check dependencies36"B7E8989C-1FA0-41D2-947A-0F1A16BF84E8-
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciescf9f56b4ceb1b841^76df65b4ceb1b841^---0#1#1#--18"Check dependencies36"E23C8119-AFB8-4846-AA88-FF42220952A4-
 
 CCompileC build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/TiGoogleanalyticsFields.o /Users/benjamin/Projects/Modules/TiGA/ios/Classes/TiGoogleanalyticsFields.m normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s414200866.021016
@@ -699,39 +699,39 @@ lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection84"Compile
 b937364D8-4EF8-41D8-8564-0C1F01BCE161
 
 CCreateUniversalBinary /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a normal armv7\ armv7s
-s414200866.199301
-e414200866.298360
+s414305972.433633
+e414305972.530998
 r1
 xCreateUniversalBinary
 x/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a
 xnormal
 xarmv7 armv7s
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Create universal binary /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a104"[1mCreateUniversalBinary[0m [1mbuild/Release-iphoneos/libTiGoogleanalytics.a[0m normal armv7\ armv7s7215332234b0b841^d8614c2234b0b841^---0#0#1#-19%DVTDocumentLocation2@94"file:///Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a0000000000000000^775"[1mCreateUniversalBinary[0m [1mbuild/Release-iphoneos/libTiGoogleanalytics.a[0m normal armv7\ armv7s    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    libtool -static /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a -o /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a36"5616F6A4-3BB5-4E1A-A25C-55C659D928ED-
-b8D944F38-46A9-4B09-96DF-5992D1CBFF86
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection111"Create universal binary /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a104"[1mCreateUniversalBinary[0m [1mbuild/Release-iphoneos/libTiGoogleanalytics.a[0m normal armv7\ armv7s84116fb4ceb1b841^bfef87b4ceb1b841^---0#0#1#-19%DVTDocumentLocation2@94"file:///Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a0000000000000000^775"[1mCreateUniversalBinary[0m [1mbuild/Release-iphoneos/libTiGoogleanalytics.a[0m normal armv7\ armv7s    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    libtool -static /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a -o /Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos/libTiGoogleanalytics.a36"EDA64E72-3A05-4786-823E-ABE50D757E35-
+b6852F718-4404-4968-9802-730059A706A2
 
 CLibtool /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7
-s414200866.171262
-e414200866.198674
+s414305972.402645
+e414305972.433228
 r1
 xLibtool
 x/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a
 xnormal
 xarmv7
 o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection139"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7139"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7b8e92b2234b0b841^a0e0322234b0b841^-159"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#1#--1291"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 4.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos -L\\\\\\\"/Users/benjamin/Projects/Modules/TiGA/ios/Library\\\\\\\" -L/Users/benjamin/Projects/Modules/TiGA/ios/Library -filelist /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/TiGoogleanalytics.LinkFileList -ObjC -lGoogleAnalyticsServices -framework SystemConfiguration -framework CoreData -framework Foundation -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a36"10D3C8E7-058A-4067-9218-DF65B03FDE98-
-b8D944F38-46A9-4B09-96DF-5992D1CBFF86
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection139"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7139"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7d23967b4ceb1b841^25e96eb4ceb1b841^-159"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#1#--1291"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a normal armv7    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 4.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7 -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos -L\\\\\\\"/Users/benjamin/Projects/Modules/TiGA/ios/Library\\\\\\\" -L/Users/benjamin/Projects/Modules/TiGA/ios/Library -filelist /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/TiGoogleanalytics.LinkFileList -ObjC -lGoogleAnalyticsServices -framework SystemConfiguration -framework CoreData -framework Foundation -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7/libTiGoogleanalytics.a36"E1D8C5CB-2DC8-49BE-8157-690E737B3E1B-
+b6852F718-4404-4968-9802-730059A706A2
 
 CLibtool /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7s
-s414200866.171508
-e414200866.198662
+s414305972.402844
+e414305972.432723
 r1
 xLibtool
 x/Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a
 xnormal
 xarmv7s
 o/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC 
-lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection141"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7s141"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7scbf42b2234b0b841^9cdd322234b0b841^-159"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#1#--1296"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7s    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 4.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7s -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos -L\\\\\\\"/Users/benjamin/Projects/Modules/TiGA/ios/Library\\\\\\\" -L/Users/benjamin/Projects/Modules/TiGA/ios/Library -filelist /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/TiGoogleanalytics.LinkFileList -ObjC -lGoogleAnalyticsServices -framework SystemConfiguration -framework CoreData -framework Foundation -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a36"06BE3CA7-26BA-4489-9439-9D0DA96A2A1D-
-b8D944F38-46A9-4B09-96DF-5992D1CBFF86
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection141"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7s141"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7s323b67b4ceb1b841^47c66eb4ceb1b841^-159"/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool: -dynamic not specified the following flags are invalid: -ObjC -0#0#1#--1296"[1mLibtool[0m build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a normal armv7s    cd /Users/benjamin/Projects/Modules/TiGA/ios    setenv IPHONEOS_DEPLOYMENT_TARGET 4.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/libtool -static -arch_only armv7s -syslibroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk -L/Users/benjamin/Projects/Modules/TiGA/ios/build/Release-iphoneos -L\\\\\\\"/Users/benjamin/Projects/Modules/TiGA/ios/Library\\\\\\\" -L/Users/benjamin/Projects/Modules/TiGA/ios/Library -filelist /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/TiGoogleanalytics.LinkFileList -ObjC -lGoogleAnalyticsServices -framework SystemConfiguration -framework CoreData -framework Foundation -o /Users/benjamin/Projects/Modules/TiGA/ios/build/googleanalytics.build/Release-iphoneos/googleanalytics.build/Objects-normal/armv7s/libTiGoogleanalytics.a36"8B57BBCD-DCFB-4954-ADD0-6E48CFAC2F05-
+b6852F718-4404-4968-9802-730059A706A2
 
 CProcessPCH /var/folders/f2/j5sjtffd3tl_903wfr8nk9b40000gn/C/com.apple.DeveloperTools/5.0.2-5A3005/Xcode/SharedPrecompiledHeaders/TiGoogleanalytics_Prefix-dcfgdavveiosmdeolbaealszhopv/TiGoogleanalytics_Prefix.pch.pch TiGoogleanalytics_Prefix.pch normal armv7 objective-c com.apple.compilers.llvm.clang.1_0.compiler
 s414196521.264145
