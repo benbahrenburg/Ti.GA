@@ -10,6 +10,7 @@ To access this module from JavaScript, you would do the following:
 
 The variable is a reference to the Module object.	
 
+There's a simple CommonJS module simplifying the rather complex module API [here](https://github.com/FokkeZB/UTiL/tree/master/ga).
 
 ## How to Learn More
 
