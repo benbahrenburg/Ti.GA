@@ -27,6 +27,10 @@
 		24DE9E1111C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.m */; };
 		437AB27018B68D3100E7BDE0 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 437AB26F18B68D3100E7BDE0 /* libGoogleAnalyticsServices.a */; };
+		43A4789B19BE54780040400E /* GAIEcommerceFields.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A4789719BE54780040400E /* GAIEcommerceFields.h */; };
+		43A4789C19BE54780040400E /* GAIEcommerceProduct.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A4789819BE54780040400E /* GAIEcommerceProduct.h */; };
+		43A4789D19BE54780040400E /* GAIEcommerceProductAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A4789919BE54780040400E /* GAIEcommerceProductAction.h */; };
+		43A4789E19BE54780040400E /* GAIEcommercePromotion.h in Headers */ = {isa = PBXBuildFile; fileRef = 43A4789A19BE54780040400E /* GAIEcommercePromotion.h */; };
 		A09F098117C30B4F00A6EC03 /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097517C30B4F00A6EC03 /* GAI.h */; };
 		A09F098217C30B4F00A6EC03 /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097617C30B4F00A6EC03 /* GAIDictionaryBuilder.h */; };
 		A09F098317C30B4F00A6EC03 /* GAIFields.h in Headers */ = {isa = PBXBuildFile; fileRef = A09F097717C30B4F00A6EC03 /* GAIFields.h */; };
@@ -62,6 +66,10 @@
 		24DE9E0F11C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGoogleanalyticsModuleAssets.h; path = Classes/TiGoogleanalyticsModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGoogleanalyticsModuleAssets.m; path = Classes/TiGoogleanalyticsModuleAssets.m; sourceTree = "<group>"; };
 		437AB26F18B68D3100E7BDE0 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = Library/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		43A4789719BE54780040400E /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		43A4789819BE54780040400E /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		43A4789919BE54780040400E /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		43A4789A19BE54780040400E /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
 		A09F097517C30B4F00A6EC03 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
 		A09F097617C30B4F00A6EC03 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
 		A09F097717C30B4F00A6EC03 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
@@ -156,6 +164,10 @@
 		A09F097417C30B4F00A6EC03 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				43A4789719BE54780040400E /* GAIEcommerceFields.h */,
+				43A4789819BE54780040400E /* GAIEcommerceProduct.h */,
+				43A4789919BE54780040400E /* GAIEcommerceProductAction.h */,
+				43A4789A19BE54780040400E /* GAIEcommercePromotion.h */,
 				A09F097517C30B4F00A6EC03 /* GAI.h */,
 				A09F097617C30B4F00A6EC03 /* GAIDictionaryBuilder.h */,
 				A09F097717C30B4F00A6EC03 /* GAIFields.h */,
@@ -176,15 +188,19 @@
 				A09F098117C30B4F00A6EC03 /* GAI.h in Headers */,
 				A09F098417C30B4F00A6EC03 /* GAILogger.h in Headers */,
 				A09F098317C30B4F00A6EC03 /* GAIFields.h in Headers */,
+				43A4789B19BE54780040400E /* GAIEcommerceFields.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* TiGoogleanalytics_Prefix.pch in Headers */,
+				43A4789E19BE54780040400E /* GAIEcommercePromotion.h in Headers */,
 				24DD6CF91134B3F500162E58 /* TiGoogleanalyticsModule.h in Headers */,
 				A09F099B17C31B6300A6EC03 /* TiGoogleanalyticsMapBuilder.h in Headers */,
 				A09F099717C3175700A6EC03 /* TiGoogleanalyticsFields.h in Headers */,
 				A09F098617C30B4F00A6EC03 /* GAITracker.h in Headers */,
 				A09F099317C3132200A6EC03 /* TiGoogleanalyticsTracker.h in Headers */,
 				A09F098217C30B4F00A6EC03 /* GAIDictionaryBuilder.h in Headers */,
+				43A4789C19BE54780040400E /* GAIEcommerceProduct.h in Headers */,
 				A09F098517C30B4F00A6EC03 /* GAITrackedViewController.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* TiGoogleanalyticsModuleAssets.h in Headers */,
+				43A4789D19BE54780040400E /* GAIEcommerceProductAction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
