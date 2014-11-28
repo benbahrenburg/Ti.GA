@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: TiGA
+author: Ben Bahrenburg (bencoding)
+license: Apache 2.0
+copyright: Copyright (c) 2014 by Ben Bahrenburg (bending)
+
+# these should not be edited
+name: TiGA
+moduleid: ti.ga
+guid: 9dd4ad61-4835-4b75-bcb8-13893111b978
+platform: iphone
+minsdk: 3.5.0.Alpha

@@ -1,0 +1,3 @@
+
+
+OTHER_LDFLAGS=$(inherited) /usr/lib/libz.dylib -framework CoreData -framework SystemConfiguration

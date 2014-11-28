@@ -1,3 +1,0 @@
-Place the "platform" folder in the root of your app (alongside "Resources" and "tiapp.xml").
-
-Edit "analytics.xml" to contain your tracking ID.
