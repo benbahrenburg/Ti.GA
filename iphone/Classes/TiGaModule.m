@@ -30,33 +30,32 @@
 
 #pragma mark Lifecycle
 
+-(void)onStart:(id)unused
+{
+    ENSURE_UI_THREAD(onStart, unused);
+    _optOut = [[GAI sharedInstance] optOut];
+    _dispatchInterval = [[GAI sharedInstance] dispatchInterval];
+}
+
 -(void)startup
 {
 	[super startup];
 
-    if (![NSThread isMainThread])
-    {
-        TiThreadPerformOnMainThread(^{
-            _optOut = [[GAI sharedInstance] optOut];
-            _dispatchInterval = [[GAI sharedInstance] dispatchInterval];
-        }, NO);
-    }
+    [self onStart:nil];
 }
 
+-(void)onShutdown:(id)unused
+{
+    ENSURE_UI_THREAD(onShutdown, unused);
+    [[GAI sharedInstance] dispatch];
+}
 -(void)shutdown:(id)sender
 {
     // Dispatch any stored tracking events
-    if (![NSThread isMainThread])
-    {
-        TiThreadPerformOnMainThread(^{
-            [[GAI sharedInstance] dispatch];
-        }, NO);
-    }
+    [self onShutdown:nil];
 	// you *must* call the superclass
 	[super shutdown:sender];
 }
-
-
 
 
 #pragma mark Internal Memory Management
@@ -70,20 +69,22 @@
 
 #pragma mark Cleanup
 
--(id)createTracker:(id)args
-{
-    ENSURE_UI_THREAD(createTracker, args);
-    ENSURE_TYPE(args, NSDictionary);
-    
-    NSString* trackingId;
-    ENSURE_ARG_FOR_KEY(trackingId, args, @"trackingId", NSString);
-    BOOL useSSL = [TiUtils boolValue:@"useSecure" properties:args def:YES];
-    return [[TiGaTrackerProxy alloc] initWithInfo:trackingId withSecure: useSSL];
-}
 
 -(id)optOut
 {
     return [NSNumber numberWithBool:_optOut];
+}
+
+-(void)setDebug:(id)value
+{
+    ENSURE_UI_THREAD(setDebug, value);
+    ENSURE_TYPE(value, NSNumber);
+    BOOL debug = [TiUtils boolValue:value];
+    if(debug){
+        [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    }else{
+        [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelError];
+    }
 }
 
 -(void)setOptOut:(id)value
@@ -97,6 +98,12 @@
 -(id)dispatchInterval
 {
     return [NSNumber numberWithDouble:_dispatchInterval];
+}
+
+-(void)dispatch:(id)unused
+{
+    ENSURE_UI_THREAD(dispatch, unused);
+    [[GAI sharedInstance] dispatch];
 }
 
 -(void)setDispatchInterval:(id)value

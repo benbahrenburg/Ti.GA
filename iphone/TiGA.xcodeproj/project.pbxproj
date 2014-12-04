@@ -28,6 +28,10 @@
 		24DE9E1211C5FE74003F90F6 /* TiGaModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */; };
 		AA747D9F0F9514B9006C5449 /* TiGa_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiGa_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		CAC40B361A303DAC00DB11F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B351A303DAC00DB11F7 /* CoreData.framework */; };
+		CAC40B381A303DB700DB11F7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */; };
+		CAC40B3A1A303DC700DB11F7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B391A303DC700DB11F7 /* libsqlite3.0.dylib */; };
+		CAC40B3C1A303DD100DB11F7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B3B1A303DD100DB11F7 /* libz.dylib */; };
 		CAD08C081A282DBF00F293BB /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD08BAD1A282DBE00F293BB /* GAI.h */; };
 		CAD08C091A282DBF00F293BB /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD08BAE1A282DBE00F293BB /* GAIDictionaryBuilder.h */; };
 		CAD08C0A1A282DBF00F293BB /* GAIEcommerceFields.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD08BAF1A282DBE00F293BB /* GAIEcommerceFields.h */; };
@@ -61,17 +65,21 @@
 		24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaModuleAssets.m; path = Classes/TiGaModuleAssets.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiGa_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGa_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CAC40B351A303DAC00DB11F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CAC40B391A303DC700DB11F7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		CAC40B3B1A303DD100DB11F7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CAD08B811A282DBE00F293BB /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
-		CAD08BAD1A282DBE00F293BB /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		CAD08BAE1A282DBE00F293BB /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
-		CAD08BAF1A282DBE00F293BB /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
-		CAD08BB01A282DBE00F293BB /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
-		CAD08BB11A282DBE00F293BB /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
-		CAD08BB21A282DBE00F293BB /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
-		CAD08BB31A282DBE00F293BB /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
-		CAD08BB41A282DBE00F293BB /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
-		CAD08BB51A282DBE00F293BB /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		CAD08BB61A282DBE00F293BB /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		CAD08BAD1A282DBE00F293BB /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Library/GAI.h; sourceTree = "<group>"; };
+		CAD08BAE1A282DBE00F293BB /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		CAD08BAF1A282DBE00F293BB /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = Library/GAIEcommerceFields.h; sourceTree = "<group>"; };
+		CAD08BB01A282DBE00F293BB /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = Library/GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		CAD08BB11A282DBE00F293BB /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = Library/GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		CAD08BB21A282DBE00F293BB /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = Library/GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		CAD08BB31A282DBE00F293BB /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = Library/GAIFields.h; sourceTree = "<group>"; };
+		CAD08BB41A282DBE00F293BB /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = Library/GAILogger.h; sourceTree = "<group>"; };
+		CAD08BB51A282DBE00F293BB /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = Library/GAITrackedViewController.h; sourceTree = "<group>"; };
+		CAD08BB61A282DBE00F293BB /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = Library/GAITracker.h; sourceTree = "<group>"; };
 		CAD08BB71A282DBE00F293BB /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
 		CAD08BFA1A282DBF00F293BB /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
 		CAD08BFB1A282DBF00F293BB /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
@@ -85,6 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAC40B3C1A303DD100DB11F7 /* libz.dylib in Frameworks */,
+				CAC40B3A1A303DC700DB11F7 /* libsqlite3.0.dylib in Frameworks */,
+				CAC40B381A303DB700DB11F7 /* SystemConfiguration.framework in Frameworks */,
+				CAC40B361A303DAC00DB11F7 /* CoreData.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				CAD08C2A1A282DBF00F293BB /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
@@ -116,6 +128,10 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CAC40B3B1A303DD100DB11F7 /* libz.dylib */,
+				CAC40B391A303DC700DB11F7 /* libsqlite3.0.dylib */,
+				CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */,
+				CAC40B351A303DAC00DB11F7 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -156,16 +172,6 @@
 		CAD08B801A282DBE00F293BB /* GoogleAnalytics */ = {
 			isa = PBXGroup;
 			children = (
-				CAD08B811A282DBE00F293BB /* Changelog.txt */,
-				CAD08BAC1A282DBE00F293BB /* Library */,
-				CAD08BB71A282DBE00F293BB /* Readme.txt */,
-			);
-			path = GoogleAnalytics;
-			sourceTree = "<group>";
-		};
-		CAD08BAC1A282DBE00F293BB /* Library */ = {
-			isa = PBXGroup;
-			children = (
 				CAD08BAD1A282DBE00F293BB /* GAI.h */,
 				CAD08BAE1A282DBE00F293BB /* GAIDictionaryBuilder.h */,
 				CAD08BAF1A282DBE00F293BB /* GAIEcommerceFields.h */,
@@ -176,8 +182,10 @@
 				CAD08BB41A282DBE00F293BB /* GAILogger.h */,
 				CAD08BB51A282DBE00F293BB /* GAITrackedViewController.h */,
 				CAD08BB61A282DBE00F293BB /* GAITracker.h */,
+				CAD08B811A282DBE00F293BB /* Changelog.txt */,
+				CAD08BB71A282DBE00F293BB /* Readme.txt */,
 			);
-			path = Library;
+			path = GoogleAnalytics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +303,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphonesimulator8.1]" = i386;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -337,6 +347,8 @@
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=iphonesimulator*]" = i386;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/TiGa.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;

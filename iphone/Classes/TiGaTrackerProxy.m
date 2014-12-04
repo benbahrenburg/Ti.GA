@@ -12,98 +12,142 @@
 
 @implementation TiGaTrackerProxy
 
--(id)initWithInfo:(NSString*)trackerId withSecure:(BOOL)secure
+
+-(void)createDefaultTracker:(id)unused
 {
-    if (self = [super init])
-    {
-        _trackerId = trackerId;
-        if (![NSThread isMainThread])
-        {
-            TiThreadPerformOnMainThread(^{
-                _tracker = [[GAI sharedInstance] trackerWithTrackingId:_trackerId];
-                [_tracker set:kGAIUseSecure value:[(secure ? @YES : @NO) stringValue]];
-            }, NO);
-        }
+    ENSURE_UI_THREAD(createDefaultTracker, unused);
+    _tracker = [[GAI sharedInstance] defaultTracker];
+    if(_debug){
+        NSLog(@"[DEBUG] Default Tracker created");
     }
-    return self;
 }
 
+-(void) createTracker:(NSString*)trackerId
+{
+    ENSURE_UI_THREAD(createTracker, trackerId);
+    _tracker = [[GAI sharedInstance] trackerWithTrackingId:trackerId];
+    if(_debug){
+        NSLog(@"[DEBUG] Tracker with trackingId: %@ created",trackerId);
+    }
+}
+
+-(void)_initWithProperties:(NSDictionary*)properties
+{
+    _debug = [TiUtils  boolValue:@"debug" properties:properties def:NO];
+    if(_debug){
+        NSLog(@"[DEBUG] Debug enabled");
+    }
+    _useSecure = [TiUtils  boolValue:@"useSecure" properties:properties def:YES];
+    _trackerId = [TiUtils stringValue:@"trackingId" properties:properties];
+    
+    if(_trackerId==nil){
+        [self createDefaultTracker:nil];
+    }else{
+        [self createTracker:_trackerId];
+    }
+    
+    [_tracker set:kGAIUseSecure value:[(_useSecure? @YES : @NO) stringValue]];
+    
+    [super _initWithProperties:properties];
+}
 
 -(void)startSession:(id)unused
 {
     ENSURE_UI_THREAD(startSession, unused);
-    
-    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createScreenView];
-    [builder set:@"start" forKey:kGAISessionControl];
-    [_tracker send:[builder build]];
+    if(_debug){
+        NSLog(@"[DEBUG] Starting Session");
+    }
+    [_tracker send:[[[GAIDictionaryBuilder createAppView] set:@"start" forKey:kGAISessionControl] build] ];
 }
 
 -(void)endSession:(id)unused
 {
     ENSURE_UI_THREAD(endSession, unused);
-    
-    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createScreenView];
-    [builder set:@"end" forKey:kGAISessionControl];
-    [_tracker send:[builder build]];
+    if(_debug){
+        NSLog(@"[DEBUG] Ending Session");
+    }
+    [_tracker send:[[[GAIDictionaryBuilder createAppView] set:@"end" forKey:kGAISessionControl] build] ];
 }
 
--(void)createScreenView:(NSString*)screen
+-(void)addScreenView:(id)args
 {
-    ENSURE_UI_THREAD(createScreenView, screen);
-    
+    ENSURE_UI_THREAD(addScreenView, args);
+    ENSURE_ARG_COUNT(args,1);
+    NSString* screen = [TiUtils stringValue:[args objectAtIndex:0]];
+    if(_debug){
+        NSLog(@"[DEBUG] addScreenView: %@", screen);
+    }
     [_tracker set:kGAIScreenName value:screen];
-    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createScreenView];
-    [_tracker send:[builder build]];
+    [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
 }
 
--(void)createEvent:(id)args
+-(void)addEvent:(id)args
 {
-    ENSURE_UI_THREAD(createEvent, args);
-    ENSURE_TYPE(args, NSDictionary);
-    
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    ENSURE_TYPE(args,NSDictionary);
+    ENSURE_UI_THREAD(addEvent, args);
+
     NSString *category = [TiUtils stringValue:@"category" properties:args];
     NSString *action = [TiUtils stringValue:@"action" properties:args];
     NSString *label = [TiUtils stringValue:@"label" properties:args];
     NSNumber *value = [NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args]];
     
+    if(_debug){
+        NSLog(@"[DEBUG] addEvent category: %@", category);
+        NSLog(@"[DEBUG] addEvent action: %@", action);
+        NSLog(@"[DEBUG] addEvent label: %@", label);
+        NSLog(@"[DEBUG] addEvent value: %f", value);
+    }
     
-    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createEventWithCategory:category
-                                                                           action:action
-                                                                            label:label
-                                                                            value:value];
-    [_tracker send:[builder build]];
+    [_tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
+                                                            action:action
+                                                            label:label
+                                                            value:value] build]];
 }
 
--(void)createTiming:(id)args
+-(void)addTiming:(id)args
 {
-    ENSURE_UI_THREAD(createTiming, args);
-    ENSURE_TYPE(args, NSDictionary);
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    ENSURE_TYPE(args,NSDictionary);
+    ENSURE_UI_THREAD(addTiming, args);
     
     NSString *category = [TiUtils stringValue:@"category" properties:args];
     NSNumber *time = [NSNumber numberWithFloat:[TiUtils floatValue:@"time" properties:args]];
     NSString *name = [TiUtils stringValue:@"name" properties:args];
     NSString *label = [TiUtils stringValue:@"label" properties:args];
     
-    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createTimingWithCategory:category
-                                                                          interval:time
-                                                                              name:name
-                                                                             label:label];
-    [_tracker send:[builder build]];
+    if(_debug){
+        NSLog(@"[DEBUG] addTiming category: %@", category);
+        NSLog(@"[DEBUG] addTiming name: %@", name);
+        NSLog(@"[DEBUG] addTiming label: %@", label);
+        NSLog(@"[DEBUG] addTiming time: %f", time);
+    }
+    
+     [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category
+                                                                interval:time
+                                                                name:name
+                                                                label:label]build]];
 }
 
--(void)createSocialNetwork:(id)args
+-(void)addSocialNetwork:(id)args
 {
-    ENSURE_UI_THREAD(createSocialNetwork, args);
-    ENSURE_TYPE(args, NSDictionary);
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    ENSURE_TYPE(args,NSDictionary);
+    ENSURE_UI_THREAD(addSocialNetwork, args);
     
     NSString *network = [TiUtils stringValue:@"network" properties:args];
     NSString *action = [TiUtils stringValue:@"action" properties:args];
     NSString *target = [TiUtils stringValue:@"target" properties:args];
+  
+    if(_debug){
+        NSLog(@"[DEBUG] addSocialNetwork network: %@", network);
+        NSLog(@"[DEBUG] addSocialNetwork action: %@", action);
+        NSLog(@"[DEBUG] addSocialNetwork target: %@", target);
+    }
     
-    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createSocialWithNetwork:network
-                                                                           action:action
-                                                                           target:target];
-    [_tracker send:[builder build]];
+    [_tracker send:[[GAIDictionaryBuilder createSocialWithNetwork:network
+                                                            action:action
+                                                           target:target] build]];
     
 }
 

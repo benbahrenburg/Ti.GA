@@ -15,4 +15,4 @@ name: TiGA
 moduleid: ti.ga
 guid: 9dd4ad61-4835-4b75-bcb8-13893111b978
 platform: iphone
-minsdk: 3.5.0.Alpha
+minsdk: 3.4.1.GA

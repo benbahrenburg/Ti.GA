@@ -10,9 +10,9 @@
 
 @interface TiGaTrackerProxy : TiProxy {
     NSString * _trackerId;
+    BOOL _debug;
+    BOOL _useSecure;
     id<GAITracker> _tracker;
 }
-
--(id)initWithInfo:(NSString*)trackerId withSecure:(BOOL)secure;
 
 @end
