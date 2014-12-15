@@ -129,6 +129,26 @@
                                                                 label:label]build]];
 }
 
+-(void)addException:(id)args
+{
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    ENSURE_TYPE(args,NSDictionary);
+    ENSURE_UI_THREAD(addException, args);
+
+    NSString *description = [TiUtils stringValue:@"description" properties:args];
+    BOOL fatal = [TiUtils boolValue:@"fatal" properties:args def:NO];
+    NSNumber *isFatal = (fatal) ? @YES : @NO;
+    
+    if(_debug){
+        NSLog(@"[DEBUG] addException description: %@", description);
+        NSLog(@"[DEBUG] addException fatal: %@", (fatal ? @"YES" : @"NO"));
+    }
+    
+    [_tracker send:[[GAIDictionaryBuilder
+                     createExceptionWithDescription:description
+                     withFatal:isFatal] build]];
+}
+
 -(void)addSocialNetwork:(id)args
 {
     ENSURE_SINGLE_ARG(args,NSDictionary);

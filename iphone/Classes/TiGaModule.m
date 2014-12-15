@@ -67,7 +67,7 @@
 	[super didReceiveMemoryWarning:notification];
 }
 
-#pragma mark Cleanup
+#pragma our methods
 
 
 -(id)optOut

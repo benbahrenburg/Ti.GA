@@ -1,18 +1,8 @@
-#
-# this is your module manifest and used by Titanium
-# during compilation, packaging, distribution, etc.
-#
-version: 1.0.0
-apiversion: 2
-architectures: armeabi armeabi-v7a x86
-description: tiga
-author: Your Name
-license: Specify your license
-copyright: Copyright (c) 2014 by Your Company
-
-# these should not be edited
-name: tiga
-moduleid: ti.ga
-guid: c778c7c3-3a80-4b96-b329-99baa20d038a
-platform: android
-minsdk: 3.5.0.Alpha
+#appname: tiga
+#publisher: benbahrenburg
+#url: 
+#image: appicon.png
+#appid: ti.ga
+#desc: undefined
+#type: module
+#guid: 9a34eb1c-5204-488d-a255-1876c4e9f68b
