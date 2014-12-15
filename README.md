@@ -8,13 +8,13 @@ This module was developed out the frustration of trying to support the full Goog
 <h2>Downloads</h2>
 Download the compiled modules at:
 
-* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/android/dist)
+* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist)
 * [iOS](https://github.com/benbahrenburg/Ti.GA/tree/master/iphone/dist)
 
 <h2>Source</h2>
 Looking for the source? Check out the following:
 
-* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/android/src/ti/ga)
+* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/src/ti/ga)
 * [iOS](https://github.com/benbahrenburg/Ti.GA/tree/master/iphone)
 
 <h2>How to...</h2>
@@ -81,11 +81,15 @@ var tracker = ga.createTracker({
 
 <h4>Adding Screen Viewed</h4>
 
+More coming... here is an example for now
+
 ~~~
 tracker.addScreenView('my-cool-view2');
 ~~~
 
 <h4>Adding Timing</h4>
+
+More coming... here is an example for now
 
 ~~~
     tracker.addTiming({
@@ -98,6 +102,8 @@ tracker.addScreenView('my-cool-view2');
 
 <h4>Adding Event</h4>
 
+More coming... here is an example for now
+
 ~~~
     tracker.addEvent({
         category:"myCategory-Event",
@@ -108,6 +114,8 @@ tracker.addScreenView('my-cool-view2');
 
 <h4>Adding Social Network</h4>
 
+More coming... here is an example for now
+
 ~~~
     tracker.addSocialNetwork({
         network:"facebook",
@@ -116,7 +124,9 @@ tracker.addScreenView('my-cool-view2');
     });  
 ~~~
 
-<h4>Adding Social Network</h4>
+<h4>Adding Exception</h4>
+
+More coming... here is an example for now
 
 ~~~
     tracker.addException({

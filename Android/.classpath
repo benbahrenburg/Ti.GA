@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="android/src"/>
 	<classpathentry kind="src" path="android/build/.apt_generated"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/Users/benbahrenburg/Android/sdk/platforms/android-15/android.jar"/>
 	<classpathentry kind="src" path=".apt_generated">
@@ -12,6 +12,6 @@
 	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/kroll-apt.jar"/>
 	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/kroll-common.jar"/>
 	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/3.4.1.GA/android/titanium.jar"/>
-	<classpathentry kind="lib" path="android/lib/google-play-services.jar"/>
+	<classpathentry kind="lib" path="lib/google-play-services.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
