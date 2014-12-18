@@ -1,6 +1,6 @@
 <h1>Ti.GA</h1>
 
-A Goolge Analytics module that provides just what you need, in a consistent way.
+A Google Analytics module that provides just what you need, in a consistent way.
 
 This module was developed as a result of the frustration in chasing Google's changing API between SDK versions. Since most developers only care about a few features of the SDK that is what this module provides.
 
@@ -107,6 +107,7 @@ More coming... here is an example for now
 ~~~
     tracker.addEvent({
         category:"myCategory-Event",
+        action:"myAction",
         label:"myLabel",
         value:1
     });  
