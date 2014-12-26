@@ -4,7 +4,6 @@ A Google Analytics module that provides just what you need, in a consistent way.
 
 This module was developed as a result of the frustration in chasing Google's changing API between SDK versions. Since most developers only care about a few features of the SDK that is what this module provides.
 
-===========================================
 <h2>Downloads</h2>
 Download the compiled modules at:
 
@@ -73,12 +72,13 @@ ga.dispatch();
 ~~~
 
 <h4>Creating a tracker</h4>
+~~~
 var tracker = ga.createTracker({
    trackingId:'YOUR GOOGLE ANALYTICS TRACKER ID',
    useSecure:true,
    debug:true 
 });
-
+~~~
 <h4>Adding Screen Viewed</h4>
 
 More coming... here is an example for now
