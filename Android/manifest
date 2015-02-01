@@ -4,6 +4,7 @@
 #
 version: 1.0.0
 apiversion: 2
+architectures: armeabi armeabi-v7a x86
 description: tiga
 author: Ben Bahrenburg (bencoding)
 license: Apache 2
@@ -14,4 +15,4 @@ name: tiga
 moduleid: ti.ga
 guid: e0babc76-21f5-4fbf-8581-ae0b00235068
 platform: android
-minsdk: 3.4.1.GA
+minsdk: 3.5.0.GA

@@ -30,8 +30,6 @@
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		CAC40B361A303DAC00DB11F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B351A303DAC00DB11F7 /* CoreData.framework */; };
 		CAC40B381A303DB700DB11F7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */; };
-		CAC40B3A1A303DC700DB11F7 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B391A303DC700DB11F7 /* libsqlite3.0.dylib */; };
-		CAC40B3C1A303DD100DB11F7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B3B1A303DD100DB11F7 /* libz.dylib */; };
 		CAD08C081A282DBF00F293BB /* GAI.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD08BAD1A282DBE00F293BB /* GAI.h */; };
 		CAD08C091A282DBF00F293BB /* GAIDictionaryBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD08BAE1A282DBE00F293BB /* GAIDictionaryBuilder.h */; };
 		CAD08C0A1A282DBF00F293BB /* GAIEcommerceFields.h in Headers */ = {isa = PBXBuildFile; fileRef = CAD08BAF1A282DBE00F293BB /* GAIEcommerceFields.h */; };
@@ -67,8 +65,6 @@
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CAC40B351A303DAC00DB11F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CAC40B391A303DC700DB11F7 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		CAC40B3B1A303DD100DB11F7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		CAD08B811A282DBE00F293BB /* Changelog.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Changelog.txt; sourceTree = "<group>"; };
 		CAD08BAD1A282DBE00F293BB /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = Library/GAI.h; sourceTree = "<group>"; };
 		CAD08BAE1A282DBE00F293BB /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = Library/GAIDictionaryBuilder.h; sourceTree = "<group>"; };
@@ -93,8 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC40B3C1A303DD100DB11F7 /* libz.dylib in Frameworks */,
-				CAC40B3A1A303DC700DB11F7 /* libsqlite3.0.dylib in Frameworks */,
 				CAC40B381A303DB700DB11F7 /* SystemConfiguration.framework in Frameworks */,
 				CAC40B361A303DAC00DB11F7 /* CoreData.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
@@ -128,8 +122,6 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CAC40B3B1A303DD100DB11F7 /* libz.dylib */,
-				CAC40B391A303DC700DB11F7 /* libsqlite3.0.dylib */,
 				CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */,
 				CAC40B351A303DAC00DB11F7 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
@@ -303,8 +295,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD)";
-				"ARCHS[sdk=iphonesimulator8.1]" = i386;
+				"ARCHS[sdk=iphonesimulator8.1]" = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -347,8 +340,9 @@
 			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD)";
-				"ARCHS[sdk=iphonesimulator*]" = i386;
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				DSTROOT = /tmp/TiGa.dst;
 				GCC_C_LANGUAGE_STANDARD = c99;
