@@ -116,7 +116,7 @@ tracker.addScreenView('my-cool-view2');
     });  
 ~~~
 
-<h4>Adding Social Network</h4>
+<h4>Adding Exception</h4>
 
 ~~~
     tracker.addException({
