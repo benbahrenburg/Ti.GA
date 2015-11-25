@@ -1,5 +1,5 @@
-Google Analytics iOS SDK version 3.10
-Copyright 2009 - 2014 Google, Inc. All rights reserved.
+Google Analytics iOS SDK version 3.15
+Copyright 2009 - 2015 Google, Inc. All rights reserved.
 
 ================================================================================
 DESCRIPTION:
@@ -13,7 +13,8 @@ GAIDictionaryBuilder.h, etc.) and libGoogleAnalyticsServices.a to your XCode
 project.  See below for a list of frameworks/libraries required by this SDK.
 
 See the Examples/CuteAnimals application for an illustration of how to use
-automatic screen tracking, event tracking, and uncaught exception tracking.
+automatic screen tracking, event tracking, background dispatching, and uncaught
+exception tracking.
 
 You will need a Google Analytics tracking ID to track application usage with the
 SDK. It is recommended to create an account for each set of applications that
@@ -37,6 +38,9 @@ addition, the linker flag:
 
 may be required, depending on your build settings. Finally, you need to set the
 property allowIDFACollection to YES on each tracker that will collect idfa.
+
+If you wish to enable iAd install attribution, you'll need to add iAd.framework
+to your application.
 
 Implementation Details:
 
@@ -63,6 +67,7 @@ Your app must link the following frameworks:
   CoreData.framework
   SystemConfiguration.framework
   libz.dylib
+  libsqlite3.dylib
 
 ================================================================================
 PACKAGING LIST:

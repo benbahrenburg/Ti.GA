@@ -28,7 +28,7 @@ public class TigaModule extends KrollModule
 	
 	public TigaModule()
 	{
-		super();		
+		super();
 		_ga = GoogleAnalytics.getInstance(TiApplication.getInstance().getApplicationContext());		
 	}
 
