@@ -136,6 +136,12 @@ More coming... here is an example for now
     });  
 ~~~
 
+<h2>Contributors</h2>
+
+Thank you to all of the [contributors](https://github.com/benbahrenburg/Ti.GA/graphs/contributors).
+
+A special thank you to [Mauro Piccotti](https://github.com/nonno) for helping to address Google Play conflicts
+
 <h2>Licensing & Support</h2>
 
 This project is licensed under the OSI approved Apache Public License (version 2). For details please see the license associated with each project.
