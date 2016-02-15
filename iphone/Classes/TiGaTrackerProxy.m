@@ -46,6 +46,7 @@
         [self createTracker:_trackerId];
     }
     
+    [_tracker set:kGAIAnonymizeIp value:@"1"];
     [_tracker set:kGAIUseSecure value:[(_useSecure? @YES : @NO) stringValue]];
     
     [super _initWithProperties:properties];
