@@ -71,7 +71,8 @@ public class TigaModule extends KrollModule
 		_dispatchInterval = value;
 		_ga.setLocalDispatchPeriod(value);
 	}
-	
+
+	@Kroll.method
 	public boolean getOptOut()
 	{
 		return _ga.getAppOptOut();
