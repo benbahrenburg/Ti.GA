@@ -58,7 +58,7 @@
     if(_debug){
         NSLog(@"[DEBUG] Starting Session");
     }
-    [_tracker send:[[[GAIDictionaryBuilder createAppView] set:@"start" forKey:kGAISessionControl] build] ];
+    [_tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"start" forKey:kGAISessionControl] build] ];
 }
 
 -(void)endSession:(id)unused
@@ -67,7 +67,7 @@
     if(_debug){
         NSLog(@"[DEBUG] Ending Session");
     }
-    [_tracker send:[[[GAIDictionaryBuilder createAppView] set:@"end" forKey:kGAISessionControl] build] ];
+    [_tracker send:[[[GAIDictionaryBuilder createScreenView] set:@"end" forKey:kGAISessionControl] build] ];
 }
 
 -(void)addScreenView:(id)args
@@ -79,7 +79,7 @@
         NSLog(@"[DEBUG] addScreenView: %@", screen);
     }
     [_tracker set:kGAIScreenName value:screen];
-    [_tracker send:[[GAIDictionaryBuilder createAppView] build]];
+    [_tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void)addEvent:(id)args
