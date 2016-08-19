@@ -52,6 +52,29 @@
     [super _initWithProperties:properties];
 }
 
+-(void)setUserID:(NSString*)userID // Not "args" like addScreenView because its prefixed with "set" and so expects a single value
+{
+    ENSURE_UI_THREAD(setUserID, userID);
+    //ENSURE_TYPE(userID, NSString)
+    if(_debug){
+        NSLog(@"[DEBUG] setUserID: %@", userID);
+    }
+    [_tracker set:kGAIUserId value:userID];
+}
+
+-(NSString*)getUserID
+{
+    return [_tracker get:kGAIUserId];
+}
+
+-(void)clearUserID
+{
+    [_tracker set:kGAIUserId value:nil];
+    if(_debug){
+        NSLog(@"[DEBUG] clearUserID");
+    }
+}
+
 -(void)startSession:(id)unused
 {
     ENSURE_UI_THREAD(startSession, unused);
