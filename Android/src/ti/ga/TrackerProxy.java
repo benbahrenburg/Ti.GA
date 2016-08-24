@@ -44,6 +44,32 @@ public class TrackerProxy  extends KrollProxy {
 	
 		super.handleCreationDict(options);
 	}
+
+	@Kroll.method
+	public void setUserID(String userID)
+	{
+		// Set a user ID for the remainder of the session.
+		// See https://developers.google.com/analytics/devguides/collection/android/v4/user-id#implementation
+		_tracker.set("&uid", userID);
+		if(_debug){
+			Log.d(TigaModule.MODULE_FULL_NAME,"setUserID:" + userID);
+		}
+	}
+
+	@Kroll.method
+	public String getUserID()
+	{
+		return _tracker.get("&uid");
+	}
+
+	@Kroll.method
+	public void clearUserID()
+	{
+		_tracker.set("&uid", null);
+		if(_debug){
+			Log.d(TigaModule.MODULE_FULL_NAME,"clearUserID");
+		}
+	}
 	
 	@Kroll.method
 	public void startSession(){

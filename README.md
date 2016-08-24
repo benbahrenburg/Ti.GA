@@ -79,6 +79,17 @@ var tracker = ga.createTracker({
    debug:true 
 });
 ~~~
+
+<h4>Adding User ID</h4>
+
+If you want to associate user IDs with your analytics data, you'll first need to [create a view with User ID enabled](https://support.google.com/analytics/answer/3123666).
+
+Then, when a user logs in, pass a unique identifier for that user with the `setUserID` method on the tracker. You only need to set this once, and all hits for the session from then on will be attributed to that ID.
+
+~~~
+tracker.setUserID('my-user-id');
+~~~
+
 <h4>Adding Screen Viewed</h4>
 
 More coming... here is an example for now
