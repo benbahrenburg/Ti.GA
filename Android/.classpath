@@ -9,10 +9,10 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/5.0.2.GA/android/kroll-apt.jar"/>
-	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/5.0.2.GA/android/kroll-common.jar"/>
-	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/5.0.2.GA/android/titanium.jar"/>
 	<classpathentry kind="lib" path="lib/google-play-services-analytics.jar"/>
 	<classpathentry kind="lib" path="lib/google-play-services-base.jar"/>
+	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/5.4.0.GA/android/titanium.jar"/>
+	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/5.4.0.GA/android/kroll-apt.jar"/>
+	<classpathentry kind="lib" path="/Users/benbahrenburg/Library/Application Support/Titanium/mobilesdk/osx/5.4.0.GA/android/kroll-common.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
