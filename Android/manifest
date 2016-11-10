@@ -2,13 +2,13 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 3.0.0
+version: 3.0.4
 apiversion: 3
 architectures: armeabi-v7a x86
 description: tiga
-author: Ben Bahrenburg (bencoding)
-license: Apache 2
-copyright: Copyright (c) 2014 by Ben Bahrenburg (bencoding)
+author: Your Name
+license: Specify your license
+copyright: Copyright (c) 2016 by Your Company
 
 # these should not be edited
 name: tiga
