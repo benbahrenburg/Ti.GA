@@ -39,6 +39,8 @@ public class TrackerProxy  extends KrollProxy {
 			Log.e(TigaModule.MODULE_FULL_NAME,"trackingId is required");
 			_tracker = _ga.newTracker("");
 		}
+		boolean enableAdvertisingIdCollection=options.optBoolean("enableAdvertisingIdCollection", false);
+		_tracker.enableAdvertisingIdCollection(enableAdvertisingIdCollection);
 		_tracker.setAnonymizeIp(true);
 		_tracker.setUseSecure(useSecure);
 	
