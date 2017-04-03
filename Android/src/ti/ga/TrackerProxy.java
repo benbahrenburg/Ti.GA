@@ -13,7 +13,6 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-
 @Kroll.proxy(creatableInModule=TigaModule.class)
 public class TrackerProxy  extends KrollProxy {
 	
@@ -39,6 +38,7 @@ public class TrackerProxy  extends KrollProxy {
 			Log.e(TigaModule.MODULE_FULL_NAME,"trackingId is required");
 			_tracker = _ga.newTracker("");
 		}
+		
 		boolean enableAdvertisingIdCollection=options.optBoolean("enableAdvertisingIdCollection", false);
 		_tracker.enableAdvertisingIdCollection(enableAdvertisingIdCollection);
 		_tracker.setAnonymizeIp(true);

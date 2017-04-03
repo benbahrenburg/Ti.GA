@@ -39,15 +39,17 @@
     }
     _useSecure = [TiUtils  boolValue:@"useSecure" properties:properties def:YES];
     _trackerId = [TiUtils stringValue:@"trackingId" properties:properties];
-    
+    allowIDFACollection =[TiUtils boolValue:@"enableAdvertisingIdCollection" properties:properties def:NO];
     if(_trackerId==nil){
         [self createDefaultTracker:nil];
     }else{
         [self createTracker:_trackerId];
     }
     
+    
     [_tracker set:kGAIAnonymizeIp value:@"1"];
     [_tracker set:kGAIUseSecure value:[(_useSecure? @YES : @NO) stringValue]];
+    //_tracker.allowIDFACollection = allowIDFACollection;
     
     [super _initWithProperties:properties];
 }
