@@ -13,6 +13,7 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
+
 @Kroll.proxy(creatableInModule=TigaModule.class)
 public class TrackerProxy  extends KrollProxy {
 	
