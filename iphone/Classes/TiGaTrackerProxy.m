@@ -39,16 +39,16 @@
     }
     _useSecure = [TiUtils  boolValue:@"useSecure" properties:properties def:YES];
     _trackerId = [TiUtils stringValue:@"trackingId" properties:properties];
-    
+
     if(_trackerId==nil){
         [self createDefaultTracker:nil];
     }else{
         [self createTracker:_trackerId];
     }
-    
+
     [_tracker set:kGAIAnonymizeIp value:@"1"];
     [_tracker set:kGAIUseSecure value:[(_useSecure? @YES : @NO) stringValue]];
-    
+
     [super _initWithProperties:properties];
 }
 
@@ -115,14 +115,14 @@
     NSString *action = [TiUtils stringValue:@"action" properties:args];
     NSString *label = [TiUtils stringValue:@"label" properties:args];
     NSNumber *value = [NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args]];
-    
+
     if(_debug){
         NSLog(@"[DEBUG] addEvent category: %@", category);
         NSLog(@"[DEBUG] addEvent action: %@", action);
         NSLog(@"[DEBUG] addEvent label: %@", label);
         NSLog(@"[DEBUG] addEvent value: %f", value);
     }
-    
+
     [_tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
                                                             action:action
                                                             label:label
@@ -134,19 +134,19 @@
     ENSURE_SINGLE_ARG(args,NSDictionary);
     ENSURE_TYPE(args,NSDictionary);
     ENSURE_UI_THREAD(addTiming, args);
-    
+
     NSString *category = [TiUtils stringValue:@"category" properties:args];
     NSNumber *time = [NSNumber numberWithFloat:[TiUtils floatValue:@"time" properties:args]];
     NSString *name = [TiUtils stringValue:@"name" properties:args];
     NSString *label = [TiUtils stringValue:@"label" properties:args];
-    
+
     if(_debug){
         NSLog(@"[DEBUG] addTiming category: %@", category);
         NSLog(@"[DEBUG] addTiming name: %@", name);
         NSLog(@"[DEBUG] addTiming label: %@", label);
         NSLog(@"[DEBUG] addTiming time: %f", time);
     }
-    
+
      [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category
                                                                 interval:time
                                                                 name:name
@@ -162,12 +162,12 @@
     NSString *description = [TiUtils stringValue:@"description" properties:args];
     BOOL fatal = [TiUtils boolValue:@"fatal" properties:args def:NO];
     NSNumber *isFatal = (fatal) ? @YES : @NO;
-    
+
     if(_debug){
         NSLog(@"[DEBUG] addException description: %@", description);
         NSLog(@"[DEBUG] addException fatal: %@", (fatal ? @"YES" : @"NO"));
     }
-    
+
     [_tracker send:[[GAIDictionaryBuilder
                      createExceptionWithDescription:description
                      withFatal:isFatal] build]];
@@ -178,21 +178,50 @@
     ENSURE_SINGLE_ARG(args,NSDictionary);
     ENSURE_TYPE(args,NSDictionary);
     ENSURE_UI_THREAD(addSocialNetwork, args);
-    
+
     NSString *network = [TiUtils stringValue:@"network" properties:args];
     NSString *action = [TiUtils stringValue:@"action" properties:args];
     NSString *target = [TiUtils stringValue:@"target" properties:args];
-  
+
     if(_debug){
         NSLog(@"[DEBUG] addSocialNetwork network: %@", network);
         NSLog(@"[DEBUG] addSocialNetwork action: %@", action);
         NSLog(@"[DEBUG] addSocialNetwork target: %@", target);
     }
-    
+
     [_tracker send:[[GAIDictionaryBuilder createSocialWithNetwork:network
                                                             action:action
                                                            target:target] build]];
-    
+
+}
+
+-(void)fireTransactionEvent:(id)args
+{
+    ENSURE_SINGLE_ARG(args,NSDictionary);
+    ENSURE_UI_THREAD(fireTransactionEvent, args);
+
+    NSString *transactionId = [TiUtils stringValue: @"transactionId" properties:args];
+    NSString *affiliation = [TiUtils stringValue: @"affiliation" properties:args];
+    NSNumber *revenue = [NSNumber numberWithFloat:[TiUtils floatValue:@"revenue" properties:args]];
+    NSNumber *tax = [NSNumber numberWithFloat:[TiUtils floatValue:@"tax" properties:args]];
+    NSNumber *shipping = [NSNumber numberWithFloat:[TiUtils floatValue:@"shipping" properties:args]];
+    NSString *currencyCode = [TiUtils stringValue: @"currencyCode" properties:args];
+
+    if(_debug){
+        NSLog(@"[DEBUG] fireTransactionEvent transactionId: %@", transactionId);
+        NSLog(@"[DEBUG] fireTransactionEvent affiliation: %@", affiliation);
+        NSLog(@"[DEBUG] fireTransactionEvent revenue: %f", revenue);
+        NSLog(@"[DEBUG] fireTransactionEvent tax: %f", tax);
+        NSLog(@"[DEBUG] fireTransactionEvent shipping: %f", shipping);
+        NSLog(@"[DEBUG] fireTransactionEvent currencyCode: %@", currencyCode);
+    }
+
+    [_tracker send:[[GAIDictionaryBuilder createTransactionWithId:transactionId
+                                                            affiliation:affiliation
+                                                                revenue:revenue
+                                                                    tax:tax
+                                                               shipping:shipping
+                                                           currencyCode:currencyCode] build]];
 }
 
 @end
