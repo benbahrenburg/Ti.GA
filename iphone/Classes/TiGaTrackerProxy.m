@@ -96,13 +96,19 @@
 -(void)addScreenView:(id)args
 {
     ENSURE_UI_THREAD(addScreenView, args);
-    ENSURE_ARG_COUNT(args,1);
+    ENSURE_ARG_COUNT(args,2);
     NSString* screen = [TiUtils stringValue:[args objectAtIndex:0]];
+
+    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createScreenView];
+
     if(_debug){
         NSLog(@"[DEBUG] addScreenView: %@", screen);
     }
+
+    [self handleCustomFields:builder jshash:[args objectAtIndex:1]];
+
     [_tracker set:kGAIScreenName value:screen];
-    [_tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+    [_tracker send:[builder build]];
 }
 
 -(void)addEvent:(id)args
@@ -115,18 +121,21 @@
     NSString *action = [TiUtils stringValue:@"action" properties:args];
     NSString *label = [TiUtils stringValue:@"label" properties:args];
     NSNumber *value = [NSNumber numberWithFloat:[TiUtils floatValue:@"value" properties:args]];
-    
+
+    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createEventWithCategory:category
+                                                                           action:action
+                                                                            label:label
+                                                                            value:value];
+
     if(_debug){
         NSLog(@"[DEBUG] addEvent category: %@", category);
         NSLog(@"[DEBUG] addEvent action: %@", action);
         NSLog(@"[DEBUG] addEvent label: %@", label);
         NSLog(@"[DEBUG] addEvent value: %f", value);
     }
-    
-    [_tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
-                                                            action:action
-                                                            label:label
-                                                            value:value] build]];
+
+    [self handleCustomFields:builder jshash:args];
+    [_tracker send:[builder build]];
 }
 
 -(void)addTiming:(id)args
@@ -140,17 +149,20 @@
     NSString *name = [TiUtils stringValue:@"name" properties:args];
     NSString *label = [TiUtils stringValue:@"label" properties:args];
     
+    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createTimingWithCategory:category
+                                                                          interval:time
+                                                                              name:name
+                                                                             label:label];
+
     if(_debug){
         NSLog(@"[DEBUG] addTiming category: %@", category);
         NSLog(@"[DEBUG] addTiming name: %@", name);
         NSLog(@"[DEBUG] addTiming label: %@", label);
         NSLog(@"[DEBUG] addTiming time: %f", time);
     }
-    
-     [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category
-                                                                interval:time
-                                                                name:name
-                                                                label:label]build]];
+
+    [self handleCustomFields:builder jshash:args];
+    [_tracker send:[builder build]];
 }
 
 -(void)addException:(id)args
@@ -183,16 +195,49 @@
     NSString *action = [TiUtils stringValue:@"action" properties:args];
     NSString *target = [TiUtils stringValue:@"target" properties:args];
   
+    GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createSocialWithNetwork:network
+                                                                           action:action
+                                                                           target:target];
+
     if(_debug){
         NSLog(@"[DEBUG] addSocialNetwork network: %@", network);
         NSLog(@"[DEBUG] addSocialNetwork action: %@", action);
         NSLog(@"[DEBUG] addSocialNetwork target: %@", target);
     }
+
+    [self handleCustomFields:builder jshash:args];
+    [_tracker send:[builder build]];
     
-    [_tracker send:[[GAIDictionaryBuilder createSocialWithNetwork:network
-                                                            action:action
-                                                           target:target] build]];
-    
+}
+
+// Common way to deal with adding customDimensions and customMetrics fields
+// Taken and modified from https://github.com/Sitata/titanium-google-analytics/blob/master/ios/Classes/AnalyticsGoogleTrackerProxy.m
+-(void) handleCustomFields:(GAIDictionaryBuilder*) builder jshash:(id)args
+{
+    NSString *key;
+    NSString *val;
+    NSNumber *metricVal;
+    NSDictionary *customDimensions;
+    NSDictionary *customMetrics;
+
+
+    ENSURE_ARG_OR_NIL_FOR_KEY(customDimensions, args, @"customDimensions", NSDictionary);
+    if ([customDimensions count]) {
+        for(key in customDimensions) {
+            val = [customDimensions objectForKey: key];
+            ENSURE_TYPE(val, NSString);
+            [builder set:val forKey:[GAIFields customDimensionForIndex:[key integerValue]]];
+        }
+    }
+
+    ENSURE_ARG_OR_NIL_FOR_KEY(customMetrics, args, @"customMetrics", NSDictionary);
+    if ([customMetrics count]) {
+        for(key in customMetrics) {
+            metricVal = [customMetrics objectForKey: key];
+            ENSURE_TYPE(metricVal, NSNumber);
+            [builder set:[metricVal stringValue] forKey:[GAIFields customMetricForIndex:[key integerValue]]];
+        }
+    }
 }
 
 @end
