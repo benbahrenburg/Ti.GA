@@ -34,15 +34,14 @@
 {
     ENSURE_UI_THREAD(onStart, unused);
     _optOut = [[GAI sharedInstance] optOut];
-		[[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
+    [[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
     _dispatchInterval = [[GAI sharedInstance] dispatchInterval];
 }
 
 -(void)startup
 {
 	[super startup];
-
-    [self onStart:nil];
+    [self onStart: nil];
 }
 
 -(void)onShutdown:(id)unused
@@ -53,19 +52,9 @@
 -(void)shutdown:(id)sender
 {
     // Dispatch any stored tracking events
-    [self onShutdown:nil];
+    [self onShutdown: nil];
 	// you *must* call the superclass
-	[super shutdown:sender];
-}
-
-
-#pragma mark Internal Memory Management
-
--(void)didReceiveMemoryWarning:(NSNotification*)notification
-{
-	// optionally release any resources that can be dynamically
-	// reloaded once memory is available - such as caches
-	[super didReceiveMemoryWarning:notification];
+	[super shutdown: sender];
 }
 
 #pragma our methods

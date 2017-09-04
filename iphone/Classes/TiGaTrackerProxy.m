@@ -12,7 +12,6 @@
 
 @implementation TiGaTrackerProxy
 
-
 -(void)createDefaultTracker:(id)unused
 {
     ENSURE_UI_THREAD(createDefaultTracker, unused);
@@ -40,10 +39,10 @@
     _useSecure = [TiUtils  boolValue:@"useSecure" properties:properties def:YES];
     _trackerId = [TiUtils stringValue:@"trackingId" properties:properties];
 
-    if(_trackerId==nil){
-        [self createDefaultTracker:nil];
+    if(_trackerId == nil){
+        [self createDefaultTracker: nil];
     }else{
-        [self createTracker:_trackerId];
+        [self createTracker: _trackerId];
     }
 
     [_tracker set:kGAIAnonymizeIp value:@"1"];
@@ -55,7 +54,6 @@
 -(void)setUserID:(NSString*)userID // Not "args" like addScreenView because its prefixed with "set" and so expects a single value
 {
     ENSURE_UI_THREAD(setUserID, userID);
-    //ENSURE_TYPE(userID, NSString)
     if(_debug){
         NSLog(@"[DEBUG] setUserID: %@", userID);
     }
@@ -103,8 +101,10 @@
     if(_debug){
         NSLog(@"[DEBUG] addScreenView: %@", screen);
     }
-
-    [self handleCustomFields:builder jshash:[args objectAtIndex:1]];
+    
+    if([args count] > 1) {
+        [self handleCustomFields:builder jshash:[args objectAtIndex:1]];
+    }
 
     [_tracker set:kGAIScreenName value:screen];
     [_tracker send:[builder build]];
@@ -126,12 +126,8 @@
                                                                             label:label
                                                                             value:value];
 
-
     if(_debug){
-        NSLog(@"[DEBUG] addEvent category: %@", category);
-        NSLog(@"[DEBUG] addEvent action: %@", action);
-        NSLog(@"[DEBUG] addEvent label: %@", label);
-        NSLog(@"[DEBUG] addEvent value: %f", value);
+        NSLog(@"[DEBUG] addEvent category: %@ action: %@ label: %@ value: %f", category, action, label, value);
     }
 
     [self handleCustomFields:builder jshash:args];
@@ -158,16 +154,13 @@
                                                                               name:name
                                                                              label:label];
     if(_debug){
-        NSLog(@"[DEBUG] addTiming category: %@", category);
-        NSLog(@"[DEBUG] addTiming name: %@", name);
-        NSLog(@"[DEBUG] addTiming label: %@", label);
-        NSLog(@"[DEBUG] addTiming time: %f", time);
+        NSLog(@"[DEBUG] addTiming category: %@ name: %@ label: %@ time: %f", category, name, label, time);
     }
 
     [self handleCustomFields:builder jshash:args];
     [_tracker send:[builder build]];
   
-     [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category
+    [_tracker send:[[GAIDictionaryBuilder createTimingWithCategory:category
                                                                 interval:time
                                                                 name:name
                                                                 label:label]build]];
@@ -208,10 +201,9 @@
                                                                            target:target];
 
     if(_debug){
-        NSLog(@"[DEBUG] addSocialNetwork network: %@", network);
-        NSLog(@"[DEBUG] addSocialNetwork action: %@", action);
-        NSLog(@"[DEBUG] addSocialNetwork target: %@", target);
+        NSLog(@"[DEBUG] addSocialNetwork network: %@ action: %@ arget: %@", network, action, target);
     }
+    
     [self handleCustomFields:builder jshash:args];
     [_tracker send:[builder build]];
     
@@ -226,8 +218,8 @@
     NSNumber *metricVal;
     NSDictionary *customDimensions;
     NSDictionary *customMetrics;
-
-
+    
+    
     ENSURE_ARG_OR_NIL_FOR_KEY(customDimensions, args, @"customDimensions", NSDictionary);
     if ([customDimensions count]) {
         for(key in customDimensions) {
@@ -236,7 +228,7 @@
             [builder set:val forKey:[GAIFields customDimensionForIndex:[key integerValue]]];
         }
     }
-
+    
     ENSURE_ARG_OR_NIL_FOR_KEY(customMetrics, args, @"customMetrics", NSDictionary);
     if ([customMetrics count]) {
         for(key in customMetrics) {
@@ -245,10 +237,6 @@
             [builder set:[metricVal stringValue] forKey:[GAIFields customMetricForIndex:[key integerValue]]];
         }
     }
-    [_tracker send:[[GAIDictionaryBuilder createSocialWithNetwork:network
-                                                            action:action
-                                                           target:target] build]];
-
 }
 
 -(void)fireTransactionEvent:(id)args
