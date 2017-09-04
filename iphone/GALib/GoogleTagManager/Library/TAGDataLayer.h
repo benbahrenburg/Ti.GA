@@ -25,7 +25,7 @@
  *   }
 </pre>
  */
-extern id kTAGDataLayerObjectNotPresent;
+extern NSObject *kTAGDataLayerObjectNotPresent;
 
 /**
  * The data layer is a dictionary holding generic information about the
@@ -97,7 +97,7 @@ extern id kTAGDataLayerObjectNotPresent;
  * Pushes a key/value pair to the data layer. This is just a convenience
  * method that calls <code>push:@{key: value}</code>.
  */
-- (void)pushValue:(id)value forKey:(id)key;
+- (void)pushValue:(NSObject*)value forKey:(NSObject*)key;
 
 /**
  * Merges the given <code>update</code> object into the existing data model,
@@ -132,6 +132,6 @@ extern id kTAGDataLayerObjectNotPresent;
  * a key of <code>"a.b.c"</code> returns the value of the "c" key in
  * the dictionary with key "b" in the dictionary with key "a" in the model.
  */
-- (id)get:(NSString*)key;
+- (NSObject*)get:(NSString*)key;
 
 @end

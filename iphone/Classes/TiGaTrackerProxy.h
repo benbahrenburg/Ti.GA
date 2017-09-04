@@ -12,7 +12,6 @@
     NSString * _trackerId;
     BOOL _debug;
     BOOL _useSecure;
-    BOOL allowIDFACollection;
     id<GAITracker> _tracker;
 }
 
