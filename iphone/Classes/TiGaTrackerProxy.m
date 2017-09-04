@@ -96,7 +96,6 @@
 -(void)addScreenView:(id)args
 {
     ENSURE_UI_THREAD(addScreenView, args);
-    ENSURE_ARG_COUNT(args,2);
     NSString* screen = [TiUtils stringValue:[args objectAtIndex:0]];
 
     GAIDictionaryBuilder *builder = [GAIDictionaryBuilder createScreenView];
