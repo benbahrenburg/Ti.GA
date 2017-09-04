@@ -34,6 +34,7 @@
 {
     ENSURE_UI_THREAD(onStart, unused);
     _optOut = [[GAI sharedInstance] optOut];
+		[[GAI sharedInstance].logger setLogLevel:kGAILogLevelVerbose];
     _dispatchInterval = [[GAI sharedInstance] dispatchInterval];
 }
 
