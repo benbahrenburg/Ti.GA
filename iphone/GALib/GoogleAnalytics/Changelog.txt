@@ -1,4 +1,13 @@
 Google Analytics SDK for iOS Changelog
+--------------------------------------------
+Version: 3.17 (September 2016)
+--------------------------------------------
+* Fixed crash in GAITrackerModel on iOS 10.
+
+--------------------------------------------
+Version: 3.16 (July 2016)
+--------------------------------------------
+* Fixed bad memory access crash under rare conditions.
 
 --------------------------------------------
 Version: 3.15 (November 2015)

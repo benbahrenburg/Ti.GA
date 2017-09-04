@@ -1,4 +1,4 @@
-Google Analytics iOS SDK version 3.15
+Google Analytics iOS SDK version 3.17
 Copyright 2009 - 2015 Google, Inc. All rights reserved.
 
 ================================================================================
