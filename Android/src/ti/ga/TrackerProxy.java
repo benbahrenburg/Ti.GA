@@ -6,6 +6,7 @@ import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollProxy;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
+import org.appcelerator.titanium.util.TiConvert;
 
 import android.util.Log;
 
@@ -25,6 +26,44 @@ public class TrackerProxy  extends KrollProxy {
 	{
 		super();
 		_ga = GoogleAnalytics.getInstance(TiApplication.getInstance().getApplicationContext());
+	}
+
+	private interface IBuilder {
+		public void setCustomDimension(int idx, String value);
+
+		public void setCustomMetric(int idx, Float value);
+	}
+
+	private void handleCustomDimensions(IBuilder builder, Object customDimensions)
+	{
+		if (customDimensions instanceof HashMap) {
+			HashMap dict = (HashMap) customDimensions;
+			for (Object key : dict.keySet()) {
+				int idx = TiConvert.toInt(key);
+				String val = TiConvert.toString(dict.get(key));
+
+				// indexes are 1-based
+				if (idx > 0) {
+					builder.setCustomDimension(idx, val);
+				}
+			}
+		}
+	}
+
+	private void handleCustomMetrics(IBuilder builder, Object customMetrics)
+	{
+		if (customMetrics instanceof HashMap) {
+			HashMap dict = (HashMap) customMetrics;
+			for (Object key : dict.keySet()) {
+				int idx = TiConvert.toInt(key);
+				float val = TiConvert.toFloat(dict.get(key));
+
+				// indexes are 1-based
+				if (idx > 0) {
+					builder.setCustomMetric(idx, val);
+				}
+			}
+		}
 	}
 
 	@Override
@@ -87,13 +126,27 @@ public class TrackerProxy  extends KrollProxy {
 	}
 	
 	@Kroll.method
-	public void addScreenView(String screenName)
+	public void addScreenView(String screenName, HashMap props)
 	{
-		 // Set screen name.
+		final HitBuilders.AppViewBuilder hitBuilder = new HitBuilders.AppViewBuilder();
+		// Set screen name.
 		_tracker.setScreenName(screenName);
-        // Send a screen view.
-		_tracker.send(new HitBuilders.AppViewBuilder()
-					.build());		
+
+		IBuilder builderWrapper = new IBuilder() {
+			public void setCustomDimension(int idx, String value) {
+				hitBuilder.setCustomDimension(idx, value);
+			}
+			public void setCustomMetric(int idx, Float value) {
+				hitBuilder.setCustomMetric(idx, value);
+			}
+		};
+
+		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
+
+		// Send a screen view.
+		_tracker.send(hitBuilder.build());
+
 		if(_debug){
 			Log.d(TigaModule.MODULE_FULL_NAME,"addScreenView:" + screenName);
 		}
@@ -108,14 +161,27 @@ public class TrackerProxy  extends KrollProxy {
 		String action = args.getString("action");
 		String label = args.getString("label");
 		long value = args.getDouble("value").longValue();
-		
-		_tracker.send(new HitBuilders.EventBuilder()
-          .setCategory(category)
-          .setAction(action)
-          .setLabel(label)
-          .setValue(value)
-          .build());
-	
+		final HitBuilders.EventBuilder hitBuilder = new HitBuilders.EventBuilder();
+
+		hitBuilder.setCategory(category)
+			.setAction(action)
+			.setLabel(label)
+			.setValue(value);
+
+		IBuilder builderWrapper = new IBuilder() {
+			public void setCustomDimension(int idx, String value) {
+				hitBuilder.setCustomDimension(idx, value);
+			}
+			public void setCustomMetric(int idx, Float value) {
+				hitBuilder.setCustomMetric(idx, value);
+			}
+		};
+
+		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
+
+		_tracker.send(hitBuilder.build());
+
 		if(_debug){
 			Log.d(TigaModule.MODULE_FULL_NAME,"addEvent - category:" + category);
 			Log.d(TigaModule.MODULE_FULL_NAME,"addEvent - action:" + action);
@@ -134,15 +200,28 @@ public class TrackerProxy  extends KrollProxy {
 		String name = args.getString("name");
 		String label = args.getString("label");
 		long time = args.getDouble("time").longValue();	
-		
-		 // Build and send timing.
-		_tracker.send(new HitBuilders.TimingBuilder()
-            .setCategory(category)
-            .setValue(time)
-            .setVariable(name)
-            .setLabel(label)
-            .build());
-		
+		final HitBuilders.TimingBuilder hitBuilder = new HitBuilders.TimingBuilder();
+
+		hitBuilder.setCategory(category)
+			.setValue(time)
+			.setVariable(name)
+			.setLabel(label);
+
+		IBuilder builderWrapper = new IBuilder() {
+			public void setCustomDimension(int idx, String value) {
+				hitBuilder.setCustomDimension(idx, value);
+			}
+			public void setCustomMetric(int idx, Float value) {
+				hitBuilder.setCustomMetric(idx, value);
+			}
+		};
+
+		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
+
+		// Build and send timing.
+		_tracker.send(hitBuilder.build());
+
 		if(_debug){
 			Log.d(TigaModule.MODULE_FULL_NAME,"addTiming - category:" + category);
 			Log.d(TigaModule.MODULE_FULL_NAME,"addTiming - name:" + name);
@@ -177,14 +256,27 @@ public class TrackerProxy  extends KrollProxy {
 		String network = args.getString("network");
 		String action = args.getString("action");
 		String target = args.getString("target");
-		
-	    // Build and send social interaction.
-		_tracker.send(new HitBuilders.SocialBuilder()
-            .setNetwork(network)
-            .setAction(action)
-            .setTarget(target)
-            .build());
-		
+		final HitBuilders.SocialBuilder hitBuilder = new HitBuilders.SocialBuilder();
+
+		hitBuilder.setNetwork(network)
+			.setAction(action)
+			.setTarget(target);
+
+		IBuilder builderWrapper = new IBuilder() {
+			public void setCustomDimension(int idx, String value) {
+				hitBuilder.setCustomDimension(idx, value);
+			}
+			public void setCustomMetric(int idx, Float value) {
+				hitBuilder.setCustomMetric(idx, value);
+			}
+		};
+
+		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
+
+		// Build and send social interaction.
+		_tracker.send(hitBuilder.build());
+
 		if(_debug){
 			Log.d(TigaModule.MODULE_FULL_NAME,"addSocialNetwork - network:" + network);
 			Log.d(TigaModule.MODULE_FULL_NAME,"addSocialNetwork - action:" + action);
