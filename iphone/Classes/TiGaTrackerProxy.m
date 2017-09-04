@@ -39,8 +39,7 @@
     _useSecure = [TiUtils  boolValue:@"useSecure" properties:properties def:YES];
     _trackerId = [TiUtils stringValue:@"trackingId" properties:properties];
 
-  //TODO: Check on merge
-    allowIDFACollection =[TiUtils boolValue:@"enableAdvertisingIdCollection" properties:properties def:NO];
+    allowIDFACollection = [TiUtils boolValue:@"enableAdvertisingIdCollection" properties:properties def:NO];
   
     if(_trackerId == nil){
         [self createDefaultTracker: nil];
@@ -51,8 +50,7 @@
     [_tracker set:kGAIAnonymizeIp value:@"1"];
     [_tracker set:kGAIUseSecure value:[(_useSecure? @YES : @NO) stringValue]];
     
-  //TODO: Check on merge
-  //_tracker.allowIDFACollection = allowIDFACollection;
+    _tracker.allowIDFACollection = allowIDFACollection;
     
     [_tracker set:kGAIAnonymizeIp value:@"1"];
     [_tracker set:kGAIUseSecure value:[(_useSecure? @YES : @NO) stringValue]];
