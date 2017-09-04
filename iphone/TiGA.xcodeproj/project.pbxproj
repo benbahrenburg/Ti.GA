@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		04790A251E8EA6D100A4A4B5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04790A241E8EA6D100A4A4B5 /* AdSupport.framework */; };
+		04790A6F1E8EB37400A4A4B5 /* libAdIdAccessLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04790A6E1E8EB37400A4A4B5 /* libAdIdAccessLibrary.a */; };
 		24DD6CF91134B3F500162E58 /* TiGaModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiGaModule.h */; };
 		24DD6CFA1134B3F500162E58 /* TiGaModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiGaModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* TiGaModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiGaModuleAssets.h */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04790A241E8EA6D100A4A4B5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		04790A6E1E8EB37400A4A4B5 /* libAdIdAccessLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAdIdAccessLibrary.a; path = GALib/libAdIdAccessLibrary.a; sourceTree = "<group>"; };
 		24DD6CF71134B3F500162E58 /* TiGaModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaModule.h; path = Classes/TiGaModule.h; sourceTree = "<group>"; };
 		24DD6CF81134B3F500162E58 /* TiGaModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaModule.m; path = Classes/TiGaModule.m; sourceTree = "<group>"; };
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
@@ -89,10 +93,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04790A251E8EA6D100A4A4B5 /* AdSupport.framework in Frameworks */,
 				CAC40B381A303DB700DB11F7 /* SystemConfiguration.framework in Frameworks */,
 				CAC40B361A303DAC00DB11F7 /* CoreData.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				CAD08C2A1A282DBF00F293BB /* libGoogleAnalyticsServices.a in Frameworks */,
+				04790A6F1E8EB37400A4A4B5 /* libAdIdAccessLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +116,7 @@
 		0867D691FE84028FC02AAC07 /* TiGA */ = {
 			isa = PBXGroup;
 			children = (
+				04790A6E1E8EB37400A4A4B5 /* libAdIdAccessLibrary.a */,
 				CAD08B7F1A282DBE00F293BB /* GALib */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -122,6 +129,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04790A241E8EA6D100A4A4B5 /* AdSupport.framework */,
 				CAC40B371A303DB700DB11F7 /* SystemConfiguration.framework */,
 				CAC40B351A303DAC00DB11F7 /* CoreData.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
@@ -507,6 +515,8 @@
 				1DEB921F08733DC00010E9CD /* Debug */,
 				1DEB922008733DC00010E9CD /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TiGA" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +524,8 @@
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +533,8 @@
 				24416B8211C4CA220047AFDD /* Debug */,
 				24416B8311C4CA220047AFDD /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
