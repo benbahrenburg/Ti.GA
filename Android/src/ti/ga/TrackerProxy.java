@@ -14,7 +14,6 @@ import com.google.android.gms.analytics.GoogleAnalytics;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
-
 @Kroll.proxy(creatableInModule=TigaModule.class)
 public class TrackerProxy  extends KrollProxy {
 	
@@ -34,6 +33,7 @@ public class TrackerProxy  extends KrollProxy {
 		public void setCustomMetric(int idx, Float value);
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void handleCustomDimensions(IBuilder builder, Object customDimensions)
 	{
 		if (customDimensions instanceof HashMap) {
@@ -50,6 +50,7 @@ public class TrackerProxy  extends KrollProxy {
 		}
 	}
 
+	@SuppressWarnings("rawtypes")
 	private void handleCustomMetrics(IBuilder builder, Object customMetrics)
 	{
 		if (customMetrics instanceof HashMap) {
@@ -129,6 +130,7 @@ public class TrackerProxy  extends KrollProxy {
 	}
 	
 	@Kroll.method
+	@SuppressWarnings("rawtypes")
 	public void addScreenView(String screenName, HashMap props)
 	{
 		final HitBuilders.AppViewBuilder hitBuilder = new HitBuilders.AppViewBuilder();

@@ -2,8 +2,8 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 3.0.7
-apiversion: 3
+version: 3.0.8
+apiversion: 4
 architectures: armeabi-v7a x86
 description: tiga
 author: Your Name
@@ -15,4 +15,4 @@ name: tiga
 moduleid: ti.ga
 guid: e0babc76-21f5-4fbf-8581-ae0b00235068
 platform: android
-minsdk: 6.0.0
+minsdk: 7.0.0

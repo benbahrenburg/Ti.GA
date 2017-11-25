@@ -8,7 +8,6 @@
  */
 package ti.ga;
 
-
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
 import org.appcelerator.titanium.TiApplication;
