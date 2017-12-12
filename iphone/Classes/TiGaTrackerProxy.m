@@ -137,10 +137,6 @@
 
     [self handleCustomFields:builder jshash:args];
     [_tracker send:[builder build]];
-    [_tracker send:[[GAIDictionaryBuilder createEventWithCategory:category
-                                                            action:action
-                                                            label:label
-                                                            value:value] build]];
 }
 
 -(void)addTiming:(id)args
