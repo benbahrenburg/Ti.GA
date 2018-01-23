@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 3.0.2
+version: 3.1.0
 apiversion: 2
 architectures: armv7 arm64 i386 x86_64
 description: TiGA
@@ -15,4 +15,4 @@ name: TiGA
 moduleid: ti.ga
 guid: 9dd4ad61-4835-4b75-bcb8-13893111b978
 platform: iphone
-minsdk: 6.0.3.GA
+minsdk: 6.0.0.GA

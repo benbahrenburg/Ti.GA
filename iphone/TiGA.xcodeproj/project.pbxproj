@@ -26,6 +26,14 @@
 		24DD6CFA1134B3F500162E58 /* TiGaModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiGaModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* TiGaModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiGaModuleAssets.h */; };
 		24DE9E1211C5FE74003F90F6 /* TiGaModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */; };
+		653B11D41F7CD04D00684159 /* TiGaDictionaryBuilderProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 653B11D21F7CD04D00684159 /* TiGaDictionaryBuilderProxy.h */; };
+		653B11D51F7CD04D00684159 /* TiGaDictionaryBuilderProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 653B11D31F7CD04D00684159 /* TiGaDictionaryBuilderProxy.m */; };
+		65740AAD1F70F14C00F8715F /* TiGaProductProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 65740AAB1F70F14C00F8715F /* TiGaProductProxy.h */; };
+		65740AAE1F70F14C00F8715F /* TiGaProductProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65740AAC1F70F14C00F8715F /* TiGaProductProxy.m */; };
+		65740AB51F70F17300F8715F /* TiGaPromotionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 65740AB31F70F17300F8715F /* TiGaPromotionProxy.h */; };
+		65740AB61F70F17300F8715F /* TiGaPromotionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65740AB41F70F17300F8715F /* TiGaPromotionProxy.m */; };
+		65740AB91F70F19500F8715F /* TiGaProductActionProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 65740AB71F70F19500F8715F /* TiGaProductActionProxy.h */; };
+		65740ABA1F70F19500F8715F /* TiGaProductActionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65740AB81F70F19500F8715F /* TiGaProductActionProxy.m */; };
 		AA747D9F0F9514B9006C5449 /* TiGa_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiGa_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		CAC40B361A303DAC00DB11F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC40B351A303DAC00DB11F7 /* CoreData.framework */; };
@@ -61,6 +69,15 @@
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
 		24DE9E0F11C5FE74003F90F6 /* TiGaModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaModuleAssets.h; path = Classes/TiGaModuleAssets.h; sourceTree = "<group>"; };
 		24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaModuleAssets.m; path = Classes/TiGaModuleAssets.m; sourceTree = "<group>"; };
+		653B11D21F7CD04D00684159 /* TiGaDictionaryBuilderProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaDictionaryBuilderProxy.h; path = Classes/TiGaDictionaryBuilderProxy.h; sourceTree = "<group>"; };
+		653B11D31F7CD04D00684159 /* TiGaDictionaryBuilderProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaDictionaryBuilderProxy.m; path = Classes/TiGaDictionaryBuilderProxy.m; sourceTree = "<group>"; };
+		653B11D61F7CD39D00684159 /* TiGaModuleConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TiGaModuleConstants.h; path = Classes/TiGaModuleConstants.h; sourceTree = "<group>"; };
+		65740AAB1F70F14C00F8715F /* TiGaProductProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaProductProxy.h; path = Classes/Ecommerce/TiGaProductProxy.h; sourceTree = "<group>"; };
+		65740AAC1F70F14C00F8715F /* TiGaProductProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaProductProxy.m; path = Classes/Ecommerce/TiGaProductProxy.m; sourceTree = "<group>"; };
+		65740AB31F70F17300F8715F /* TiGaPromotionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaPromotionProxy.h; path = Classes/Ecommerce/TiGaPromotionProxy.h; sourceTree = "<group>"; };
+		65740AB41F70F17300F8715F /* TiGaPromotionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaPromotionProxy.m; path = Classes/Ecommerce/TiGaPromotionProxy.m; sourceTree = "<group>"; };
+		65740AB71F70F19500F8715F /* TiGaProductActionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGaProductActionProxy.h; path = Classes/Ecommerce/TiGaProductActionProxy.h; sourceTree = "<group>"; };
+		65740AB81F70F19500F8715F /* TiGaProductActionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGaProductActionProxy.m; path = Classes/Ecommerce/TiGaProductActionProxy.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* TiGa_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGa_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CAC40B351A303DAC00DB11F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -132,12 +149,16 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				65740AAA1F70F12400F8715F /* Ecommerce */,
+				653B11D21F7CD04D00684159 /* TiGaDictionaryBuilderProxy.h */,
+				653B11D31F7CD04D00684159 /* TiGaDictionaryBuilderProxy.m */,
 				CAD08C351A282F1000F293BB /* TiGaTrackerProxy.h */,
 				CAD08C361A282F1000F293BB /* TiGaTrackerProxy.m */,
 				24DE9E0F11C5FE74003F90F6 /* TiGaModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* TiGaModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* TiGaModule.h */,
 				24DD6CF81134B3F500162E58 /* TiGaModule.m */,
+				653B11D61F7CD39D00684159 /* TiGaModuleConstants.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -149,6 +170,19 @@
 				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		65740AAA1F70F12400F8715F /* Ecommerce */ = {
+			isa = PBXGroup;
+			children = (
+				65740AAB1F70F14C00F8715F /* TiGaProductProxy.h */,
+				65740AAC1F70F14C00F8715F /* TiGaProductProxy.m */,
+				65740AB71F70F19500F8715F /* TiGaProductActionProxy.h */,
+				65740AB81F70F19500F8715F /* TiGaProductActionProxy.m */,
+				65740AB31F70F17300F8715F /* TiGaPromotionProxy.h */,
+				65740AB41F70F17300F8715F /* TiGaPromotionProxy.m */,
+			);
+			name = Ecommerce;
 			sourceTree = "<group>";
 		};
 		CAD08B7F1A282DBE00F293BB /* GALib */ = {
@@ -191,9 +225,13 @@
 				AA747D9F0F9514B9006C5449 /* TiGa_Prefix.pch in Headers */,
 				CAD08C0D1A282DBF00F293BB /* GAIEcommercePromotion.h in Headers */,
 				CAD08C081A282DBF00F293BB /* GAI.h in Headers */,
+				653B11D41F7CD04D00684159 /* TiGaDictionaryBuilderProxy.h in Headers */,
 				CAD08C111A282DBF00F293BB /* GAITracker.h in Headers */,
+				65740AAD1F70F14C00F8715F /* TiGaProductProxy.h in Headers */,
+				65740AB91F70F19500F8715F /* TiGaProductActionProxy.h in Headers */,
 				24DD6CF91134B3F500162E58 /* TiGaModule.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* TiGaModuleAssets.h in Headers */,
+				65740AB51F70F17300F8715F /* TiGaPromotionProxy.h in Headers */,
 				CAD08C0F1A282DBF00F293BB /* GAILogger.h in Headers */,
 				CAD08C0E1A282DBF00F293BB /* GAIFields.h in Headers */,
 				CAD08C091A282DBF00F293BB /* GAIDictionaryBuilder.h in Headers */,
@@ -275,8 +313,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				24DD6CFA1134B3F500162E58 /* TiGaModule.m in Sources */,
+				65740AAE1F70F14C00F8715F /* TiGaProductProxy.m in Sources */,
 				CAD08C381A282F1000F293BB /* TiGaTrackerProxy.m in Sources */,
+				65740ABA1F70F19500F8715F /* TiGaProductActionProxy.m in Sources */,
+				653B11D51F7CD04D00684159 /* TiGaDictionaryBuilderProxy.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiGaModuleAssets.m in Sources */,
+				65740AB61F70F17300F8715F /* TiGaPromotionProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +549,8 @@
 				1DEB921F08733DC00010E9CD /* Debug */,
 				1DEB922008733DC00010E9CD /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "TiGA" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +558,8 @@
 				1DEB922308733DC00010E9CD /* Debug */,
 				1DEB922408733DC00010E9CD /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +567,8 @@
 				24416B8211C4CA220047AFDD /* Debug */,
 				24416B8311C4CA220047AFDD /* Release */,
 			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

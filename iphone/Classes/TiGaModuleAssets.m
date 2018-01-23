@@ -1,8 +1,5 @@
 /**
- * Ti.GA - Basic Google Analytics for Titanium
- * Copyright (c) 2014 by Benjamin Bahrenburg. All Rights Reserved.
- * Licensed under the terms of the Apache Public License
- * Please see the LICENSE included with this distribution for details.
+ * This is a generated file. Do not edit or your changes will be lost
  */
 #import "TiGaModuleAssets.h"
 
@@ -12,18 +9,16 @@ extern NSData* filterDataInRange(NSData* thedata, NSRange range);
 
 - (NSData*) moduleAsset
 {
-	//##TI_AUTOGEN_BEGIN asset
-	//Compiler generates code for asset here
-	return nil; // DEFAULT BEHAVIOR
-	//##TI_AUTOGEN_END asset
+	
+
+	return nil;
 }
 
 - (NSData*) resolveModuleAsset:(NSString*)path
 {
-	//##TI_AUTOGEN_BEGIN resolve_asset
-	//Compiler generates code for asset resolution here
-	return nil; // DEFAULT BEHAVIOR
-	//##TI_AUTOGEN_END resolve_asset
+	
+
+	return nil;
 }
 
 @end

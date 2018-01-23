@@ -6,11 +6,14 @@
  */
 
 #import "TiGaModule.h"
+#import "TiGaModuleConstants.h"
 #import "TiBase.h"
 #import "TiHost.h"
 #import "TiUtils.h"
-#import "GAI.h"
 #import "TiGaTrackerProxy.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIEcommerceFields.h"
 
 @implementation TiGaModule
 
@@ -109,5 +112,22 @@
     ENSURE_TYPE(value, NSNumber);
     [GAI sharedInstance].trackUncaughtExceptions = [value boolValue];
 }
+
+MAKE_SYSTEM_PROP(BUILDER_TYPE_SCREEN, TiGaDictionaryTypeScreenView);
+MAKE_SYSTEM_PROP(BUILDER_TYPE_EVENT, TiGaDictionaryTypeEvent);
+
+MAKE_SYSTEM_STR(PRODUCT_ACTION_DETAIL, kGAIPADetail);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_ADD, kGAIPAAdd);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_CLICK, kGAIPAClick);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_REMOVE, kGAIPARemove);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_CHECKOUT, kGAIPACheckout);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_CHECKOUT_OPTION, kGAIPACheckoutOption);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_PURCHASE, kGAIPAPurchase);
+MAKE_SYSTEM_STR(PRODUCT_ACTION_REFUND, kGAIPARefund);
+MAKE_SYSTEM_STR(PROMOTION_ACTION_CLICK, kGAIPromotionClick);
+MAKE_SYSTEM_STR(PROMOTION_ACTION_VIEW, kGAIPromotionView);
+MAKE_SYSTEM_STR(HIT_TYPE_EVENT, kGAIEvent);
+MAKE_SYSTEM_STR(HIT_TYPE_SCREEN, kGAIScreenName);
+MAKE_SYSTEM_STR(HIT_TYPE_TRANSACTION, kGAITransaction);
 
 @end
