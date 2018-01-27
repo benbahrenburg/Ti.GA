@@ -17,3 +17,6 @@ profile
 *.moved-aside
 DerivedData
 .idea
+build.properties
+.DS_Store
+android/libs

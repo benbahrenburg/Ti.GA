@@ -15,4 +15,8 @@
     id<GAITracker> _tracker;
 }
 
+- (void)trackProductImpression:(id)args;
+- (void)trackProductAction:(id)args;
+- (void)send:(id)args;
+
 @end

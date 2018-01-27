@@ -66,18 +66,21 @@ ga.setTrackUncaughtExceptions();
 ~~~
 
 <b>Dispatch</b>
-The dispatch method submits data to Google Analytics.  Google Analytics will automatically do this for your, but you can "force" this programmatically.  If you are going to use this it should only be done while your application is not active and has a network connection.  
+The dispatch method submits data to Google Analytics. Google Analytics will automatically do this for your, but you can "force" this programmatically.  If you are going to use this it should only be done while your application is not active and has a network connection.  
 
 ~~~
 ga.dispatch();
 ~~~
 
 <h4>Creating a tracker</h4>
-var tracker = ga.createTracker({
-   trackingId:'YOUR GOOGLE ANALYTICS TRACKER ID',
-   useSecure:true,
-   debug:true 
-});
+
+~~~
+    var tracker = ga.createTracker({
+       trackingId:'YOUR GOOGLE ANALYTICS TRACKER ID',
+       useSecure:true,
+       debug:true
+    });
+~~~
 
 <h4>Adding Screen Viewed</h4>
 
