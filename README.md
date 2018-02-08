@@ -13,10 +13,40 @@ Download the compiled modules at:
 <h2>Source</h2>
 Looking for the source? Check out the following:
 
-* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/src/ti/ga)
+* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/android/src/ti/ga)
 * [iOS](https://github.com/benbahrenburg/Ti.GA/tree/master/iphone)
 
 <h2>How to...</h2>
+
+<h2>Android specifications</h2>
+If you use `ti.playservices`, you need to remove the `/lib` folder in the [Android zip module](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist).
+Also you need to edit the android manifest, in tiapp.xml, as specified in the [Google Analytics dev guide](https://developers.google.com/analytics/devguides/collection/android/v4/):
+~~~
+<android xmlns:android="http://schemas.android.com/apk/res/android">
+  <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+      <!-- Get permission for reliable local dispatching on non-Google Play devices. -->
+      <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+      <!-- Optionally, register AnalyticsReceiver and AnalyticsService to support background dispatching on non-Google Play devices -->
+      <receiver android:name="com.google.android.gms.analytics.AnalyticsReceiver" android:enabled="true">
+        <intent-filter>
+          <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+        </intent-filter>
+      </receiver>
+      <service android:name="com.google.android.gms.analytics.AnalyticsService" android:enabled="true" android:exported="false"/>
+
+      <!-- Optionally, register CampaignTrackingReceiver and CampaignTrackingService to enable installation campaign reporting -->
+      <receiver android:name="com.google.android.gms.analytics.CampaignTrackingReceiver" android:exported="true">
+        <intent-filter>
+          <action android:name="com.android.vending.INSTALL_REFERRER"/>
+        </intent-filter>
+      </receiver>
+      <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+    </application>
+  </manifest>
+</android>
+~~~
 
 <h4>Add to your project</h4>
 You add the Ti.GA module into your project using the require keyword as shown below.
@@ -76,7 +106,7 @@ ga.dispatch();
 var tracker = ga.createTracker({
    trackingId:'YOUR GOOGLE ANALYTICS TRACKER ID',
    useSecure:true,
-   debug:true 
+   debug:true
 });
 ~~~
 
