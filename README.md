@@ -18,7 +18,8 @@ Looking for the source? Check out the following:
 
 <h2>How to...</h2>
 
-<h2>Android specifications</h2>
+<h4>Android specifications</h4>
+
 If you use `ti.playservices`, you need to remove the `/lib` folder in the [Android zip module](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist).
 Also you need to edit the android manifest, in tiapp.xml, as specified in the [Google Analytics dev guide](https://developers.google.com/analytics/devguides/collection/android/v4/):
 ~~~
