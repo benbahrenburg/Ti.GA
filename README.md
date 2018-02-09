@@ -7,7 +7,7 @@ This module was developed as a result of the frustration in chasing Google's cha
 <h2>Downloads</h2>
 Download the compiled modules at:
 
-* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist)
+* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/android/dist)
 * [iOS](https://github.com/benbahrenburg/Ti.GA/tree/master/iphone/dist)
 
 <h2>Source</h2>
@@ -20,7 +20,8 @@ Looking for the source? Check out the following:
 
 <h4>Android specifications</h4>
 
-If you use `ti.playservices`, you need to remove the `/lib` folder in the [Android zip module](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist).
+If you use `ti.playservices`, you need to remove the `/lib` folder in the [Android zip module](https://github.com/benbahrenburg/Ti.GA/tree/master/android/dist).
+
 Also you need to edit the android manifest, in tiapp.xml, as specified in the [Google Analytics dev guide](https://developers.google.com/analytics/devguides/collection/android/v4/):
 ~~~
 <android xmlns:android="http://schemas.android.com/apk/res/android">

@@ -8,13 +8,13 @@ This module was developed out the frustration of trying to support the full Goog
 <h2>Downloads</h2>
 Download the compiled modules at:
 
-* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/dist)
+* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/android/dist)
 * [iOS](https://github.com/benbahrenburg/Ti.GA/tree/master/iphone/dist)
 
 <h2>Source</h2>
 Looking for the source? Check out the following:
 
-* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/Android/src/ti/ga)
+* [Android](https://github.com/benbahrenburg/Ti.GA/tree/master/android/src/ti/ga)
 * [iOS](https://github.com/benbahrenburg/Ti.GA/tree/master/iphone)
 
 <h2>How to...</h2>
