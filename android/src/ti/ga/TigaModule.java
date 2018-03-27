@@ -76,7 +76,7 @@ public class TigaModule extends KrollModule
 
 	// Properties
 	@Kroll.getProperty
-	public long getDispatchInterval()
+	public int getDispatchInterval()
 	{
 		return _dispatchInterval;
 	}
