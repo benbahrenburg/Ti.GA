@@ -124,7 +124,7 @@ public class TrackerProxy extends KrollProxy {
 
 	@Kroll.method
 	public void startSession(){
-	     // Start a new session with the hit.
+	    // Start a new session with the hit.
 		_tracker.send(new HitBuilders.AppViewBuilder()
             .setNewSession()
             .build());
@@ -217,7 +217,7 @@ public class TrackerProxy extends KrollProxy {
 		};
 
 		if (props != null) {
-			handleCustomDimensions(builderWrapper, props.get("customDimension"));
+			handleCustomDimensions(builderWrapper, props.get("customDimensions"));
 			handleCustomMetrics(builderWrapper, props.get("customMetrics"));
 		}
 
@@ -254,7 +254,7 @@ public class TrackerProxy extends KrollProxy {
 			}
 		};
 
-		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomDimensions(builderWrapper, props.get("customDimensions"));
 		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
 
 		_tracker.send(hitBuilder.build());
@@ -293,7 +293,7 @@ public class TrackerProxy extends KrollProxy {
 			}
 		};
 
-		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomDimensions(builderWrapper, props.get("customDimensions"));
 		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
 
 		// Build and send timing.
@@ -348,7 +348,7 @@ public class TrackerProxy extends KrollProxy {
 			}
 		};
 
-		handleCustomDimensions(builderWrapper, props.get("customDimension"));
+		handleCustomDimensions(builderWrapper, props.get("customDimensions"));
 		handleCustomMetrics(builderWrapper, props.get("customMetrics"));
 
 		// Build and send social interaction.
